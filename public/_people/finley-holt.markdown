@@ -4,7 +4,7 @@ title: "Finley Holt"
 last:  "Holt"
 date:  2026-10-16 00:00:00 -0700
 position: externalresearchaffiliate
-excerpt: "Embodied agents and their safeguards"
+excerpt: "Embodied agents, agentic runtime monitoring"
 current: "Visiting Scholar"
 img: FinleyHolt.jpg
 email: frholt@stanford.edu
