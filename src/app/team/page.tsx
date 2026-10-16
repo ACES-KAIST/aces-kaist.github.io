@@ -237,6 +237,9 @@ function ExternalAffiliates() {
               {person.current && (
                 <p className="text-sm text-gray-600">{person.current}</p>
               )}
+              {person.excerpt && (
+                <p className="mt-3 text-base/6 text-gray-500">{person.excerpt}</p>
+              )}
             </div>
           </li>
         ))}
