@@ -370,7 +370,7 @@ function VisitingStudents() {
   return (
     <Container className="mt-24">
       <Heading as="h3" className="mt-2">
-        Visiting PhD and Postdoctoral Scholars
+        Visiting Scholars
       </Heading>
       <ul
         role="list"
