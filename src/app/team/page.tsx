@@ -340,17 +340,17 @@ function decodeHtml(text: string) {
 function parseVisitingEntries(content: string): VisitingEntry[] {
   const entries: VisitingEntry[] = []
   const matches = content.matchAll(
-    /<li>\s*<h6[^>]*>([\s\S]*?)<\/h6>\s*<p[^>]*>([\s\S]*?)<\/p>\s*<\/li>/g,
+    /<li>\s*<h6[^>]*>([\s\S]*?)<\/h6>\s*(?:<p[^>]*>([\s\S]*?)<\/p>\s*)?<\/li>/g,
   )
 
   for (const match of matches) {
     const name = decodeHtml(stripTags(match[1]))
       .replace(/\.\s*$/, '')
       .trim()
-    const affiliation = decodeHtml(stripTags(match[2]))
+    const affiliation = decodeHtml(stripTags(match[2] ?? ''))
       .replace(/\.\s*$/, '')
       .trim()
-    if (name && affiliation) {
+    if (name) {
       entries.push({ name, affiliation })
     }
   }
@@ -370,7 +370,7 @@ function VisitingStudents() {
   return (
     <Container className="mt-24">
       <Heading as="h3" className="mt-2">
-        Visiting Students
+        Visiting PhD and Postdoctoral Scholars
       </Heading>
       <ul
         role="list"
@@ -384,7 +384,9 @@ function VisitingStudents() {
             <h3 className="text-sm font-semibold tracking-tight text-gray-950">
               {entry.name}
             </h3>
-            <p className="text-sm text-gray-600">{entry.affiliation}</p>
+            {entry.affiliation && (
+              <p className="text-sm text-gray-600">{entry.affiliation}</p>
+            )}
           </li>
         ))}
       </ul>
