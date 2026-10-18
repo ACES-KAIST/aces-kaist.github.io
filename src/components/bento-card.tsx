@@ -34,7 +34,15 @@ export function BentoCard({
         'data-dark:bg-gray-800 data-dark:ring-white/15',
       )}
     >
-      <div className="relative h-80 shrink-0">
+      <div className="relative px-8 pt-8">
+        <Subheading as="div" dark={dark}>
+          {eyebrow}
+        </Subheading>
+        <h3 className="mt-3 text-2xl/8 font-semibold tracking-tight text-gray-950 group-data-dark:text-white lg:min-h-24 xl:min-h-16">
+          {title}
+        </h3>
+      </div>
+      <div className="relative mt-4 h-64 shrink-0">
         {graphic}
         {fade.includes('top') && (
           <div className="absolute inset-0 bg-linear-to-b from-white to-50% group-data-dark:from-gray-800 group-data-dark:from-[-25%]" />
@@ -43,14 +51,8 @@ export function BentoCard({
           <div className="absolute inset-0 bg-linear-to-t from-white/70 to-15% group-data-dark:from-gray-800 group-data-dark:from-[-25%] group-data-dark:to-50%" />
         )}
       </div>
-      <div className="relative p-10">
-        <Subheading as="h3" dark={dark}>
-          {eyebrow}
-        </Subheading>
-        <p className="mt-1 text-2xl/8 font-medium tracking-tight text-gray-950 group-data-dark:text-white">
-          {title}
-        </p>
-        <p className="mt-2 max-w-[600px] text-sm/6 text-gray-600 group-data-dark:text-gray-400">
+      <div className="relative px-8 pt-4 pb-8">
+        <p className="max-w-[600px] text-base/7 text-gray-600 group-data-dark:text-gray-400 [&_strong]:font-semibold [&_strong]:text-gray-900">
           {description}
         </p>
       </div>

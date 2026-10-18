@@ -104,7 +104,7 @@ git push
 | -------------------------- | ------------------------------------------------ |
 | 实验室名称、邮箱和导师链接 | `src/lib/site.ts`                                |
 | 首页、新闻                 | `src/app/page.tsx`                               |
-| 研究方向                   | `src/app/research/page.tsx`                      |
+| 研究方向                   | `src/data/research.tsx`、`src/app/research/page.tsx` |
 | Hardware                   | `src/app/hardware/page.tsx`                      |
 | 成员资料                   | `content/people/*.markdown`                      |
 | 访问学生、实习生和 RA      | `content/people/visiting.json`                   |
@@ -132,7 +132,7 @@ git push
 
 Contact 页的实验室房间 F335 由实验室确认（2026-10-18）；Building F、193 Munji-ro 的校区地址来自 [学校地图页](https://mo.kaist.ac.kr/en/graduate-school-introduction/map/)，邮编 34051 可在 [KAIST ITVC 地址页](https://itvc.kaist.ac.kr/esub0104)核对。实验室位于 Building F 三楼 F335，访问前请通过邮件联系。
 
-Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 3 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片。Research 2 的智能体动画、Research 页标题区背景以及 Unitree G1 参考照片保留自 Stanford ASL 模板。页面不显示来源或临时照片说明，素材来源记录保留在此文档中。机器人照片待替换，未填写未经确认的设备数量或配置。
+首页和 Research 共用 `src/data/research.tsx` 中的方向名称、顺序与介绍，内容依据实验室于 2026-10-18 提供的介绍海报。Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 2 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片；Research 3 使用保留动画逻辑的浅色智能体示意图。三个方向的区域背景均为白色。Research 标题区背景以及 G1、Go2 参考照片保留自 Stanford ASL 模板。Autonomous Vehicle 和 Driving Simulator 照片来自实验室本地文件。设备素材来源和描述范围见 [HARDWARE.md](HARDWARE.md)，页面不显示来源字幕。
 
 原仓库的 `LICENSE.md` 是 Tailwind Plus 许可，不是 MIT 许可；已原样保留。公开发布前请确认你们具有使用该模板和保留素材的授权；来源标注不能替代授权。
 
@@ -141,3 +141,5 @@ Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/asset
 - [创建 GitHub Pages 网站](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 - [使用 GitHub Actions 部署 Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 - [Next.js 静态导出](https://nextjs.org/docs/app/guides/static-exports)
+
+Team 卡片的学历直接读取个人 Markdown 中的 Education 段，与详情页保持一致。Benwang Chen 暂仅显示已核实的清华硕士学历。News 中 AnyHand-Agent、CAPE-3D、XMind 暂不添加链接，待实验室提供论文或项目地址后再补充；Risk-Controllable Multi-View Diffusion 已链接至核实的 arXiv 论文。

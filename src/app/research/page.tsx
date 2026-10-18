@@ -5,86 +5,112 @@ import { GradientBackground } from '@/components/gradient'
 import { HashScroll } from '@/components/hash-scroll'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
+import publications from '@/data/publications.json'
+import { researchAreas } from '@/data/research'
 import { assetPath } from '@/lib/site'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+
+type ResearchArea = (typeof researchAreas)[number]
 
 export const metadata: Metadata = {
   title: 'Research',
   description:
-    'Research at ACES Lab: trustworthy safety-critical systems, foundation models and agents, and generative AI and world models.',
+    'Research at ACES Lab: trustworthy safety-critical systems, generative AI and world models, and foundation models and agents.',
 }
 
-type Paper = { title: string; venue: string; year: string }
+function ResearchGraphic({ area }: { area: ResearchArea }) {
+  if (area.id === 'agents') {
+    return (
+      <div className="aspect-[760/800]">
+        <EmbodiedAgentLoop />
+      </div>
+    )
+  }
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/10">
+      {area.id === 'safety' ? (
+        <video
+          src={`${assetPath('/aces/research/lead.mp4')}#t=8`}
+          poster={assetPath('/aces/publications/lead.webp')}
+          aria-label="LEAD: adaptive decision-making for autonomous driving in dynamic environments."
+          width={620}
+          height={368}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="h-auto w-full"
+        />
+      ) : (
+        <img
+          src={assetPath(area.image)}
+          alt="Risk-controllable multi-view diffusion for driving scenario generation."
+          width={1200}
+          height={425}
+          className="h-auto w-full"
+          loading="lazy"
+        />
+      )}
+    </div>
+  )
+}
 
 function ResearchSection({
-  id,
+  area,
   index,
-  title,
-  description,
-  papers,
-  graphic,
-  dark = false,
-  reverse = false,
 }: {
-  id: string
+  area: ResearchArea
   index: number
-  title: string
-  description: ReactNode
-  papers: Paper[]
-  graphic: ReactNode
-  dark?: boolean
-  reverse?: boolean
 }) {
+  const reverse = index % 2 === 0
+  const papers = area.paperKeys.map((key) => {
+    const paper = publications.find((entry) => entry.key === key)
+    if (!paper) throw new Error(`Missing selected publication: ${key}`)
+    return paper
+  })
+
   return (
-    <section id={id} className="scroll-mt-8">
-      <Container className="py-24 sm:py-28">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <figure className={reverse ? 'lg:order-2' : ''}>{graphic}</figure>
+    <section id={area.id} className="scroll-mt-8 bg-white">
+      <Container className="py-20 sm:py-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <figure className={reverse ? 'lg:order-2' : ''}>
+            <ResearchGraphic area={area} />
+          </figure>
           <div className={reverse ? 'lg:order-1' : ''}>
-            <Subheading as="div" dark={dark}>
-              Research {index}
-            </Subheading>
-            <Heading
-              as="h2"
-              className="mt-2 !text-3xl sm:!text-5xl"
-              dark={dark}
-            >
-              {title}
-            </Heading>
-            <div
-              className={`mt-6 max-w-xl text-base/7 ${dark ? 'text-gray-400' : 'text-gray-600'}`}
-            >
-              {description}
+            <Subheading as="div">Research 0{index}</Subheading>
+            <h2 className="mt-3 text-3xl/tight font-semibold tracking-tight text-gray-950 sm:text-5xl/tight">
+              {area.title}
+            </h2>
+            <div className="mt-6 space-y-5 text-base/7 text-gray-600 [&_strong]:font-semibold [&_strong]:text-gray-900">
+              {area.description}
             </div>
-            <div className="mt-8 max-w-xl">
-              <p
-                className={`text-xs font-semibold tracking-[0.16em] uppercase ${dark ? 'text-gray-300' : 'text-gray-700'}`}
-              >
+            <div className="mt-8">
+              <p className="text-xs font-semibold tracking-[0.16em] text-gray-700 uppercase">
                 Selected publications
               </p>
               <ul className="mt-3 space-y-3">
                 {papers.map((paper) => (
-                  <li key={paper.title} className="flex gap-2 text-sm/5">
+                  <li key={paper.key} className="flex gap-2 text-sm/5">
                     <span
                       aria-hidden="true"
-                      className={`mt-0.5 shrink-0 ${dark ? 'text-gray-500' : 'text-gray-400'}`}
+                      className="mt-0.5 shrink-0 text-gray-400"
                     >
                       •
                     </span>
                     <span>
-                      <Link
-                        href="/publications"
-                        className={`font-medium underline underline-offset-2 transition ${dark ? 'text-white decoration-gray-600 hover:decoration-white' : 'text-gray-900 decoration-gray-300 hover:decoration-gray-900'}`}
+                      <a
+                        href={paper.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium text-gray-900 underline decoration-gray-300 underline-offset-2 transition hover:decoration-gray-900"
                       >
                         {paper.title}
-                      </Link>
-                      <span
-                        className={dark ? 'text-gray-400' : 'text-gray-600'}
-                      >
-                        {' · '}
-                        {paper.venue}, {paper.year}
+                      </a>
+                      <span className="text-gray-600">
+                        {' '}
+                        · {paper.venue}, {paper.year}
                       </span>
                     </span>
                   </li>
@@ -119,141 +145,42 @@ export default function Research() {
             <Heading as="h1" dark>
               Research
             </Heading>
-            <p className="mt-6 max-w-3xl text-2xl font-medium text-gray-200">
-              We study safe and adaptive autonomous systems for driving and
-              robotics. Our work connects risk perception, generative models,
-              and agents that reason and act under uncertainty.
+            <p className="mt-6 max-w-3xl text-xl/8 text-gray-200 sm:text-2xl/9">
+              We develop{' '}
+              <strong className="font-semibold text-white">
+                safe, adaptive, and trustworthy autonomous systems
+              </strong>{' '}
+              for mobility and robotics. Our research connects safety,
+              prediction, and decision-making to help these systems reason under
+              uncertainty and operate in real-world environments.
             </p>
           </div>
         </div>
+        <nav
+          aria-label="Research directions"
+          className="mt-8 grid gap-4 lg:grid-cols-3"
+        >
+          {researchAreas.map((area, index) => (
+            <Link
+              key={area.id}
+              href={`#${area.id}`}
+              className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-gray-400"
+            >
+              <span className="pt-0.5 font-mono text-sm text-gray-500">
+                0{index + 1}
+              </span>
+              <span className="text-lg/6 font-semibold text-gray-950">
+                {area.title}
+              </span>
+            </Link>
+          ))}
+        </nav>
       </Container>
-
-      <ResearchSection
-        id="safety"
-        index={1}
-        title="Trustworthy safety-critical systems"
-        description={
-          <p>
-            We study risk perception, decision-making, and runtime safety for
-            autonomous systems. The goal is to identify dangerous situations and
-            make safer decisions under uncertainty.
-          </p>
-        }
-        papers={[
-          {
-            title:
-              'REACT: Runtime-Enabled Active Collision-Avoidance Technique for Autonomous Driving',
-            venue: 'Advanced Engineering Informatics',
-            year: '2026',
-          },
-          {
-            title:
-              'RiskNet: Interaction-Aware Risk Forecasting for Autonomous Driving in Long-Tail Scenarios',
-            venue:
-              'Transportation Research Part E: Logistics and Transportation Review',
-            year: '2026',
-          },
-        ]}
-        graphic={
-          <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/10">
-            {/* Source: https://huangheye.github.io/assets/publications/thumbs/lead.mp4 */}
-            <video
-              src={`${assetPath('/aces/research/lead.mp4')}#t=8`}
-              poster={assetPath('/aces/publications/lead.webp')}
-              aria-label="LEAD: adaptive decision-making for autonomous driving in dynamic environments."
-              width={620}
-              height={368}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="h-auto w-full"
-            />
-          </div>
-        }
-      />
-
-      <div
-        className="bg-gray-900 py-8"
-        style={{ backgroundImage: `url('${assetPath('/dot-texture.svg')}')` }}
-      >
-        <ResearchSection
-          id="agents"
-          index={2}
-          title="Foundation models and agents"
-          description={
-            <p>
-              We study how foundation models support perception, reasoning, and
-              decision-making in driving and robotics. Our research includes
-              agents that use memory and models of their environment to plan
-              actions and adapt over time.
-            </p>
-          }
-          papers={[
-            {
-              title:
-                'SafeDrive: Knowledge-and Data-Driven Risk-Sensitive Decision-Making for Autonomous Vehicles with Large Language Models',
-              venue: 'Accident Analysis & Prevention',
-              year: '2025',
-            },
-            {
-              title:
-                'RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making in Autonomous Driving',
-              venue: 'Communications in Transportation Research',
-              year: '2026',
-            },
-          ]}
-          dark
-          reverse
-          graphic={
-            <div className="aspect-[760/800]">
-              <EmbodiedAgentLoop />
-            </div>
-          }
-        />
+      <div className="mt-8 divide-y divide-gray-200">
+        {researchAreas.map((area, index) => (
+          <ResearchSection key={area.id} area={area} index={index + 1} />
+        ))}
       </div>
-
-      <ResearchSection
-        id="world-models"
-        index={3}
-        title="Generative AI and world models"
-        description={
-          <p>
-            We use large language models, diffusion models, and multimodal
-            models for prediction and scenario generation. We study how world
-            models can produce realistic, controllable scenarios for
-            simulation, evaluation, and training.
-          </p>
-        }
-        papers={[
-          {
-            title:
-              'Risk-Controllable Multi-View Diffusion for Driving Scenario Generation',
-            venue: 'CVPR 2026 Workshop (VGBE)',
-            year: '2026',
-          },
-          {
-            title:
-              'Learning from Risk: LLM-Guided Generation of Safety-Critical Scenarios with Prior Knowledge',
-            venue:
-              'Transportation Research Part E: Logistics and Transportation Review',
-            year: '2026',
-          },
-        ]}
-        graphic={
-          <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/10">
-            <img
-              src={assetPath(
-                '/aces/publications/risk-controllable-diffusion.webp',
-              )}
-              alt="Risk-controllable multi-view diffusion for driving scenario generation."
-              className="h-auto w-full"
-              loading="lazy"
-            />
-          </div>
-        }
-      />
       <Footer />
     </main>
   )

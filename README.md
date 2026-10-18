@@ -23,4 +23,6 @@ After configuring the `SERPAPI_API_KEY` repository secret, publications are chec
 
 See [GitHub Pages 操作说明](docs/GITHUB_PAGES_ZH.md) for repository setup, publishing, and content updates. See [Photo maintenance](scripts/photo-assets.md) for photo selection and processing.
 
-Research 1 uses the LEAD video from Heye Huang’s homepage; Research 2 uses the embodied-agent animation on a dark background; Research 3 uses the Risk-Controllable Multi-View Diffusion figure on a light background. The original embodied-agent animation, research header background, and Unitree G1 reference photograph remain from the template. Source notes are kept in [the maintenance guide](docs/GITHUB_PAGES_ZH.md), without captions on the pages. The G1 photograph is still awaiting replacement. Original license terms remain in [LICENSE.md](LICENSE.md).
+The homepage and Research page share their direction names and descriptions in `src/data/research.tsx`, based on the lab introduction poster supplied on 18 October 2026. Research 1 uses the LEAD video from Heye Huang’s homepage; Research 2 uses the Risk-Controllable Multi-View Diffusion figure; Research 3 uses the embodied-agent animation, now with a light palette. All three research sections have white backgrounds.
+
+Hardware includes the G1 and Go2 reference photographs from the original template, plus the lab's autonomous vehicle and driving simulator photographs. Asset sources and description scope are recorded in [Hardware maintenance](docs/HARDWARE.md). Original license terms remain in [LICENSE.md](LICENSE.md).

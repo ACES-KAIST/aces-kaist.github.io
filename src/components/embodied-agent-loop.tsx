@@ -3,22 +3,7 @@
 import { clsx } from 'clsx'
 import { useId, type CSSProperties, type ReactNode } from 'react'
 
-// ---------------------------------------------------------------------------
-// Embodied Agent Loop
-//
-// A labeled "perceive -> reason (with tool use) -> act -> observe" cycle that
-// makes Thrust 2 say something specific about embodied agents instead of
-// reading as a generic neural net. Built in the same spirit as DataFlywheel:
-// a data-driven SVG with inline Heroicons, dark-band palette.
-//
-// Motion (8s loop): connectors carry a flowing-dash overlay over a solid base;
-// the stage nodes pulse in sequence (perception -> tools -> robot) via
-// staggered delays; the agent core breathes; the feedback arc flows back to
-// perception. prefers-reduced-motion freezes everything to the static frame.
-//
-// viewBox is 760 x 800 (portrait), so it fills the tall research-page panel.
-// ---------------------------------------------------------------------------
-
+// Perception, reasoning, and action share an eight-second animation cycle.
 const VW = 760
 const VH = 800
 const CYCLE_S = 8
@@ -102,8 +87,8 @@ function Chip({
         width={w}
         height={h}
         rx={14}
-        fill="#0E1626"
-        stroke="rgba(148,163,184,0.26)"
+        fill="#FFFFFF"
+        stroke="#CBD5E1"
         strokeWidth={1.2}
       />
       <svg
@@ -113,7 +98,7 @@ function Chip({
         height={iconSize}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#7DD3FC"
+        stroke="#0369A1"
         strokeWidth={1.6}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -123,7 +108,7 @@ function Chip({
       <text
         x={textX}
         y={sublabel ? y + h / 2 - 5 : y + h / 2 + 1}
-        fill="#E2E8F0"
+        fill="#0F172A"
         fontSize={labelSize}
         fontWeight={600}
         dominantBaseline="middle"
@@ -134,7 +119,7 @@ function Chip({
         <text
           x={textX}
           y={y + h / 2 + 14}
-          fill="#94A3B8"
+          fill="#475569"
           fontSize={12.5}
           dominantBaseline="middle"
         >
@@ -150,7 +135,7 @@ function Caption({ x, y, children }: { x: number; y: number; children: ReactNode
     <text
       x={x}
       y={y}
-      fill="#5EC8F2"
+      fill="#0369A1"
       fontSize={13}
       fontWeight={700}
       letterSpacing={2.4}
@@ -212,29 +197,29 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
       aria-label="An embodied agent loop: multi-modal perception (vision, depth, proprioception, language) feeds an agent that reasons and calls tools (spatial memory, simulation, planning), produces an action for a robot, and observes the result, closing the loop."
       className={clsx(
         'relative h-full w-full overflow-hidden rounded-2xl',
-        'bg-[#050B1A] ring-1 ring-white/10',
+        'bg-white ring-1 ring-slate-200',
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(56,189,248,0.16),transparent_40%),radial-gradient(circle_at_50%_52%,rgba(59,130,246,0.16),transparent_46%),radial-gradient(circle_at_50%_86%,rgba(20,184,166,0.12),transparent_44%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(56,189,248,0.06),transparent_40%),radial-gradient(circle_at_50%_52%,rgba(59,130,246,0.08),transparent_46%),radial-gradient(circle_at_50%_86%,rgba(20,184,166,0.05),transparent_44%)]" />
 
       <svg viewBox={`0 0 ${VW} ${VH}`} className="relative size-full" style={{ fontFamily: 'inherit' }}>
         <defs>
           <pattern id={gridId} width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M20 0H0V20" fill="none" stroke="rgba(148,163,184,0.07)" strokeWidth="1" />
+            <path d="M20 0H0V20" fill="none" stroke="rgba(100,116,139,0.08)" strokeWidth="1" />
           </pattern>
           <radialGradient id={coreGlowId}>
-            <stop offset="0%" stopColor="rgba(56,189,248,0.3)" />
+            <stop offset="0%" stopColor="rgba(56,189,248,0.16)" />
             <stop offset="100%" stopColor="rgba(56,189,248,0)" />
           </radialGradient>
           <marker id={arrowActId} markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
-            <path d="M0,0 L7,3 L0,6 Z" fill="rgba(125,211,252,0.9)" />
+            <path d="M0,0 L7,3 L0,6 Z" fill="#0369A1" />
           </marker>
           <marker id={arrowFbId} markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
-            <path d="M0,0 L7,3 L0,6 Z" fill="rgba(45,212,191,0.95)" />
+            <path d="M0,0 L7,3 L0,6 Z" fill="#0F766E" />
           </marker>
           <marker id={arrowToolId} markerWidth="8" markerHeight="8" refX="6" refY="2.6" orient="auto">
-            <path d="M0,0 L6,2.6 L0,5.2 Z" fill="rgba(148,163,184,0.85)" />
+            <path d="M0,0 L6,2.6 L0,5.2 Z" fill="#64748B" />
           </marker>
         </defs>
 
@@ -247,7 +232,7 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
         <path
           d={feedbackPath}
           fill="none"
-          stroke="rgba(45,212,191,0.55)"
+          stroke="#0F766E"
           strokeWidth={1.9}
           strokeDasharray="7 7"
           className="eal-flow-fb"
@@ -257,7 +242,7 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           transform={`rotate(-90 42 ${(PBOX.y + ROBOT.y) / 2})`}
           x={42}
           y={(PBOX.y + ROBOT.y) / 2}
-          fill="#5EEAD4"
+          fill="#0F766E"
           fontSize={13}
           fontWeight={700}
           letterSpacing={2.4}
@@ -273,8 +258,8 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           width={PBOX.w}
           height={PBOX.h}
           rx={20}
-          fill="rgba(255,255,255,0.035)"
-          stroke="rgba(148,163,184,0.45)"
+          fill="#F8FAFC"
+          stroke="#94A3B8"
           strokeWidth={1.2}
           strokeDasharray="2 5"
         />
@@ -286,8 +271,8 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           const d = `M${sx} ${sy} C ${sx} ${sy + 60}, ${CORE_CX} ${CORE.y - 45}, ${CORE_CX} ${CORE.y}`
           return (
             <g key={`lnk-${s.key}`}>
-              <path d={d} fill="none" stroke="rgba(125,211,252,0.32)" strokeWidth={1.4} />
-              <path d={d} fill="none" stroke="rgba(125,211,252,0.95)" strokeWidth={1.5} strokeLinecap="round" className="eal-pulse" />
+              <path d={d} fill="none" stroke="#5B87A4" strokeWidth={1.4} />
+              <path d={d} fill="none" stroke="#0284C7" strokeWidth={1.5} strokeLinecap="round" className="eal-pulse" />
             </g>
           )
         })}
@@ -300,8 +285,8 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           const y2 = t.y + TOOL_H / 2
           return (
             <g key={`tl-${t.key}`}>
-              <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(148,163,184,0.5)" strokeWidth={1.3} markerEnd={`url(#${arrowToolId})`} />
-              <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(186,230,253,0.9)" strokeWidth={1.4} strokeLinecap="round" className="eal-pulse" style={{ animationDelay: DELAY_REASON }} />
+              <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#64748B" strokeWidth={1.3} markerEnd={`url(#${arrowToolId})`} />
+              <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#0284C7" strokeWidth={1.4} strokeLinecap="round" className="eal-pulse" style={{ animationDelay: DELAY_REASON }} />
             </g>
           )
         })}
@@ -312,7 +297,7 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           y1={CORE.y + CORE.h}
           x2={AXIS}
           y2={ROBOT.y - 2}
-          stroke="rgba(125,211,252,0.5)"
+          stroke="#5B87A4"
           strokeWidth={1.7}
           markerEnd={`url(#${arrowActId})`}
         />
@@ -321,7 +306,7 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           y1={CORE.y + CORE.h}
           x2={AXIS}
           y2={ROBOT.y - 2}
-          stroke="rgba(125,211,252,0.95)"
+          stroke="#0284C7"
           strokeWidth={1.6}
           strokeLinecap="round"
           className="eal-pulse"
@@ -336,17 +321,17 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
           02 · REASON
         </Caption>
         {/* 03 caption: the separator dot sits exactly on the action arrow */}
-        <text x={AXIS - 12} y={584} fill="#5EC8F2" fontSize={13} fontWeight={700} letterSpacing={2.4} textAnchor="end">
+        <text x={AXIS - 12} y={584} fill="#0369A1" fontSize={13} fontWeight={700} letterSpacing={2.4} textAnchor="end">
           03
         </text>
-        <circle cx={AXIS} cy={580} r={2.4} fill="#5EC8F2" />
-        <text x={AXIS + 12} y={584} fill="#5EC8F2" fontSize={13} fontWeight={700} letterSpacing={2.4} textAnchor="start">
+        <circle cx={AXIS} cy={580} r={2.4} fill="#0369A1" />
+        <text x={AXIS + 12} y={584} fill="#0369A1" fontSize={13} fontWeight={700} letterSpacing={2.4} textAnchor="start">
           ACT
         </text>
-        <text x={AXIS + 16} y={(CORE.y + CORE.h + ROBOT.y) / 2 + 4} fill="#7DD3FC" fontSize={13.5} fontWeight={600}>
+        <text x={AXIS + 16} y={(CORE.y + CORE.h + ROBOT.y) / 2 + 4} fill="#0369A1" fontSize={13.5} fontWeight={600}>
           action
         </text>
-        <text x={TOOL_X + TOOL_W / 2} y={TOOLS[0].y - 18} fill="#94A3B8" fontSize={12} fontWeight={700} letterSpacing={2.2} textAnchor="middle">
+        <text x={TOOL_X + TOOL_W / 2} y={TOOLS[0].y - 18} fill="#475569" fontSize={12} fontWeight={700} letterSpacing={2.2} textAnchor="middle">
           TOOL USE
         </text>
 
@@ -374,8 +359,8 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
             width={CORE.w}
             height={CORE.h}
             rx={20}
-            fill="rgba(56,189,248,0.09)"
-            stroke="rgba(125,211,252,0.55)"
+            fill="#E0F2FE"
+            stroke="#0284C7"
             strokeWidth={1.6}
           />
           <svg
@@ -385,17 +370,17 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
             height={34}
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#E0F2FE"
+            stroke="#0369A1"
             strokeWidth={1.5}
             strokeLinecap="round"
             strokeLinejoin="round"
           >
             {ICONS.agent}
           </svg>
-          <text x={CORE.x + 72} y={CORE_CY - 7} fill="#F8FAFC" fontSize={23} fontWeight={700}>
+          <text x={CORE.x + 72} y={CORE_CY - 7} fill="#0F172A" fontSize={23} fontWeight={700}>
             Embodied agent
           </text>
-          <text x={CORE.x + 72} y={CORE_CY + 18} fill="#9FD4EF" fontSize={14}>
+          <text x={CORE.x + 72} y={CORE_CY + 18} fill="#475569" fontSize={14}>
             grounded reasoning · tool use
           </text>
         </g>
@@ -424,8 +409,8 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
             width={ROBOT.w}
             height={ROBOT.h}
             rx={18}
-            fill="#0E1626"
-            stroke="rgba(148,163,184,0.32)"
+            fill="#FFFFFF"
+            stroke="#CBD5E1"
             strokeWidth={1.4}
           />
           <svg
@@ -435,23 +420,23 @@ export function EmbodiedAgentLoop({ className }: { className?: string }) {
             height={34}
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#7DD3FC"
+            stroke="#0369A1"
             strokeWidth={1.5}
             strokeLinecap="round"
             strokeLinejoin="round"
           >
             {ICONS.robot}
           </svg>
-          <text x={ROBOT.x + 72} y={ROBOT.y + ROBOT.h / 2 - 6} fill="#F1F5F9" fontSize={19} fontWeight={600}>
+          <text x={ROBOT.x + 72} y={ROBOT.y + ROBOT.h / 2 - 6} fill="#0F172A" fontSize={19} fontWeight={600}>
             Robot embodiment
           </text>
-          <text x={ROBOT.x + 72} y={ROBOT.y + ROBOT.h / 2 + 16} fill="#94A3B8" fontSize={13}>
+          <text x={ROBOT.x + 72} y={ROBOT.y + ROBOT.h / 2 + 16} fill="#475569" fontSize={13}>
             acts in the physical world
           </text>
         </g>
       </svg>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#050B1A] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
 
       <style jsx>{`
         @keyframes eal-flow {

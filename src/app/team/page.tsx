@@ -12,6 +12,7 @@ import {
 } from '@/lib/people'
 import { assetPath } from '@/lib/site'
 import type { Metadata } from 'next'
+import Markdown from 'react-markdown'
 
 export const metadata: Metadata = {
   title: 'Team',
@@ -46,12 +47,12 @@ function Director() {
             </h3>
             <hr className="mt-4 border-t border-gray-200" />
             <div className="mt-6 text-base/6 text-gray-600 space-y-3">
-              {person.content
-                .split(/\n\n+/)
-                .filter((line) => !/^(Email:|Phone:)/i.test(line.trim()))
-                .map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
+              <Markdown>
+                {person.content
+                  .split(/\n\n+/)
+                  .filter((line) => !/^(Email:|Phone:)/i.test(line.trim()))
+                  .join('\n\n')}
+              </Markdown>
             </div>
             {/* Contact — icons + plain text (no mailto to avoid scrapers) */}
             <div className="mt-5 flex flex-col gap-2 text-sm text-gray-500">
@@ -111,6 +112,15 @@ function Director() {
 }
 
 function PersonCard({ person }: { person: Person }) {
+  // Read the same Education section used by the individual profile page.
+  const educationSection = person.content
+    .split(/^### Education\s*$/m)[1]
+    ?.split(/^### /m)[0]
+  const education = (educationSection || '')
+    .split('\n')
+    .filter((line) => line.startsWith('- '))
+    .map((line) => line.slice(2).trim())
+
   return (
     <li className="overflow-hidden rounded-2xl bg-white/80 ring-1 ring-black/5">
             <Link href={`/team/${person.slug}`} className="block aspect-square w-full">
@@ -152,8 +162,19 @@ function PersonCard({ person }: { person: Person }) {
                   </div>
                 )}
               </div>
+              {education.length > 0 && (
+                <div className="mt-4">
+                  <h4 className="text-xs font-semibold text-gray-700">Education</h4>
+                  <ul className="mt-1 space-y-1 text-[13px]/5 text-gray-500">
+                    {education.map((degree) => <li key={degree}>{degree}</li>)}
+                  </ul>
+                </div>
+              )}
               {person.excerpt && (
-                <p className="mt-3 text-base/6 text-gray-500">{person.excerpt}</p>
+                <div className="mt-3">
+                  <h4 className="text-xs font-semibold text-gray-700">Research Interests</h4>
+                  <p className="mt-1 text-[13px]/5 text-gray-500">{person.excerpt}</p>
+                </div>
               )}
             </div>
     </li>
@@ -178,7 +199,7 @@ function ResearchTeam() {
             <Subheading>Postdoctoral Scholars</Subheading>
             <div className="h-px grow bg-gray-200" />
           </div>
-          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 min-[400px]:grid-cols-2 md:grid-cols-4">
+          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {postdocs.map((person) => (
               <PersonCard key={person.slug} person={person} />
             ))}
@@ -192,7 +213,7 @@ function ResearchTeam() {
             <Subheading>PhD Students</Subheading>
             <div className="h-px grow bg-gray-200" />
           </div>
-          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 min-[400px]:grid-cols-2 md:grid-cols-4">
+          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {phds.map((person) => (
               <PersonCard key={person.slug} person={person} />
             ))}

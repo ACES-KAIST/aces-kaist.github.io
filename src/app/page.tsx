@@ -7,37 +7,8 @@ import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading } from '@/components/text'
 import photos from '@/data/photos.json'
+import { researchAreas } from '@/data/research'
 import { assetPath, site } from '@/lib/site'
-
-const research = [
-  {
-    id: 'safety',
-    title: 'Trustworthy safety-critical systems',
-    summary: 'Risk perception and decision-making',
-    description:
-      'We study how autonomous systems assess risk, make decisions under uncertainty, and monitor safety during operation.',
-    image: '/aces/publications/react.webp',
-    alt: 'Research on collision avoidance for autonomous driving',
-  },
-  {
-    id: 'world-models',
-    title: 'Generative AI and world models',
-    summary: 'Prediction and scenario generation',
-    description:
-      'We use language, diffusion, and multimodal models to predict behavior, reason about interactions, and generate rare driving scenarios.',
-    image: '/aces/publications/risk-controllable-diffusion.webp',
-    alt: 'Research on generating driving scenarios with diffusion models',
-  },
-  {
-    id: 'agents',
-    title: 'Foundation models and agents',
-    summary: 'Memory and reasoning for embodied intelligence',
-    description:
-      'We study agents that use memory and models of their environment to support reasoning and decisions in driving and robotics.',
-    image: '/aces/publications/safedrive.webp',
-    alt: 'Research on language models for driving decisions',
-  },
-]
 
 function Hero() {
   return (
@@ -47,7 +18,7 @@ function Hero() {
         <Navbar />
       </Container>
       <Container className="relative mt-16 pb-16">
-        <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,0.7fr)_minmax(0,1.5fr)] xl:gap-8">
+        <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] xl:gap-16">
           <div className="relative z-10 min-w-0 text-center xl:text-left">
             <h1 className="font-display text-[clamp(2.25rem,5.8vw,5.5rem)] leading-[0.98] font-medium tracking-tight text-balance text-gray-950 xl:text-[clamp(3.25rem,4.4vw,4.25rem)]">
               {site.fullName}
@@ -83,12 +54,12 @@ export default function Home() {
             Research
           </Heading>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-3">
-            {research.map((area) => (
+            {researchAreas.map((area, index) => (
               <Link key={area.id} href={`/research#${area.id}`}>
                 <BentoCard
-                  eyebrow={area.title}
-                  title={area.summary}
-                  description={area.description}
+                  eyebrow={`Research 0${index + 1}`}
+                  title={area.title}
+                  description={area.summary}
                   graphic={
                     <img
                       src={assetPath(area.image)}
@@ -109,30 +80,43 @@ export default function Home() {
             <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
               <dt className="text-gray-500">October 2026</dt>
               <dd>
-                AnyHand-Agent from Benwang Chen received the first place in the
-                poster presentation at the Nature Conference: Autonomous
-                Robotics.
+                <strong>AnyHand-Agent</strong> from Benwang Chen received{' '}
+                <strong>first place in the poster presentation</strong> at the
+                Nature Conference: Autonomous Robotics.
               </dd>
             </div>
             <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
               <dt className="text-gray-500">August 2026</dt>
               <dd>
-                CAPE-3D received the Best Presentation Award, and XMind received
-                the Best Poster Award, at the IEEE CASE 2026 Workshop on
-                Safety-Critical Robotics.
+                <strong>CAPE-3D</strong> received the{' '}
+                <strong>Best Presentation Award</strong>, and{' '}
+                <strong>XMind</strong> received the{' '}
+                <strong>Best Poster Award</strong>, at the IEEE CASE 2026
+                Workshop on Safety-Critical Robotics.
               </dd>
             </div>
             <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
               <dt className="text-gray-500">June 2026</dt>
               <dd>
-                Risk-Controllable Multi-View Diffusion for Driving Scenario
-                Generation received the Best Paper Award at the CVPR 2026
+                <a
+                  href="https://arxiv.org/abs/2603.11534"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-gray-950 underline decoration-gray-300 underline-offset-4 hover:decoration-gray-950"
+                >
+                  Risk-Controllable Multi-View Diffusion for Driving Scenario
+                  Generation
+                </a>{' '}
+                received the <strong>Best Paper Award</strong> at the CVPR 2026
                 Workshop (VGBE).
               </dd>
             </div>
             <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
               <dt className="text-gray-500">April 2026</dt>
-              <dd>Heye Huang joined KAIST as an Assistant Professor.</dd>
+              <dd>
+                <strong>Heye Huang</strong> joined KAIST as an Assistant
+                Professor.
+              </dd>
             </div>
           </dl>
         </Container>
