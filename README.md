@@ -19,8 +19,8 @@ npm run build
 
 The static website is exported to `out/`. The GitHub Actions workflow deploys it to GitHub Pages and automatically configures the path for a user, organization, or project website.
 
-Publications are checked automatically every Monday at 09:17 Korea time. The updater preserves manually verified metadata and starts a Pages deployment after a successful sync. See [Publication sources and maintenance](docs/PUBLICATIONS.md) for manual runs and source-access failures.
+After configuring the `SERPAPI_API_KEY` repository secret, publications are checked through SerpApi every Monday at 09:17 Korea time. The updater preserves manually verified metadata and starts a Pages deployment after a successful sync. See [Publication sources and maintenance](docs/PUBLICATIONS.md) for setup, manual runs, and source-access failures.
 
 See [GitHub Pages 操作说明](docs/GITHUB_PAGES_ZH.md) for repository setup, publishing, and content updates. See [Photo maintenance](scripts/photo-assets.md) for photo selection and processing.
 
-Research 1 uses the LEAD video from Heye Huang’s homepage; Research 2 uses the Risk-Controllable Multi-View Diffusion figure. The original embodied-agent animation, research header background, and Unitree G1 reference photograph remain from the template. Source notes are kept in [the maintenance guide](docs/GITHUB_PAGES_ZH.md), without captions on the pages. The G1 photograph is still awaiting replacement. Original license terms remain in [LICENSE.md](LICENSE.md).
+Research 1 uses the LEAD video from Heye Huang’s homepage; Research 2 uses the embodied-agent animation on a dark background; Research 3 uses the Risk-Controllable Multi-View Diffusion figure on a light background. The original embodied-agent animation, research header background, and Unitree G1 reference photograph remain from the template. Source notes are kept in [the maintenance guide](docs/GITHUB_PAGES_ZH.md), without captions on the pages. The G1 photograph is still awaiting replacement. Original license terms remain in [LICENSE.md](LICENSE.md).

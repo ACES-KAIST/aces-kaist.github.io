@@ -81,13 +81,22 @@ git push
 
 ## 论文自动更新
 
-已添加 `.github/workflows/update-publications.yml`，每周一韩国时间 **09:17** 检查 Heye Huang 的 Google Scholar。GitHub 定时任务可能稍有延迟。
+已添加 `.github/workflows/update-publications.yml`，通过 SerpApi 读取 Heye Huang 的 Google Scholar，每周一韩国时间 **09:17** 检查更新。GitHub 定时任务可能稍有延迟。
 
-- 自动读取论文列表和详情，保留已核实的代码链接、奖项和人工修正。
+- 读取完整论文列表，优先获取新增或有变化的论文详情，并逐步复核已有记录；每次最多获取 20 篇详情，超出的留待后续运行。保留已核实的代码链接、奖项和人工修正。
 - 有更新时先构建验证，再由 GitHub Actions 提交至 `main`，随后触发网站部署。
-- Google Scholar 限流、要求验证码或返回不完整数据时停止更新，现有网站和论文列表保持可用。
+- 密钥缺失、服务限流、额度用完或数据不完整时停止更新，现有网站和论文列表保持可用。
 
-手动运行：打开仓库 **Actions → Update publications → Run workflow → main → Run workflow**。无需配置额外密钥。具体同步规则和人工修正方法见 [PUBLICATIONS.md](PUBLICATIONS.md)。
+首次配置：
+
+1. 在 [SerpApi](https://serpapi.com/) 注册账号，从账号页面取得 API key。
+2. 打开[仓库的 Actions secrets 设置](https://github.com/ACES-KAIST/aces-kaist.github.io/settings/secrets/actions)，点击 **New repository secret**。
+3. **Name** 填 `SERPAPI_API_KEY`，**Secret** 填 API key，然后保存。不要把密钥写进代码、提交到仓库或发到聊天中。
+4. 打开 **Actions → Update publications → Run workflow → main → Run workflow**。成功后检查运行摘要和网站的 Publications 页面。
+
+截至 2026-10-18，[SerpApi 免费计划](https://serpapi.com/pricing)提供每月 250 次查询、每小时 50 次。当前 93 条记录可用一次列表查询读完；加上最多 20 次详情查询，每次运行最多约 21 次，每月运行五次约 105 次。手动运行、其他项目共用密钥以及未来列表增长也会消耗额度。可以先使用免费计划，无需先购买订阅。
+
+没有配置密钥时，自动更新任务会明确报错；添加 Secret 后按第 4 步运行即可。网站部署任务独立运行，不受该错误影响。具体同步规则和人工修正方法见 [PUBLICATIONS.md](PUBLICATIONS.md)。
 
 ## 常改内容的位置
 
@@ -123,7 +132,7 @@ git push
 
 Contact 页的实验室房间 F335 由实验室确认（2026-10-18）；Building F、193 Munji-ro 的校区地址来自 [学校地图页](https://mo.kaist.ac.kr/en/graduate-school-introduction/map/)，邮编 34051 可在 [KAIST ITVC 地址页](https://itvc.kaist.ac.kr/esub0104)核对。实验室位于 Building F 三楼 F335，访问前请通过邮件联系。
 
-Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 2 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片。Research 3 的智能体动画、Research 页标题区背景以及 Unitree G1 参考照片保留自 Stanford ASL 模板。页面不显示来源或临时照片说明，素材来源记录保留在此文档中。机器人照片待替换，未填写未经确认的设备数量或配置。
+Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 3 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片。Research 2 的智能体动画、Research 页标题区背景以及 Unitree G1 参考照片保留自 Stanford ASL 模板。页面不显示来源或临时照片说明，素材来源记录保留在此文档中。机器人照片待替换，未填写未经确认的设备数量或配置。
 
 原仓库的 `LICENSE.md` 是 Tailwind Plus 许可，不是 MIT 许可；已原样保留。公开发布前请确认你们具有使用该模板和保留素材的授权；来源标注不能替代授权。
 

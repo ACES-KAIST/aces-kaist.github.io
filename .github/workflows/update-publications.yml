@@ -37,7 +37,9 @@ jobs:
       - run: npm ci
       - name: Test publication sync
         run: npm run publications:test
-      - name: Read Google Scholar and update publication records
+      - name: Read Google Scholar through SerpApi and update publication records
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: npm run publications:sync
       - name: Check for data changes
         id: changes

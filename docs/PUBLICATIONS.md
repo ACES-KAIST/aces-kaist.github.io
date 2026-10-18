@@ -38,12 +38,17 @@ Other records retain the publication date and bibliographic fields in the retrie
 
 The **Update publications** workflow in `.github/workflows/update-publications.yml` runs every **Monday at 09:17 Korea time** (00:17 UTC). GitHub may delay scheduled jobs. Repository maintainers can also start it from **Actions → Update publications → Run workflow**. Changes to the updater script or workflow also trigger a run on `main`. GitHub disables scheduled workflows in public repositories after 60 days without repository activity; if that happens, re-enable this workflow from the Actions page.
 
-The workflow uses Node.js 22 and the repository's `GITHUB_TOKEN`; no Scholar credentials, paid service, or extra secret is needed. It runs the source checks, publication tests and site build before committing changed publication data to `main`. It then explicitly starts the Pages deployment workflow. This dispatch is necessary because a push made with `GITHUB_TOKEN` does not itself start another push-triggered workflow. The repository must allow Actions to write contents and run workflows, and any branch protection must allow this bot commit. No data changes means no new commit.
+The workflow uses Node.js 22, [SerpApi's Google Scholar Author API](https://serpapi.com/google-scholar-author-api), and the repository's `GITHUB_TOKEN`. Add your SerpApi key under **Settings → Secrets and variables → Actions → New repository secret**, with the exact name **`SERPAPI_API_KEY`**. Do not put the key in source files or send it in chat. The API account's quota and plan apply; see [SerpApi pricing](https://serpapi.com/pricing). The code does not create an account or purchase a plan. Without a configured key, the command makes no network request and explains which secret is missing.
 
-`scripts/sync-publications.mjs` reads every profile page until **Show more** is disabled, then retrieves all listed record-detail pages sequentially with 1.5 seconds between requests. The current 93-record profile normally needs a few minutes. The static site continues to use checked-in JSON; ordinary site builds never contact Google Scholar.
+The workflow runs the source checks, publication tests and site build before committing changed publication data to `main`. It then explicitly starts the Pages deployment workflow. This dispatch is necessary because a push made with `GITHUB_TOKEN` does not itself start another push-triggered workflow. The repository must allow Actions to write contents and run workflows, and any branch protection must allow this bot commit. No data changes means no new commit.
+
+`scripts/sync-publications.mjs` requests the complete profile list through SerpApi, 100 articles per page, sorted by publication date. It compares title, author summary, publication and year fingerprints, excluding citation counts. Only new or changed records require new citation details. Two existing records are also refreshed in rotation each run, within the same request budget, to detect details such as full author names that might change without altering the list summary. The static site continues to use checked-in JSON; ordinary site builds make no external bibliography requests.
+
+On the first API run, an existing source record can reuse its previously audited detail when the title, year, abbreviated author list and venue agree. This seeds the fingerprints without rereading all 93 detail pages. A normal unchanged run for the current profile uses **one list request and two detail requests**. Any first-run mismatch is checked through the citation endpoint. Requests are limited to **five list pages and 20 citation details per run**. Additional new or changed records are queued in the source audit for subsequent runs; a paper is never added before its full detail has been retrieved and validated. Existing queued papers retain their displayed metadata.
 
 ```sh
-# Fetch and validate the complete profile without modifying files.
+# Set SERPAPI_API_KEY in your local environment before using these commands.
+# Fetch the profile and selected citation details without modifying files.
 npm run publications:sync -- --dry-run
 
 # Fetch and update the checked-in publication records and source audit.
@@ -53,7 +58,7 @@ npm run publications:sync
 npm run publications:test
 ```
 
-`--check` is an alias for `--dry-run`. Successful commands exit with status 0 and print a JSON summary of additions, updates, merges, exclusions and records requiring review. A dry run can report proposed changes without treating them as a failure.
+`--check` is an alias for `--dry-run`. A dry run still uses API requests but does not save the cache or data. Successful commands exit with status 0 and print a JSON summary of additions, updates, merges, exclusions, records requiring review, request counts and queued details. A dry run can report proposed changes without treating them as a failure. The fingerprints, detail refresh dates, queue and rotation cursor are stored under `serpApi` in the source audit.
 
 ### What is updated
 
@@ -66,8 +71,8 @@ npm run publications:test
 
 ### Failures and manual review
 
-If Scholar returns HTTP 403/429, a CAPTCHA, malformed data, truncated authors, incomplete pagination or a missing previously recorded item, the command fails **before writing either data file**. It does not retry access checks or bypass CAPTCHA. The workflow therefore cannot replace the deployed bibliography with an empty or partial response. A missing old Scholar record can also indicate a legitimate merge or deletion on the profile; check that change before updating its audit entry.
+If SerpApi returns an HTTP error, an unsuccessful JSON status, malformed data, truncated authors, incomplete pagination or a missing previously audited item, the command fails **before writing either data file**. HTTP 429 can reflect a request or quota limit; check the service dashboard before rerunning. A full 100-row page without a next-page cursor is treated as ambiguous and stops for review, including the boundary case of a profile with exactly 100 records. A missing old record can also indicate a legitimate merge or deletion on Scholar; check that change before updating its audit entry. These checks prevent an empty or partial API response from replacing the deployed bibliography.
 
-Google Scholar is an external public webpage and can block automated requests. Check a failed run in **Actions → Update publications**; the existing website remains available. After normal access returns, rerun the workflow. The first local live check on 18 October 2026 returned HTTP 429 and stopped without changes; parsing and reconciliation were also verified against all 93 previously retrieved source pages.
+There are no automatic retries, direct Google Scholar scraping fallbacks or CAPTCHA workarounds. API keys and raw provider errors are not printed. Check failed runs in **Actions → Update publications**; the existing website remains available. The adapter follows the documented [article](https://serpapi.com/google-scholar-author-articles) and [citation](https://serpapi.com/google-scholar-author-citation) schemas. Tests use mocked API responses; the first credentialed run should be checked after adding the repository secret.
 
 For a manual correction, update the publication and its audit together. Add source-backed field corrections to `verifiedOverrides` and include a `source` URL. Resolve `pendingSourceChange` only after checking the cited source; then update the stored source fields and remove that pending field. New code links and awards should have a verifiable source. Run the tests and build before pushing.

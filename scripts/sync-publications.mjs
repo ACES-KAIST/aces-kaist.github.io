@@ -658,12 +658,430 @@ export async function collectDetails(fetchHtml) {
   throw new Error('Google Scholar pagination exceeded the safety limit.')
 }
 
+const SERPAPI_ORIGIN = 'https://serpapi.com'
+const MAX_LIST_PAGES = 5
+const MAX_DETAIL_REQUESTS = 20
+const ROTATING_REFRESHES = 2
+
+export function createSerpApiClient({
+  apiKey = process.env.SERPAPI_API_KEY,
+  fetchImpl = fetch,
+} = {}) {
+  if (typeof apiKey !== 'string' || !apiKey.trim())
+    throw new Error(
+      'Set the SERPAPI_API_KEY repository secret before running publication sync.',
+    )
+  return async (parameters) => {
+    const address = new URL('/search.json', SERPAPI_ORIGIN)
+    address.search = new URLSearchParams({
+      engine: 'google_scholar_author',
+      author_id: PROFILE_ID,
+      hl: 'en',
+      ...parameters,
+      api_key: apiKey.trim(),
+    }).toString()
+    let response
+    try {
+      response = await fetchImpl(address.href, {
+        signal: AbortSignal.timeout(60000),
+        redirect: 'error',
+        headers: { Accept: 'application/json' },
+      })
+    } catch {
+      // Fetch errors can contain the request URL, including its private key.
+      throw new Error('SerpApi request failed or timed out; no files changed.')
+    }
+    if (!response.ok)
+      throw new Error(
+        `SerpApi returned HTTP ${response.status}; check the key, account quota and service status. No retry or files changed.`,
+      )
+    let result
+    try {
+      result = await response.json()
+    } catch {
+      throw new Error('SerpApi returned invalid JSON; no files changed.')
+    }
+    // Never print the provider's raw error, request URL or search metadata.
+    validateSerpApiResponse(result, parameters)
+    return result
+  }
+}
+
+function validateSerpApiResponse(result, parameters = {}) {
+  if (!result || result.error || result.search_metadata?.status !== 'Success')
+    throw new Error(
+      'SerpApi did not return a successful result; check the account dashboard. No files changed.',
+    )
+  const request = result.search_parameters
+  if (
+    request?.engine !== 'google_scholar_author' ||
+    request.author_id !== PROFILE_ID
+  )
+    throw new Error('SerpApi returned an unexpected author profile or engine.')
+  if (
+    parameters.citation_id &&
+    (request.view_op !== 'view_citation' ||
+      request.citation_id !== parameters.citation_id)
+  )
+    throw new Error('SerpApi returned an unexpected citation record.')
+  if (
+    parameters.start !== undefined &&
+    Number(request.start ?? request.cstart ?? 0) !== Number(parameters.start)
+  )
+    throw new Error('SerpApi returned an unexpected page offset.')
+}
+
+function canonicalScholarUrl(id) {
+  if (typeof id !== 'string' || !new RegExp(`^${PROFILE_ID}:[\\w-]+$`).test(id))
+    throw new Error('SerpApi returned an invalid citation identifier.')
+  return `${ORIGIN}/citations?view_op=view_citation&hl=en&user=${PROFILE_ID}&citation_for_view=${id}`
+}
+
+export function parseSerpApiList(result, start = 0) {
+  validateSerpApiResponse(result, { start })
+  if (result.author?.name && normalize(result.author.name) !== 'heyehuang')
+    throw new Error('SerpApi returned an unexpected author name.')
+  if (
+    !Array.isArray(result.articles) ||
+    !result.articles.length ||
+    result.articles.length > PAGE_SIZE
+  )
+    throw new Error('SerpApi returned an empty or incomplete article list.')
+  const rows = result.articles.map((article) => {
+    if (
+      typeof article.title !== 'string' ||
+      !article.title.trim() ||
+      typeof article.authors !== 'string' ||
+      !article.authors.trim() ||
+      !/^\d{4}$/.test(String(article.year ?? '')) ||
+      (article.publication !== undefined &&
+        typeof article.publication !== 'string')
+    )
+      throw new Error('SerpApi article metadata is incomplete.')
+    const scholarUrl = canonicalScholarUrl(article.citation_id)
+    if (article.link) {
+      try {
+        if (scholarId(article.link) !== article.citation_id) throw new Error()
+      } catch {
+        throw new Error(
+          'SerpApi article link and citation identifier disagree.',
+        )
+      }
+    }
+    const snapshot = {
+      title: article.title.trim(),
+      authors: article.authors.trim(),
+      publication: (article.publication ?? '').trim(),
+      year: String(article.year),
+    }
+    return {
+      id: article.citation_id,
+      scholarUrl,
+      ...snapshot,
+      fingerprint: createHash('sha256')
+        .update(JSON.stringify(snapshot))
+        .digest('hex'),
+    }
+  })
+  const next = result.serpapi_pagination?.next
+  if (!next && rows.length === PAGE_SIZE)
+    throw new Error(
+      'A full SerpApi article page has no next cursor; completeness cannot be confirmed.',
+    )
+  if (next) {
+    let address
+    try {
+      address = new URL(next)
+    } catch {
+      throw new Error('SerpApi returned invalid pagination.')
+    }
+    const offset =
+      address.searchParams.get('start') ?? address.searchParams.get('cstart')
+    if (
+      address.origin !== SERPAPI_ORIGIN ||
+      !['/search', '/search.json'].includes(address.pathname) ||
+      address.searchParams.get('engine') !== 'google_scholar_author' ||
+      address.searchParams.get('author_id') !== PROFILE_ID ||
+      !/^\d+$/.test(offset ?? '') ||
+      Number(offset) !== start + rows.length ||
+      rows.length !== PAGE_SIZE
+    )
+      throw new Error('SerpApi returned incomplete or unexpected pagination.')
+  }
+  return { rows, hasMore: Boolean(next) }
+}
+
+export function parseSerpApiDetail(result, row) {
+  validateSerpApiResponse(result, { citation_id: row.id })
+  const citation = result.citation
+  if (!citation || typeof citation.title !== 'string' || !citation.title.trim())
+    throw new Error('SerpApi citation detail is missing.')
+  const fields = {}
+  const names = {
+    authors: 'Authors',
+    inventors: 'Inventors',
+    publication_date: 'Publication date',
+    journal: 'Journal',
+    conference: 'Conference',
+    book: 'Book',
+    volume: 'Volume',
+    issue: 'Issue',
+    pages: 'Pages',
+    publisher: 'Publisher',
+    patent_office: 'Patent office',
+    application_number: 'Application number',
+    report_number: 'Report number',
+    doi: 'doi',
+  }
+  for (const [key, name] of Object.entries(names)) {
+    if (citation[key] !== undefined && citation[key] !== null) {
+      if (!['string', 'number'].includes(typeof citation[key]))
+        throw new Error('SerpApi returned a malformed citation field.')
+      if (String(citation[key]).trim())
+        fields[name] = String(citation[key]).trim()
+    }
+  }
+  if (
+    !(fields.Authors || fields.Inventors) ||
+    /…|\.\.\./.test(fields.Authors ?? fields.Inventors) ||
+    !/^\d{4}(?:\/\d{1,2}){0,2}$/.test(fields['Publication date'] ?? '')
+  )
+    throw new Error(
+      'SerpApi citation authors or publication date are missing or truncated.',
+    )
+  const title = citation.title.trim()
+  if (
+    !normalize(title).startsWith(
+      normalize(row.title.replace(/(?:…|\.\.\.).*$/, '')),
+    )
+  )
+    throw new Error('SerpApi article list and citation title disagree.')
+  return {
+    scholarUrl: row.scholarUrl,
+    title,
+    fields,
+    abstractAvailable: Boolean(citation.description),
+    url: safeUrl(citation.link, row.scholarUrl),
+  }
+}
+
+function abbreviatedAuthorsMatch(summary, full) {
+  const shortened = /…|\.\.\.|\bet al\b/i.test(summary)
+  const visible = summary
+    .replace(/(?:…|\.\.\.|\bet al\b).*$/i, '')
+    .split(/[,，]/)
+    .map(cleanAuthor)
+    .filter(Boolean)
+  const complete = full.split(/[,，]/).map(cleanAuthor).filter(Boolean)
+  if (
+    !visible.length ||
+    visible.length > complete.length ||
+    (!shortened && visible.length !== complete.length)
+  )
+    return false
+  return visible.every((name, index) => {
+    const all = complete[index].split(/\s+/)
+    if (normalize(name) === normalize(complete[index])) return true
+    if (all.length < 2) return false
+    const surname = normalize(all.at(-1))
+    const short = normalize(name)
+    if (!short.endsWith(surname)) return false
+    const initials = short.slice(0, -surname.length)
+    const fullInitials = all
+      .slice(0, -1)
+      .map((part) => normalize(part)[0])
+      .join('')
+    return initials === fullInitials || initials === fullInitials[0]
+  })
+}
+
+function summaryMatchesAudit(row, previous) {
+  const title = normalize(row.title.replace(/(?:…|\.\.\.).*$/, ''))
+  const priorTitle = normalize(previous.title)
+  if (
+    !(
+      title === priorTitle ||
+      (/…|\.\.\./.test(row.title) && priorTitle.startsWith(title))
+    )
+  )
+    return false
+  const fields = previous.fields
+  if (
+    row.year !== fields['Publication date']?.slice(0, 4) ||
+    !abbreviatedAuthorsMatch(
+      row.authors,
+      fields.Authors ?? fields.Inventors ?? '',
+    )
+  )
+    return false
+  const priorVenue = [
+    venueOf(fields),
+    fields.Volume,
+    fields.Issue,
+    fields.Pages,
+  ]
+    .filter(Boolean)
+    .join(' ')
+  const withoutYear = (value) =>
+    normalize(value.replace(new RegExp(`[,\\s]*${row.year}$`), ''))
+  const publication = withoutYear(
+    row.publication.replace(/(?:…|\.\.\.).*$/, ''),
+  )
+  const expected = withoutYear(priorVenue)
+  return (
+    publication === expected ||
+    (/…|\.\.\./.test(row.publication) && expected.startsWith(publication))
+  )
+}
+
+export async function collectSerpApiDetails(
+  request,
+  audit,
+  publications,
+  {
+    maxDetails = MAX_DETAIL_REQUESTS,
+    refreshCount = ROTATING_REFRESHES,
+    day = new Date().toISOString().slice(0, 10),
+  } = {},
+) {
+  if (
+    !Number.isInteger(maxDetails) ||
+    maxDetails < 1 ||
+    maxDetails > MAX_DETAIL_REQUESTS ||
+    !Number.isInteger(refreshCount) ||
+    refreshCount < 0 ||
+    refreshCount > ROTATING_REFRESHES
+  )
+    throw new Error('Invalid SerpApi request budget.')
+  const rows = [],
+    seen = new Set()
+  let pages = 0,
+    finished = false
+  for (; pages < MAX_LIST_PAGES; pages++) {
+    const list = parseSerpApiList(
+      await request({
+        sort: 'pubdate',
+        num: String(PAGE_SIZE),
+        start: String(rows.length),
+      }),
+      rows.length,
+    )
+    for (const row of list.rows) {
+      if (seen.has(row.id))
+        throw new Error('Repeated SerpApi record across pagination.')
+      seen.add(row.id)
+      rows.push(row)
+    }
+    if (!list.hasMore) {
+      pages++
+      finished = true
+      break
+    }
+  }
+  if (!finished)
+    throw new Error('SerpApi list exceeds the five-page request budget.')
+  const known = new Map(
+    audit.records.map((record) => [scholarId(record.scholarUrl), record]),
+  )
+  for (const id of known.keys())
+    if (!seen.has(id))
+      throw new Error(
+        'A previously audited Scholar item is missing; review the profile before updating. No detail requests made.',
+      )
+  const state = structuredClone(
+    audit.serpApi ?? {
+      fingerprints: {},
+      pendingDetailIds: [],
+      refreshCursor: 0,
+      detailCheckedOn: {},
+    },
+  )
+  const byId = new Map(rows.map((row) => [row.id, row]))
+  const changed = []
+  for (const row of rows) {
+    if (state.fingerprints[row.id] === row.fingerprint) continue
+    if (
+      !state.fingerprints[row.id] &&
+      known.has(row.id) &&
+      summaryMatchesAudit(row, known.get(row.id))
+    )
+      state.fingerprints[row.id] = row.fingerprint
+    else changed.push(row.id)
+  }
+  const queue = [
+    ...new Set([
+      ...state.pendingDetailIds.filter((id) => changed.includes(id)),
+      ...changed,
+    ]),
+  ]
+  const selected = queue.slice(0, maxDetails)
+  const refreshable = rows.filter(
+    (row) => known.has(row.id) && !changed.includes(row.id),
+  )
+  const refreshBudget = Math.min(
+    refreshCount,
+    maxDetails - selected.length,
+    refreshable.length,
+  )
+  const cursor = state.refreshCursor % (refreshable.length || 1)
+  for (let index = 0; index < refreshBudget; index++)
+    selected.push(refreshable[(cursor + index) % refreshable.length].id)
+  state.refreshCursor = refreshable.length
+    ? (cursor + refreshBudget) % refreshable.length
+    : 0
+  state.pendingDetailIds = queue.slice(maxDetails)
+  const fetched = new Map()
+  for (const id of selected) {
+    const row = byId.get(id)
+    const result = await request({ view_op: 'view_citation', citation_id: id })
+    const detail = parseSerpApiDetail(result, row)
+    // Retain the stable source URL spelling in the checked-in audit.
+    if (known.has(id)) detail.scholarUrl = known.get(id).scholarUrl
+    fetched.set(id, detail)
+    state.fingerprints[id] = row.fingerprint
+    state.detailCheckedOn[id] = day
+  }
+  const byKey = new Map(
+    publications.map((publication) => [publication.key, publication]),
+  )
+  const details = rows.flatMap((row) => {
+    if (fetched.has(row.id)) return [fetched.get(row.id)]
+    const previous = known.get(row.id)
+    return previous
+      ? [
+          {
+            ...previous,
+            url:
+              previous.url ??
+              byKey.get(previous.key)?.url ??
+              previous.scholarUrl,
+          },
+        ]
+      : []
+  })
+  return {
+    details,
+    state,
+    pages,
+    retrieved: rows.length,
+    detailRequests: selected.length,
+    pendingDetails: state.pendingDetailIds.length,
+  }
+}
+
 export async function runSync({
   root = ROOT,
   dryRun = false,
-  fetchHtml = createFetcher(),
+  fetchHtml,
+  fetchJson,
+  apiKey = process.env.SERPAPI_API_KEY,
   day = new Date().toISOString().slice(0, 10),
 } = {}) {
+  // HTML injection remains available for deterministic historical fixtures;
+  // production runs use only the configured data service, with no fallback.
+  const request = fetchHtml
+    ? null
+    : (fetchJson ?? createSerpApiClient({ apiKey }))
   const paths = [
     resolve(root, 'src/data/publications.json'),
     resolve(root, 'docs/publication-source-audit.json'),
@@ -674,8 +1092,32 @@ export async function runSync({
   const [publications, audit] = original.map(JSON.parse)
   if (!Array.isArray(publications) || !audit.records?.length)
     throw new Error('Publication snapshot or source audit is missing.')
-  const details = await collectDetails(fetchHtml)
+  const provider = request
+    ? await collectSerpApiDetails(request, audit, publications, { day })
+    : null
+  const details = provider ? provider.details : await collectDetails(fetchHtml)
   const result = reconcile(publications, audit, details, day)
+  if (provider) {
+    result.audit.serpApi = provider.state
+    result.summary.changed ||= !same(result.audit, audit)
+    Object.assign(result.summary, {
+      provider: 'SerpApi',
+      retrieved: provider.retrieved,
+      listRequests: provider.pages,
+      detailRequests: provider.detailRequests,
+      pendingDetails: provider.pendingDetails,
+    })
+    if (result.summary.changed) {
+      result.audit.checkedOn = day
+      result.audit.pagination = {
+        requestedPageSize: PAGE_SIZE,
+        retrievedRows: provider.retrieved,
+        showMoreDisabled: true,
+        detailPagesRetrieved: provider.detailRequests,
+        reusedAuditedDetails: details.length - provider.detailRequests,
+      }
+    }
+  }
   if (!dryRun && result.summary.changed) {
     // No output file is touched until every request, parse and merge succeeds.
     // Temporary files are on the same filesystem for atomic per-file renames.

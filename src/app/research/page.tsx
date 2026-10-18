@@ -13,7 +13,7 @@ import type { ReactNode } from 'react'
 export const metadata: Metadata = {
   title: 'Research',
   description:
-    'Research at ACES Lab: trustworthy safety-critical systems, generative AI and world models, and foundation models and agents.',
+    'Research at ACES Lab: trustworthy safety-critical systems, foundation models and agents, and generative AI and world models.',
 }
 
 type Paper = { title: string; venue: string; year: string }
@@ -179,78 +179,78 @@ export default function Research() {
         style={{ backgroundImage: `url('${assetPath('/dot-texture.svg')}')` }}
       >
         <ResearchSection
-          id="world-models"
+          id="agents"
           index={2}
-          title="Generative AI and world models"
+          title="Foundation models and agents"
           description={
             <p>
-              We use large language models, diffusion models, and multimodal
-              models for prediction and scenario generation. We study how world
-              models can produce realistic, controllable scenarios for
-              simulation, evaluation, and training.
+              We study how foundation models support perception, reasoning, and
+              decision-making in driving and robotics. Our research includes
+              agents that use memory and models of their environment to plan
+              actions and adapt over time.
             </p>
           }
           papers={[
             {
               title:
-                'Risk-Controllable Multi-View Diffusion for Driving Scenario Generation',
-              venue: 'CVPR 2026 Workshop (VGBE)',
-              year: '2026',
+                'SafeDrive: Knowledge-and Data-Driven Risk-Sensitive Decision-Making for Autonomous Vehicles with Large Language Models',
+              venue: 'Accident Analysis & Prevention',
+              year: '2025',
             },
             {
               title:
-                'Learning from Risk: LLM-Guided Generation of Safety-Critical Scenarios with Prior Knowledge',
-              venue:
-                'Transportation Research Part E: Logistics and Transportation Review',
+                'RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making in Autonomous Driving',
+              venue: 'Communications in Transportation Research',
               year: '2026',
             },
           ]}
           dark
           reverse
           graphic={
-            <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-white/10">
-              <img
-                src={assetPath(
-                  '/aces/publications/risk-controllable-diffusion.webp',
-                )}
-                alt="Risk-controllable multi-view diffusion for driving scenario generation."
-                className="h-auto w-full"
-                loading="lazy"
-              />
+            <div className="aspect-[760/800]">
+              <EmbodiedAgentLoop />
             </div>
           }
         />
       </div>
 
       <ResearchSection
-        id="agents"
+        id="world-models"
         index={3}
-        title="Foundation models and agents"
+        title="Generative AI and world models"
         description={
           <p>
-            We study how foundation models support perception, reasoning, and
-            decision-making in driving and robotics. Our research includes
-            agents that use memory and models of their environment to plan
-            actions and adapt over time.
+            We use large language models, diffusion models, and multimodal
+            models for prediction and scenario generation. We study how world
+            models can produce realistic, controllable scenarios for
+            simulation, evaluation, and training.
           </p>
         }
         papers={[
           {
             title:
-              'SafeDrive: Knowledge-and Data-Driven Risk-Sensitive Decision-Making for Autonomous Vehicles with Large Language Models',
-            venue: 'Accident Analysis & Prevention',
-            year: '2025',
+              'Risk-Controllable Multi-View Diffusion for Driving Scenario Generation',
+            venue: 'CVPR 2026 Workshop (VGBE)',
+            year: '2026',
           },
           {
             title:
-              'RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making in Autonomous Driving',
-            venue: 'Communications in Transportation Research',
+              'Learning from Risk: LLM-Guided Generation of Safety-Critical Scenarios with Prior Knowledge',
+            venue:
+              'Transportation Research Part E: Logistics and Transportation Review',
             year: '2026',
           },
         ]}
         graphic={
-          <div className="aspect-[760/800]">
-            <EmbodiedAgentLoop />
+          <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/10">
+            <img
+              src={assetPath(
+                '/aces/publications/risk-controllable-diffusion.webp',
+              )}
+              alt="Risk-controllable multi-view diffusion for driving scenario generation."
+              className="h-auto w-full"
+              loading="lazy"
+            />
           </div>
         }
       />

@@ -6,9 +6,13 @@ import test from 'node:test'
 import {
   buildPublication,
   collectDetails,
+  collectSerpApiDetails,
   createFetcher,
+  createSerpApiClient,
   parseDetail,
   parseList,
+  parseSerpApiDetail,
+  parseSerpApiList,
   PROFILE_ID,
   reconcile,
   runSync,
@@ -437,4 +441,382 @@ test('dry-run computes additions without writes; a successful sync writes both v
   const after = (await files.contents()).map(JSON.parse)
   assert.equal(after[0].length, 2)
   assert.equal(after[1].records.length, 2)
+})
+
+function apiResponse(parameters, extra) {
+  return {
+    search_metadata: { status: 'Success' },
+    search_parameters: {
+      engine: 'google_scholar_author',
+      author_id: PROFILE_ID,
+      ...parameters,
+    },
+    ...extra,
+  }
+}
+function apiList(records, start = 0, more = false) {
+  return apiResponse(
+    { start: String(start) },
+    {
+      author: { name: 'Heye Huang' },
+      articles: records.map((r) => ({
+        citation_id: new URL(r.scholarUrl).searchParams.get(
+          'citation_for_view',
+        ),
+        title: r.title,
+        link: r.scholarUrl,
+        authors: (r.fields.Authors ?? r.fields.Inventors)
+          .split(/[,，]/)
+          .map((name) =>
+            name
+              .trim()
+              .split(' ')
+              .map((part, i, parts) =>
+                i === parts.length - 1 ? part : part[0],
+              )
+              .join(' '),
+          )
+          .join(', '),
+        publication: [
+          r.fields.Conference || r.fields.Book || r.fields.Journal,
+          r.fields.Volume,
+          r.fields.Issue,
+          r.fields.Pages,
+          r.fields['Publication date'].slice(0, 4),
+        ]
+          .filter(Boolean)
+          .join(' '),
+        year: r.fields['Publication date'].slice(0, 4),
+      })),
+      ...(more
+        ? {
+            serpapi_pagination: {
+              next: `https://serpapi.com/search.json?engine=google_scholar_author&author_id=${PROFILE_ID}&cstart=${start + records.length}`,
+            },
+          }
+        : {}),
+    },
+  )
+}
+function apiDetail(r) {
+  const names = {
+    Authors: 'authors',
+    Inventors: 'inventors',
+    'Publication date': 'publication_date',
+    Journal: 'journal',
+    Conference: 'conference',
+    Book: 'book',
+    Volume: 'volume',
+    Issue: 'issue',
+    Pages: 'pages',
+    Publisher: 'publisher',
+    'Patent office': 'patent_office',
+    'Application number': 'application_number',
+  }
+  return apiResponse(
+    {
+      view_op: 'view_citation',
+      citation_id: new URL(r.scholarUrl).searchParams.get('citation_for_view'),
+    },
+    {
+      citation: {
+        title: r.title,
+        link: r.url,
+        ...Object.fromEntries(
+          Object.entries(r.fields).map(([name, value]) => [names[name], value]),
+        ),
+        ...(r.abstractAvailable ? { description: 'Source abstract.' } : {}),
+      },
+    },
+  )
+}
+function apiFixture(records, requests = []) {
+  return async (parameters) => {
+    requests.push(parameters)
+    if (parameters.citation_id)
+      return apiDetail(
+        records.find(
+          (r) =>
+            new URL(r.scholarUrl).searchParams.get('citation_for_view') ===
+            parameters.citation_id,
+        ),
+      )
+    const start = Number(parameters.start)
+    return apiList(
+      records.slice(start, start + 100),
+      start,
+      start + 100 < records.length,
+    )
+  }
+}
+
+test('SerpApi requires a secret before making a request, and never echoes private error text', async () => {
+  let requests = 0
+  assert.throws(
+    () =>
+      createSerpApiClient({
+        apiKey: '',
+        fetchImpl: () => {
+          requests++
+        },
+      }),
+    /SERPAPI_API_KEY/,
+  )
+  assert.equal(requests, 0)
+  const secret = 'private-test-key'
+  const failing = createSerpApiClient({
+    apiKey: secret,
+    fetchImpl: async (address) => {
+      throw new Error(address)
+    },
+  })
+  await assert.rejects(
+    () => failing({ start: '0' }),
+    (error) =>
+      !error.message.includes(secret) && !error.message.includes('api_key'),
+  )
+  const providerError = createSerpApiClient({
+    apiKey: secret,
+    fetchImpl: async () =>
+      new Response(
+        JSON.stringify({
+          error: `Failure https://serpapi.com/search?api_key=${secret}`,
+        }),
+        { status: 200 },
+      ),
+  })
+  await assert.rejects(
+    () => providerError({ start: '0' }),
+    (error) =>
+      !error.message.includes(secret) &&
+      /successful result/.test(error.message),
+  )
+  const throttled = createSerpApiClient({
+    apiKey: secret,
+    fetchImpl: async () => {
+      requests++
+      return new Response('', { status: 429 })
+    },
+  })
+  await assert.rejects(() => throttled({ start: '0' }), /HTTP 429/)
+  assert.equal(requests, 1)
+})
+
+test('SerpApi parses the documented citation schema without storing abstracts or truncated list authors', () => {
+  const source = record('json', {
+    fields: {
+      Authors: 'Ada Lovelace, Heye Huang*',
+      'Publication date': '2026/10',
+      Conference: 'Robotics Conference',
+      Volume: '5',
+      Pages: '1-9',
+    },
+  })
+  const row = parseSerpApiList(apiList([source])).rows[0]
+  assert.equal(row.authors, 'A Lovelace, H Huang*')
+  const detail = parseSerpApiDetail(apiDetail(source), row)
+  assert.equal(detail.fields.Authors, source.fields.Authors)
+  assert.equal(detail.fields.Conference, 'Robotics Conference')
+  assert.equal(detail.abstractAvailable, true)
+  assert.equal(detail.description, undefined)
+  const malformed = apiDetail(source)
+  malformed.citation.authors = 'Ada Lovelace, …'
+  assert.throws(() => parseSerpApiDetail(malformed, row), /truncated/)
+})
+
+test('SerpApi rejects wrong profiles, wrong citations, malformed results and untrusted next links', () => {
+  const source = record('wrong')
+  const profile = apiList([source])
+  profile.search_parameters.author_id = 'someone_else'
+  assert.throws(() => parseSerpApiList(profile), /unexpected author/)
+  assert.throws(
+    () => parseSerpApiList(apiResponse({}, { articles: [] })),
+    /empty/,
+  )
+  const partial = apiList([source])
+  delete partial.articles[0].year
+  assert.throws(() => parseSerpApiList(partial), /incomplete/)
+  const next = apiList([source])
+  next.serpapi_pagination = {
+    next: 'https://example.com/search.json?api_key=private',
+  }
+  assert.throws(() => parseSerpApiList(next), /pagination/)
+  const row = parseSerpApiList(apiList([source])).rows[0]
+  const citation = apiDetail(source)
+  citation.search_parameters.citation_id = `${PROFILE_ID}:another`
+  assert.throws(() => parseSerpApiDetail(citation, row), /unexpected citation/)
+  assert.throws(
+    () =>
+      parseSerpApiList(
+        apiList(Array.from({ length: 100 }, (_, i) => record(`full${i}`))),
+      ),
+    /no next cursor/,
+  )
+  const badLink = apiList([source])
+  badLink.articles[0].link = 'https://serpapi.com/search?api_key=private'
+  assert.throws(
+    () => parseSerpApiList(badLink),
+    (error) =>
+      !error.message.includes('private') && /disagree/.test(error.message),
+  )
+})
+
+test('SerpApi follows validated cstart pagination, seeds audited summaries, and limits detail calls', async () => {
+  const records = Array.from({ length: 101 }, (_, i) => record(`json${i}`))
+  const state = snapshot(records),
+    requests = []
+  const result = await collectSerpApiDetails(
+    apiFixture(records, requests),
+    state.audit,
+    state.publications,
+    { day },
+  )
+  assert.equal(result.pages, 2)
+  assert.equal(result.detailRequests, 2)
+  assert.equal(result.details.length, 101)
+  assert.equal(Object.keys(result.state.fingerprints).length, 101)
+  assert.equal(requests.length, 4)
+  assert.equal(requests[1].start, '100')
+  assert.equal(requests[0].num, '100')
+  assert.equal(requests[0].sort, 'pubdate')
+  assert.ok(requests.every((parameters) => !('api_key' in parameters)))
+})
+
+test('SerpApi caches fingerprints, ignores citation counts, and rotates existing detail refreshes', async () => {
+  const records = Array.from({ length: 4 }, (_, i) => record(`rotate${i}`))
+  const state = snapshot(records)
+  const first = await collectSerpApiDetails(
+    apiFixture(records),
+    state.audit,
+    state.publications,
+    { day },
+  )
+  const requests = []
+  const next = await collectSerpApiDetails(
+    apiFixture(records, requests),
+    { ...state.audit, serpApi: first.state },
+    state.publications,
+    { day },
+  )
+  assert.equal(next.detailRequests, 2)
+  assert.equal(requests[1].citation_id, `${PROFILE_ID}:rotate2`)
+  assert.equal(requests[2].citation_id, `${PROFILE_ID}:rotate3`)
+  const before = parseSerpApiList(apiList(records)).rows[0].fingerprint
+  const response = apiList(records)
+  response.articles[0].cited_by = { value: 100000 }
+  assert.equal(parseSerpApiList(response).rows[0].fingerprint, before)
+})
+
+test('SerpApi retrieves changed summaries and details-only metadata while retaining overrides', async () => {
+  const source = record('changes', {
+    verifiedOverrides: {
+      'Publication date': '2026/11',
+      source: 'https://publisher.example/paper',
+    },
+  })
+  const state = snapshot([source])
+  const seeded = await collectSerpApiDetails(
+    apiFixture([source]),
+    state.audit,
+    state.publications,
+    { day },
+  )
+  const changed = {
+    ...source,
+    fields: { ...source.fields, Pages: '10-20', 'Publication date': '2025/12' },
+  }
+  const request = apiFixture([changed])
+  const incoming = await collectSerpApiDetails(
+    request,
+    { ...state.audit, serpApi: seeded.state },
+    state.publications,
+    { day },
+  )
+  const updated = reconcile(
+    state.publications,
+    state.audit,
+    incoming.details,
+    day,
+  )
+  assert.equal(updated.publications[0].year, 2026)
+  assert.equal(updated.publications[0].month, 11)
+  assert.match(updated.publications[0].citation, /10-20/)
+  // Author initials can remain identical; rotating detail refresh still sees
+  // a correction that the list fingerprint cannot represent.
+  const changedAuthor = {
+    ...source,
+    fields: { ...source.fields, Authors: 'Alice Lovelace, Heye Huang*' },
+  }
+  const rotated = await collectSerpApiDetails(
+    apiFixture([changedAuthor]),
+    { ...state.audit, serpApi: seeded.state },
+    state.publications,
+    { day },
+  )
+  assert.equal(rotated.details[0].fields.Authors, changedAuthor.fields.Authors)
+})
+
+test('SerpApi queues excess new details without exposing unverified records and resumes next run', async () => {
+  const old = record('known'),
+    additions = Array.from({ length: 23 }, (_, i) => record(`added${i}`))
+  const state = snapshot([old])
+  const first = await collectSerpApiDetails(
+    apiFixture([old, ...additions]),
+    state.audit,
+    state.publications,
+    { day },
+  )
+  assert.equal(first.detailRequests, 20)
+  assert.equal(first.pendingDetails, 3)
+  assert.equal(first.details.length, 21)
+  const merged = reconcile(state.publications, state.audit, first.details, day)
+  assert.equal(merged.publications.length, 21)
+  const next = await collectSerpApiDetails(
+    apiFixture([old, ...additions]),
+    { ...merged.audit, serpApi: first.state },
+    merged.publications,
+    { day },
+  )
+  assert.equal(next.pendingDetails, 0)
+  assert.equal(next.detailRequests, 5)
+  assert.equal(
+    reconcile(merged.publications, merged.audit, next.details, day).publications
+      .length,
+    24,
+  )
+})
+
+test('SerpApi fails missing known records before detail costs and preserves files after partial API failure', async (t) => {
+  const old = record('known'),
+    fresh = record('fresh')
+  const state = snapshot([old]),
+    requests = []
+  await assert.rejects(
+    () =>
+      collectSerpApiDetails(
+        apiFixture([fresh], requests),
+        state.audit,
+        state.publications,
+        { day },
+      ),
+    /missing/,
+  )
+  assert.equal(requests.length, 1)
+  const files = await fixtureRoot(t, state),
+    before = await files.contents()
+  const request = apiFixture([old, fresh])
+  await assert.rejects(
+    () =>
+      runSync({
+        root: files.root,
+        day,
+        fetchJson: async (parameters) => {
+          if (parameters.citation_id === `${PROFILE_ID}:known`)
+            throw new Error('Provider unavailable')
+          return request(parameters)
+        },
+      }),
+    /unavailable/,
+  )
+  assert.deepEqual(await files.contents(), before)
 })
