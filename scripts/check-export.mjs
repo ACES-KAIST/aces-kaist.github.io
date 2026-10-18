@@ -55,7 +55,9 @@ for (const archive of [
 }
 const photos = JSON.parse(fs.readFileSync('src/data/photos.json', 'utf8'))
 const gallery = fs.readFileSync(path.join(root, 'photo/index.html'), 'utf8')
-const imageCount = [...gallery.matchAll(/<img\b/g)].length
+const imageCount = [
+  ...gallery.matchAll(/<img\b[^>]*\bsrc="[^"]*\/photos\/[^"]+"/g),
+].length
 if (imageCount !== photos.length)
   failures.push(`Photo count: expected ${photos.length}, got ${imageCount}`)
 if (gallery.includes('<figcaption')) failures.push('Unexpected photo caption')

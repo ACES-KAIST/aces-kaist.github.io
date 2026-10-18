@@ -3,6 +3,7 @@ import { mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
+import { newestPhotoFirst, photoDate } from './photo-dates.mjs'
 
 // Run `npm run photos:build`, or pass a source folder as the first argument.
 // Original photos are read only. Sharp applies EXIF orientation and removes
@@ -14,7 +15,7 @@ const manifest = path.join(root, 'src/data/photos.json')
 const descriptions = JSON.parse(
   await readFile(new URL('./photo-descriptions.json', import.meta.url), 'utf8'),
 )
-// This reviewed list controls inclusion and display order. Similar photos were
+// This reviewed list controls inclusion. Similar photos were
 // compared visually; different file hashes alone do not make a photo distinct.
 const selection = JSON.parse(
   await readFile(new URL('./photo-selection.json', import.meta.url), 'utf8'),
@@ -77,6 +78,7 @@ for (const source of sources) {
       console.log(`Not selected: ${id} (${path.relative(input, source)})`)
     continue
   }
+  const capture = photoDate(await sharp(bytes).metadata(), source)
   const variants = []
   for (const width of widths) {
     const filename = `${id}-${width}.webp`
@@ -108,6 +110,7 @@ for (const source of sources) {
     width: largest.width,
     height: largest.height,
     alt: description?.alt || 'Photo from the lab gallery.',
+    ...capture,
     variants,
   })
 }
@@ -115,7 +118,7 @@ for (const source of sources) {
 const missing = selection.filter((id) => !seen.has(id))
 if (missing.length)
   throw new Error(`Selected source photos are missing: ${missing.join(', ')}`)
-photos.sort((a, b) => selection.indexOf(a.id) - selection.indexOf(b.id))
+photos.sort(newestPhotoFirst)
 // Remove only assets created by this script that are no longer in the manifest.
 for (const filename of await readdir(output)) {
   if (

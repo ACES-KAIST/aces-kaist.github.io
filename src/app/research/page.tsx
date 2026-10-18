@@ -1,5 +1,4 @@
 import { Container } from '@/components/container'
-import { DataFlywheel } from '@/components/data-flywheel'
 import { EmbodiedAgentLoop } from '@/components/embodied-agent-loop'
 import { Footer } from '@/components/footer'
 import { GradientBackground } from '@/components/gradient'
@@ -19,31 +18,6 @@ export const metadata: Metadata = {
 
 type Paper = { title: string; venue: string; year: string }
 
-function MediaCredit({
-  children,
-  dark = false,
-}: {
-  children: ReactNode
-  dark?: boolean
-}) {
-  return (
-    <figcaption
-      className={`mt-3 text-xs/5 ${dark ? 'text-gray-400' : 'text-gray-500'}`}
-    >
-      {children}{' '}
-      <a
-        href="https://stanfordasl.github.io/research/"
-        target="_blank"
-        rel="noreferrer"
-        className="underline underline-offset-2"
-      >
-        Stanford ASL
-      </a>
-      . Shown as an illustration, not an ACES Lab result.
-    </figcaption>
-  )
-}
-
 function ResearchSection({
   id,
   index,
@@ -51,7 +25,6 @@ function ResearchSection({
   description,
   papers,
   graphic,
-  credit,
   dark = false,
   reverse = false,
 }: {
@@ -61,7 +34,6 @@ function ResearchSection({
   description: ReactNode
   papers: Paper[]
   graphic: ReactNode
-  credit: string
   dark?: boolean
   reverse?: boolean
 }) {
@@ -69,10 +41,7 @@ function ResearchSection({
     <section id={id} className="scroll-mt-8">
       <Container className="py-24 sm:py-28">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <figure className={reverse ? 'lg:order-2' : ''}>
-            {graphic}
-            <MediaCredit dark={dark}>{credit}</MediaCredit>
-          </figure>
+          <figure className={reverse ? 'lg:order-2' : ''}>{graphic}</figure>
           <div className={reverse ? 'lg:order-1' : ''}>
             <Subheading as="div" dark={dark}>
               Research {index}
@@ -155,9 +124,6 @@ export default function Research() {
               robotics. Our work connects risk perception, generative models,
               and agents that reason and act under uncertainty.
             </p>
-            <p className="mt-6 text-xs text-gray-300">
-              Background image: Stanford ASL.
-            </p>
           </div>
         </div>
       </Container>
@@ -183,24 +149,29 @@ export default function Research() {
           {
             title:
               'RiskNet: Interaction-Aware Risk Forecasting for Autonomous Driving in Long-Tail Scenarios',
-            venue: 'Transportation Research Part E: Logistics and Transportation Review',
+            venue:
+              'Transportation Research Part E: Logistics and Transportation Review',
             year: '2026',
           },
         ]}
         graphic={
-          <div
-            className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/10"
-            style={{ aspectRatio: '2000/1513' }}
-          >
-            <img
-              alt="Stanford ASL illustration of robots identifying hazards and safe landing sites."
-              src={assetPath('/visual-highlights/thrust3-safety.jpg')}
-              className="h-full w-full object-cover"
-              loading="lazy"
+          <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/10">
+            {/* Source: https://huangheye.github.io/assets/publications/thumbs/lead.mp4 */}
+            <video
+              src={`${assetPath('/aces/research/lead.mp4')}#t=8`}
+              poster={assetPath('/aces/publications/lead.webp')}
+              aria-label="LEAD: adaptive decision-making for autonomous driving in dynamic environments."
+              width={620}
+              height={368}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="h-auto w-full"
             />
           </div>
         }
-        credit="Safety illustration from"
       />
 
       <div
@@ -229,18 +200,25 @@ export default function Research() {
             {
               title:
                 'Learning from Risk: LLM-Guided Generation of Safety-Critical Scenarios with Prior Knowledge',
-              venue: 'Preprint',
+              venue:
+                'Transportation Research Part E: Logistics and Transportation Review',
               year: '2026',
             },
           ]}
           dark
           reverse
           graphic={
-            <div className="aspect-square overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10">
-              <DataFlywheel className="h-full w-full origin-center scale-[0.92]" />
+            <div className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-white/10">
+              <img
+                src={assetPath(
+                  '/aces/publications/risk-controllable-diffusion.webp',
+                )}
+                alt="Risk-controllable multi-view diffusion for driving scenario generation."
+                className="h-auto w-full"
+                loading="lazy"
+              />
             </div>
           }
-          credit="Animated illustration of robot data collection and policy updates from"
         />
       </div>
 
@@ -265,7 +243,7 @@ export default function Research() {
           },
           {
             title:
-              'RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making',
+              'RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making in Autonomous Driving',
             venue: 'Communications in Transportation Research',
             year: '2026',
           },
@@ -275,7 +253,6 @@ export default function Research() {
             <EmbodiedAgentLoop />
           </div>
         }
-        credit="Animated illustration of perception, reasoning, and action from"
       />
       <Footer />
     </main>

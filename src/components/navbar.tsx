@@ -17,7 +17,7 @@ const links = [
   { href: '/hardware', label: 'Hardware' },
   { href: '/publications', label: 'Publications' },
   { href: '/team', label: 'Team' },
-  { href: '/photo', label: 'Photo' },
+  { href: '/photo', label: 'Photos' },
   { href: '/faq', label: 'Join' },
   { href: '/contact', label: 'Contact Us' },
 ]
@@ -30,7 +30,7 @@ function DesktopNav({
   showHomeShortcut?: boolean
 }) {
   return (
-    <nav className="relative hidden lg:flex">
+    <nav className="relative hidden xl:flex">
       {showHomeShortcut && (
         <PlusGridItem className="relative flex">
           <Link
@@ -64,7 +64,7 @@ function DesktopNav({
 function MobileNavButton({ isLight = false }: { isLight?: boolean }) {
   return (
     <DisclosureButton
-      className={`flex size-12 items-center justify-center self-center rounded-lg lg:hidden ${
+      className={`flex size-12 items-center justify-center self-center rounded-lg xl:hidden ${
         isLight ? '' : 'data-hover:bg-black/5'
       }`}
       aria-label="Open main menu"
@@ -91,7 +91,7 @@ function MobileNav({
     : links.map((item) => ({ ...item, iconOnly: false }))
 
   return (
-    <DisclosurePanel className="lg:hidden">
+    <DisclosurePanel className="xl:hidden">
       <div className="flex flex-col gap-6 py-4">
         {mobileLinks.map(({ href, label, iconOnly }, linkIndex) => (
           <motion.div

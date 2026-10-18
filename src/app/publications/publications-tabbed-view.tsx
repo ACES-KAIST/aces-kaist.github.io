@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Publication, PublicationSection } from '@/lib/publications'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
 function groupByYear(items: Publication[]) {
   const groups = new Map<string, Publication[]>()
@@ -22,151 +22,153 @@ function toYearAnchorId(sectionKey: string, yearLabel: string) {
   return `${sectionKey}-year-${slug || 'unknown'}`
 }
 
-function findTopLevelDelimiter(text: string, delimiter: string): number {
-  let depth = 0
-  let inQuote = false
-  let escaped = false
-
-  for (let i = 0; i < text.length; i += 1) {
-    const ch = text[i]
-    if (inQuote) {
-      if (escaped) {
-        escaped = false
-      } else if (ch === '\\') {
-        escaped = true
-      } else if (ch === '"') {
-        inQuote = false
-      }
-      continue
-    }
-
-    if (ch === '"') {
-      inQuote = true
-      continue
-    }
-    if (ch === '{') {
-      depth += 1
-      continue
-    }
-    if (ch === '}') {
-      if (depth > 0) depth -= 1
-      continue
-    }
-    if (ch === delimiter && depth === 0) {
-      return i
-    }
-  }
-
-  return -1
-}
-
-function splitTopLevel(text: string, delimiter: string): string[] {
-  const parts: string[] = []
-  let start = 0
-
-  while (start <= text.length) {
-    const relative = findTopLevelDelimiter(text.slice(start), delimiter)
-    if (relative === -1) {
-      parts.push(text.slice(start))
-      break
-    }
-    const end = start + relative
-    parts.push(text.slice(start, end))
-    start = end + 1
-  }
-
-  return parts
-}
-
-function fieldName(segment: string): string {
-  const trimmed = segment.trimStart()
-  let i = 0
-  while (i < trimmed.length && /[A-Za-z0-9_-]/.test(trimmed[i])) {
-    i += 1
-  }
-  return trimmed.slice(0, i).toLowerCase()
-}
-
-function stripBibtexField(raw: string, targetField: string): string {
-  const text = raw.trim()
-  if (!text.startsWith('@')) return raw
-
-  const openIdx = text.search(/[({]/)
-  if (openIdx === -1) return raw
-
-  const open = text[openIdx]
-  const close = open === '{' ? '}' : ')'
-
-  let closeIdx = -1
-  let depth = 0
-  let inQuote = false
-  let escaped = false
-  for (let i = openIdx; i < text.length; i += 1) {
-    const ch = text[i]
-    if (inQuote) {
-      if (escaped) escaped = false
-      else if (ch === '\\') escaped = true
-      else if (ch === '"') inQuote = false
-      continue
-    }
-
-    if (ch === '"') {
-      inQuote = true
-      continue
-    }
-    if (ch === open) {
-      depth += 1
-    } else if (ch === close) {
-      depth -= 1
-      if (depth === 0) {
-        closeIdx = i
-        break
-      }
-    }
-  }
-  if (closeIdx === -1) return raw
-
-  const body = text.slice(openIdx + 1, closeIdx)
-  const keyComma = findTopLevelDelimiter(body, ',')
-  if (keyComma === -1) return raw
-
-  const key = body.slice(0, keyComma)
-  const fieldsBody = body.slice(keyComma + 1)
-  const kept = splitTopLevel(fieldsBody, ',').filter(
-    (segment) => fieldName(segment) !== targetField.toLowerCase(),
+function CitationIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="size-4"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+    </svg>
   )
-
-  const rebuiltBody = key + (kept.length > 0 ? `,${kept.join(',')}` : '')
-  return `${text.slice(0, openIdx + 1)}${rebuiltBody}${text.slice(closeIdx)}`
 }
 
-function displayBibtex(raw: string) {
-  return stripBibtexField(raw, 'abstract')
+function AbstractIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="size-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <path d="M8 13h8M8 17h8M8 9h2" />
+    </svg>
+  )
 }
 
-function PublicationDisclosure({
-  label,
-  icon,
-  children,
-}: {
-  label: string
-  icon: React.ReactNode
-  children: React.ReactNode
-}) {
+function CodeIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="size-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" />
+    </svg>
+  )
+}
+
+function PublicationActions({ item }: { item: Publication }) {
   const [open, setOpen] = useState(false)
+  const [copyStatus, setCopyStatus] = useState('')
+  const panelId = useId()
+  const iconClass =
+    'inline-flex size-8 items-center justify-center rounded text-gray-400 transition hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500'
+  const abstractUrl = item.abstractUrl || item.url
+  const abstractLabel = item.abstractAvailable
+    ? 'Read abstract'
+    : 'Publication details'
+
+  async function copy(text: string, label: string) {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopyStatus(`${label} copied.`)
+    } catch {
+      setCopyStatus('Copy is unavailable. Select and copy the text below.')
+    }
+  }
 
   return (
-    <div>
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        title={label}
-        className="cursor-pointer text-gray-400 transition hover:text-gray-900"
+    <div className="mt-1">
+      <div className="-ml-2 flex items-center gap-1">
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-label={`Citation for ${item.title}`}
+          aria-expanded={open}
+          aria-controls={panelId}
+          title="Citation"
+          className={`${iconClass} cursor-pointer`}
+        >
+          <CitationIcon />
+        </button>
+        {abstractUrl && (
+          <a
+            href={abstractUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${abstractLabel} for ${item.title} (opens in a new tab)`}
+            title={abstractLabel}
+            className={iconClass}
+          >
+            <AbstractIcon />
+          </a>
+        )}
+        {item.codeUrl && (
+          <a
+            href={item.codeUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Code for ${item.title} (opens in a new tab)`}
+            title="Code"
+            className={iconClass}
+          >
+            <CodeIcon />
+          </a>
+        )}
+      </div>
+      <div
+        id={panelId}
+        hidden={!open}
+        className="mt-2 rounded-lg border border-gray-200 bg-gray-50 p-4"
       >
-        {icon}
-      </button>
-      {open ? children : null}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h4 className="text-xs font-semibold text-gray-700">Citation</h4>
+          <button
+            type="button"
+            onClick={() => copy(item.citation, 'Citation')}
+            className="cursor-pointer text-xs text-gray-600 underline underline-offset-2 hover:text-gray-950"
+          >
+            Copy citation
+          </button>
+        </div>
+        <p className="mt-2 text-sm/6 text-gray-700 select-text">
+          {item.citation}
+        </p>
+        {item.bibtex && (
+          <>
+            <div className="mt-4 flex items-center justify-between gap-2">
+              <h4 className="text-xs font-semibold text-gray-700">BibTeX</h4>
+              <button
+                type="button"
+                onClick={() => copy(item.bibtex!, 'BibTeX')}
+                className="cursor-pointer text-xs text-gray-600 underline underline-offset-2 hover:text-gray-950"
+              >
+                Copy BibTeX
+              </button>
+            </div>
+            <pre className="mt-2 max-h-64 overflow-auto text-[11px]/5 break-words whitespace-pre-wrap text-gray-700">
+              {item.bibtex}
+            </pre>
+          </>
+        )}
+        <p role="status" className="mt-2 min-h-4 text-xs text-gray-500">
+          {copyStatus}
+        </p>
+      </div>
     </div>
   )
 }
@@ -179,7 +181,7 @@ function SectionContent({ section }: { section: PublicationSection }) {
   const renderStatus = (item: Publication) => {
     if (!item.status) return null
     return (
-      <span className="ml-2 text-base font-normal italic text-gray-600">
+      <span className="ml-2 text-base font-normal text-gray-600 italic">
         ({item.status})
       </span>
     )
@@ -222,7 +224,7 @@ function SectionContent({ section }: { section: PublicationSection }) {
               className="sticky top-[4.5rem] z-10 scroll-mt-[4.5rem] bg-white"
             >
               <div className="flex items-center gap-4 px-6 py-3.5 sm:px-8">
-                <h3 className="shrink-0 text-[13px] font-bold tabular-nums tracking-wide text-gray-950">
+                <h3 className="shrink-0 text-[13px] font-bold tracking-wide text-gray-950 tabular-nums">
                   {year}
                 </h3>
                 <div className="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent" />
@@ -238,48 +240,12 @@ function SectionContent({ section }: { section: PublicationSection }) {
                     {item.authorsDisplay}
                     {item.venue ? ` · ${item.venue}` : ''}
                   </p>
-                  {item.note && <p className="mt-1 text-sm/6 font-medium text-gray-600">{item.note}</p>}
-                  {item.codeUrl && (
-                    <a href={item.codeUrl} target="_blank" rel="noreferrer" className="mt-1 inline-block text-sm text-gray-500 underline underline-offset-2 hover:text-gray-900" aria-label={`Code for ${item.title}`}>
-                      Code
-                    </a>
+                  {item.note && (
+                    <p className="mt-1 text-sm/6 font-medium text-gray-700">
+                      {item.note}
+                    </p>
                   )}
-                  {(item.bibtex || item.abstract) && (
-                    <div className="mt-1 flex flex-wrap items-start gap-x-3 gap-y-2">
-                      {item.bibtex && (
-                        <PublicationDisclosure
-                          label="BibTeX"
-                          icon={
-                            <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                          }
-                        >
-                          <pre className="mt-2 max-h-56 overflow-auto rounded-lg border border-gray-200 bg-gray-50 p-3 text-[11px] leading-relaxed text-gray-700">
-                            {displayBibtex(item.bibtex)}
-                          </pre>
-                        </PublicationDisclosure>
-                      )}
-                      {item.abstract && (
-                        <PublicationDisclosure
-                          label="Abstract"
-                          icon={
-                            <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                              <polyline points="14 2 14 8 20 8" />
-                              <line x1="16" y1="13" x2="8" y2="13" />
-                              <line x1="16" y1="17" x2="8" y2="17" />
-                              <line x1="10" y1="9" x2="8" y2="9" />
-                            </svg>
-                          }
-                        >
-                          <p className="mt-2 max-w-3xl rounded-lg border border-gray-200 bg-gray-50 p-3 text-[11px] leading-relaxed text-gray-700">
-                            {item.abstract}
-                          </p>
-                        </PublicationDisclosure>
-                      )}
-                    </div>
-                  )}
+                  <PublicationActions item={item} />
                 </li>
               ))}
             </ul>
@@ -344,9 +310,7 @@ function TabBar({
             aria-selected={isActive}
             onClick={() => onTabClick(section.key)}
             className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 ${
-              isActive
-                ? 'text-gray-950'
-                : 'text-gray-500 hover:text-gray-700'
+              isActive ? 'text-gray-950' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
             {section.title}
@@ -392,9 +356,7 @@ export function PublicationsTabbedView({
   return (
     <>
       {/* Sticky tab bar */}
-      <div
-        className="sticky top-0 z-20 -mx-6 bg-white px-6 lg:-mx-8 lg:px-8"
-      >
+      <div className="sticky top-0 z-20 -mx-6 bg-white px-6 lg:-mx-8 lg:px-8">
         <div className="flex justify-center py-4">
           <TabBar
             sections={sections}

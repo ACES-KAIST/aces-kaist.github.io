@@ -1,124 +1,16 @@
 [
   {
-    "id": "ee54d57103389335",
-    "src": "/photos/ee54d57103389335-960.webp",
-    "width": 960,
-    "height": 764,
-    "alt": "A group poses in front of an Autonomous Robotics conference backdrop.",
-    "variants": [
-      {
-        "src": "/photos/ee54d57103389335-480.webp",
-        "width": 480,
-        "height": 382
-      },
-      {
-        "src": "/photos/ee54d57103389335-960.webp",
-        "width": 960,
-        "height": 764
-      }
-    ]
-  },
-  {
-    "id": "fb475383343998af",
-    "src": "/photos/fb475383343998af-960.webp",
-    "width": 960,
-    "height": 1130,
-    "alt": "A presenter discusses a research poster with visitors.",
-    "variants": [
-      {
-        "src": "/photos/fb475383343998af-480.webp",
-        "width": 480,
-        "height": 564
-      },
-      {
-        "src": "/photos/fb475383343998af-960.webp",
-        "width": 960,
-        "height": 1130
-      }
-    ]
-  },
-  {
-    "id": "0395aa4a5c06217e",
-    "src": "/photos/0395aa4a5c06217e-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A group gives thumbs-up beside a birthday cake.",
-    "variants": [
-      {
-        "src": "/photos/0395aa4a5c06217e-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/0395aa4a5c06217e-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "06ed2b7ee56249bd",
-    "src": "/photos/06ed2b7ee56249bd-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A group poses together during a restaurant meal.",
-    "variants": [
-      {
-        "src": "/photos/06ed2b7ee56249bd-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/06ed2b7ee56249bd-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "704e04e39408b927",
-    "src": "/photos/704e04e39408b927-960.webp",
-    "width": 960,
-    "height": 550,
-    "alt": "A person stands on a mountain trail surrounded by autumn trees.",
-    "variants": [
-      {
-        "src": "/photos/704e04e39408b927-480.webp",
-        "width": 480,
-        "height": 275
-      },
-      {
-        "src": "/photos/704e04e39408b927-960.webp",
-        "width": 960,
-        "height": 550
-      }
-    ]
-  },
-  {
-    "id": "5c602f856e18eb3a",
-    "src": "/photos/5c602f856e18eb3a-960.webp",
-    "width": 960,
-    "height": 723,
-    "alt": "A group stands together at an indoor celebration.",
-    "variants": [
-      {
-        "src": "/photos/5c602f856e18eb3a-480.webp",
-        "width": 480,
-        "height": 361
-      },
-      {
-        "src": "/photos/5c602f856e18eb3a-960.webp",
-        "width": 960,
-        "height": 723
-      }
-    ]
-  },
-  {
     "id": "9ad26ae4e4ef4b5f",
     "src": "/photos/9ad26ae4e4ef4b5f-960.webp",
     "width": 960,
     "height": 1094,
     "alt": "A group of conference attendees poses for a photograph.",
+    "capturedAt": "2026-10-16T10:41:35.495+09:00",
+    "dateSource": {
+      "kind": "filename",
+      "field": "MEITU_20261016_104135495",
+      "timeZone": "OffsetTimeOriginal"
+    },
     "variants": [
       {
         "src": "/photos/9ad26ae4e4ef4b5f-480.webp",
@@ -133,391 +25,17 @@
     ]
   },
   {
-    "id": "f2114b438277e37f",
-    "src": "/photos/f2114b438277e37f-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A group poses around a table during a restaurant meal.",
-    "variants": [
-      {
-        "src": "/photos/f2114b438277e37f-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/f2114b438277e37f-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "cb47f1a98bc96d58",
-    "src": "/photos/cb47f1a98bc96d58-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A group raises glasses over a restaurant table.",
-    "variants": [
-      {
-        "src": "/photos/cb47f1a98bc96d58-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/cb47f1a98bc96d58-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "3ee7903bd7bab603",
-    "src": "/photos/3ee7903bd7bab603-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A shared meal cooking on a tabletop grill.",
-    "variants": [
-      {
-        "src": "/photos/3ee7903bd7bab603-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/3ee7903bd7bab603-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "00497a615fb80770",
-    "src": "/photos/00497a615fb80770-960.webp",
-    "width": 960,
-    "height": 723,
-    "alt": "A group sits around a table at a restaurant.",
-    "variants": [
-      {
-        "src": "/photos/00497a615fb80770-480.webp",
-        "width": 480,
-        "height": 361
-      },
-      {
-        "src": "/photos/00497a615fb80770-960.webp",
-        "width": 960,
-        "height": 723
-      }
-    ]
-  },
-  {
-    "id": "d8229623c5570780",
-    "src": "/photos/d8229623c5570780-960.webp",
-    "width": 960,
-    "height": 1280,
-    "alt": "A person wearing a party hat smiles behind a birthday cake.",
-    "variants": [
-      {
-        "src": "/photos/d8229623c5570780-480.webp",
-        "width": 480,
-        "height": 640
-      },
-      {
-        "src": "/photos/d8229623c5570780-960.webp",
-        "width": 960,
-        "height": 1280
-      }
-    ]
-  },
-  {
-    "id": "4c893d41d91be95f",
-    "src": "/photos/4c893d41d91be95f-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A collection of colorful small bags and pouches.",
-    "variants": [
-      {
-        "src": "/photos/4c893d41d91be95f-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/4c893d41d91be95f-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "f5ebc95a33cec15b",
-    "src": "/photos/f5ebc95a33cec15b-960.webp",
-    "width": 960,
-    "height": 1280,
-    "alt": "A bouquet of white and yellow flowers.",
-    "variants": [
-      {
-        "src": "/photos/f5ebc95a33cec15b-480.webp",
-        "width": 480,
-        "height": 640
-      },
-      {
-        "src": "/photos/f5ebc95a33cec15b-960.webp",
-        "width": 960,
-        "height": 1280
-      }
-    ]
-  },
-  {
-    "id": "137f83327d19a8d1",
-    "src": "/photos/137f83327d19a8d1-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A framed group photograph next to a handwritten card.",
-    "variants": [
-      {
-        "src": "/photos/137f83327d19a8d1-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/137f83327d19a8d1-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "7d50a0a1b53e6ef2",
-    "src": "/photos/7d50a0a1b53e6ef2-960.webp",
-    "width": 960,
-    "height": 620,
-    "alt": "A group poses behind a person holding a bouquet.",
-    "variants": [
-      {
-        "src": "/photos/7d50a0a1b53e6ef2-480.webp",
-        "width": 480,
-        "height": 310
-      },
-      {
-        "src": "/photos/7d50a0a1b53e6ef2-960.webp",
-        "width": 960,
-        "height": 620
-      }
-    ]
-  },
-  {
-    "id": "0534e78144809d36",
-    "src": "/photos/0534e78144809d36-960.webp",
-    "width": 960,
-    "height": 635,
-    "alt": "A group shares cake at a meeting table.",
-    "variants": [
-      {
-        "src": "/photos/0534e78144809d36-480.webp",
-        "width": 480,
-        "height": 317
-      },
-      {
-        "src": "/photos/0534e78144809d36-960.webp",
-        "width": 960,
-        "height": 635
-      }
-    ]
-  },
-  {
-    "id": "874d3fa094eb7379",
-    "src": "/photos/874d3fa094eb7379-960.webp",
-    "width": 960,
-    "height": 723,
-    "alt": "People watch a game at an arcade.",
-    "variants": [
-      {
-        "src": "/photos/874d3fa094eb7379-480.webp",
-        "width": 480,
-        "height": 361
-      },
-      {
-        "src": "/photos/874d3fa094eb7379-960.webp",
-        "width": 960,
-        "height": 723
-      }
-    ]
-  },
-  {
-    "id": "91a6ef45604e3f0e",
-    "src": "/photos/91a6ef45604e3f0e-960.webp",
-    "width": 960,
-    "height": 1275,
-    "alt": "A large yellow character figure inside an arcade.",
-    "variants": [
-      {
-        "src": "/photos/91a6ef45604e3f0e-480.webp",
-        "width": 480,
-        "height": 638
-      },
-      {
-        "src": "/photos/91a6ef45604e3f0e-960.webp",
-        "width": 960,
-        "height": 1275
-      }
-    ]
-  },
-  {
-    "id": "6fd6bd44aa46e266",
-    "src": "/photos/6fd6bd44aa46e266-960.webp",
-    "width": 960,
-    "height": 1280,
-    "alt": "A group plays an arcade game under purple lights.",
-    "variants": [
-      {
-        "src": "/photos/6fd6bd44aa46e266-480.webp",
-        "width": 480,
-        "height": 640
-      },
-      {
-        "src": "/photos/6fd6bd44aa46e266-960.webp",
-        "width": 960,
-        "height": 1280
-      }
-    ]
-  },
-  {
-    "id": "f3c43378d4ebfaf7",
-    "src": "/photos/f3c43378d4ebfaf7-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A group poses around a restaurant table.",
-    "variants": [
-      {
-        "src": "/photos/f3c43378d4ebfaf7-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/f3c43378d4ebfaf7-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "36f568af0158f000",
-    "src": "/photos/36f568af0158f000-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A conference attendee gestures toward an Autonomous Robotics sign.",
-    "variants": [
-      {
-        "src": "/photos/36f568af0158f000-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/36f568af0158f000-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "9cf5f1842db29555",
-    "src": "/photos/9cf5f1842db29555-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A conference attendee poses in front of an Autonomous Robotics backdrop.",
-    "variants": [
-      {
-        "src": "/photos/9cf5f1842db29555-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/9cf5f1842db29555-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "b65b64a82b3500a2",
-    "src": "/photos/b65b64a82b3500a2-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A conference attendee poses by an Autonomous Robotics sign.",
-    "variants": [
-      {
-        "src": "/photos/b65b64a82b3500a2-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/b65b64a82b3500a2-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "65c92447912de8b8",
-    "src": "/photos/65c92447912de8b8-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "A conference attendee gives two thumbs-up beside a conference backdrop.",
-    "variants": [
-      {
-        "src": "/photos/65c92447912de8b8-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/65c92447912de8b8-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
-    "id": "ab2acf3d3cfb6964",
-    "src": "/photos/ab2acf3d3cfb6964-960.webp",
-    "width": 960,
-    "height": 1280,
-    "alt": "A conference attendee poses in front of an Autonomous Robotics backdrop.",
-    "variants": [
-      {
-        "src": "/photos/ab2acf3d3cfb6964-480.webp",
-        "width": 480,
-        "height": 640
-      },
-      {
-        "src": "/photos/ab2acf3d3cfb6964-960.webp",
-        "width": 960,
-        "height": 1280
-      }
-    ]
-  },
-  {
-    "id": "6bdb60cc9dffbe35",
-    "src": "/photos/6bdb60cc9dffbe35-960.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Two conference attendees pose together in an auditorium.",
-    "variants": [
-      {
-        "src": "/photos/6bdb60cc9dffbe35-480.webp",
-        "width": 480,
-        "height": 360
-      },
-      {
-        "src": "/photos/6bdb60cc9dffbe35-960.webp",
-        "width": 960,
-        "height": 720
-      }
-    ]
-  },
-  {
     "id": "5477e31506df1033",
     "src": "/photos/5477e31506df1033-960.webp",
     "width": 960,
     "height": 720,
     "alt": "Two conference attendees pose in front of a stage.",
+    "capturedAt": "2026-10-15T17:25:34.134+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
     "variants": [
       {
         "src": "/photos/5477e31506df1033-480.webp",
@@ -532,11 +50,67 @@
     ]
   },
   {
+    "id": "6bdb60cc9dffbe35",
+    "src": "/photos/6bdb60cc9dffbe35-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Two conference attendees pose together in an auditorium.",
+    "capturedAt": "2026-10-15T17:19:52.007+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/6bdb60cc9dffbe35-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/6bdb60cc9dffbe35-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "ee54d57103389335",
+    "src": "/photos/ee54d57103389335-960.webp",
+    "width": 960,
+    "height": 764,
+    "alt": "A group poses in front of an Autonomous Robotics conference backdrop.",
+    "capturedAt": "2026-10-15T14:35:24.533+09:00",
+    "dateSource": {
+      "kind": "filename",
+      "field": "MEITU_20261015_143524533",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/ee54d57103389335-480.webp",
+        "width": 480,
+        "height": 382
+      },
+      {
+        "src": "/photos/ee54d57103389335-960.webp",
+        "width": 960,
+        "height": 764
+      }
+    ]
+  },
+  {
     "id": "af2f4eeb1a26a50a",
     "src": "/photos/af2f4eeb1a26a50a-960.webp",
     "width": 960,
     "height": 1280,
     "alt": "A presenter stands beside a research poster.",
+    "capturedAt": "2026-10-15T13:43:18.887+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
     "variants": [
       {
         "src": "/photos/af2f4eeb1a26a50a-480.webp",
@@ -551,11 +125,591 @@
     ]
   },
   {
+    "id": "ab2acf3d3cfb6964",
+    "src": "/photos/ab2acf3d3cfb6964-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "A conference attendee poses in front of an Autonomous Robotics backdrop.",
+    "capturedAt": "2026-10-15T12:46:22.954+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/ab2acf3d3cfb6964-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/photos/ab2acf3d3cfb6964-960.webp",
+        "width": 960,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "id": "65c92447912de8b8",
+    "src": "/photos/65c92447912de8b8-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A conference attendee gives two thumbs-up beside a conference backdrop.",
+    "capturedAt": "2026-10-15T12:40:17.591+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/65c92447912de8b8-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/65c92447912de8b8-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "b65b64a82b3500a2",
+    "src": "/photos/b65b64a82b3500a2-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A conference attendee poses by an Autonomous Robotics sign.",
+    "capturedAt": "2026-10-15T12:40:06.441+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/b65b64a82b3500a2-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/b65b64a82b3500a2-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "9cf5f1842db29555",
+    "src": "/photos/9cf5f1842db29555-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A conference attendee poses in front of an Autonomous Robotics backdrop.",
+    "capturedAt": "2026-10-15T12:39:44.291+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/9cf5f1842db29555-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/9cf5f1842db29555-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "36f568af0158f000",
+    "src": "/photos/36f568af0158f000-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A conference attendee gestures toward an Autonomous Robotics sign.",
+    "capturedAt": "2026-10-15T12:39:10.480+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/36f568af0158f000-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/36f568af0158f000-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "fb475383343998af",
+    "src": "/photos/fb475383343998af-960.webp",
+    "width": 960,
+    "height": 1130,
+    "alt": "A presenter discusses a research poster with visitors.",
+    "capturedAt": "2026-10-14T14:11:30.551+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/fb475383343998af-480.webp",
+        "width": 480,
+        "height": 564
+      },
+      {
+        "src": "/photos/fb475383343998af-960.webp",
+        "width": 960,
+        "height": 1130
+      }
+    ]
+  },
+  {
+    "id": "f3c43378d4ebfaf7",
+    "src": "/photos/f3c43378d4ebfaf7-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A group poses around a restaurant table.",
+    "capturedAt": "2026-10-12T18:16:10.163+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/f3c43378d4ebfaf7-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/f3c43378d4ebfaf7-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "6fd6bd44aa46e266",
+    "src": "/photos/6fd6bd44aa46e266-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "A group plays an arcade game under purple lights.",
+    "capturedAt": "2026-09-27T20:36:35.025+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/6fd6bd44aa46e266-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/photos/6fd6bd44aa46e266-960.webp",
+        "width": 960,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "id": "91a6ef45604e3f0e",
+    "src": "/photos/91a6ef45604e3f0e-960.webp",
+    "width": 960,
+    "height": 1275,
+    "alt": "A large yellow character figure inside an arcade.",
+    "capturedAt": "2026-09-27T20:21:00.681+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/91a6ef45604e3f0e-480.webp",
+        "width": 480,
+        "height": 638
+      },
+      {
+        "src": "/photos/91a6ef45604e3f0e-960.webp",
+        "width": 960,
+        "height": 1275
+      }
+    ]
+  },
+  {
+    "id": "874d3fa094eb7379",
+    "src": "/photos/874d3fa094eb7379-960.webp",
+    "width": 960,
+    "height": 723,
+    "alt": "People watch a game at an arcade.",
+    "capturedAt": "2026-09-27T20:20:34.134+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/874d3fa094eb7379-480.webp",
+        "width": 480,
+        "height": 361
+      },
+      {
+        "src": "/photos/874d3fa094eb7379-960.webp",
+        "width": 960,
+        "height": 723
+      }
+    ]
+  },
+  {
+    "id": "f2114b438277e37f",
+    "src": "/photos/f2114b438277e37f-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A group poses around a table during a restaurant meal.",
+    "capturedAt": "2026-09-18T18:58:32.296+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/f2114b438277e37f-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/f2114b438277e37f-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "5c602f856e18eb3a",
+    "src": "/photos/5c602f856e18eb3a-960.webp",
+    "width": 960,
+    "height": 723,
+    "alt": "A group stands together at an indoor celebration.",
+    "capturedAt": "2026-09-12T20:02:52.785+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/5c602f856e18eb3a-480.webp",
+        "width": 480,
+        "height": 361
+      },
+      {
+        "src": "/photos/5c602f856e18eb3a-960.webp",
+        "width": 960,
+        "height": 723
+      }
+    ]
+  },
+  {
+    "id": "06ed2b7ee56249bd",
+    "src": "/photos/06ed2b7ee56249bd-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A group poses together during a restaurant meal.",
+    "capturedAt": "2026-09-12T10:51:46.181+09:00",
+    "dateSource": {
+      "kind": "filename",
+      "field": "MEITU_20260912_105146181",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/06ed2b7ee56249bd-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/06ed2b7ee56249bd-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "7d50a0a1b53e6ef2",
+    "src": "/photos/7d50a0a1b53e6ef2-960.webp",
+    "width": 960,
+    "height": 620,
+    "alt": "A group poses behind a person holding a bouquet.",
+    "capturedAt": "2026-09-09T22:26:38+09:00",
+    "dateSource": {
+      "kind": "filename",
+      "field": "IMG_20260909_222638",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/7d50a0a1b53e6ef2-480.webp",
+        "width": 480,
+        "height": 310
+      },
+      {
+        "src": "/photos/7d50a0a1b53e6ef2-960.webp",
+        "width": 960,
+        "height": 620
+      }
+    ]
+  },
+  {
+    "id": "137f83327d19a8d1",
+    "src": "/photos/137f83327d19a8d1-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A framed group photograph next to a handwritten card.",
+    "capturedAt": "2026-09-09T20:59:43.938+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/137f83327d19a8d1-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/137f83327d19a8d1-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "f5ebc95a33cec15b",
+    "src": "/photos/f5ebc95a33cec15b-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "A bouquet of white and yellow flowers.",
+    "capturedAt": "2026-09-09T20:35:58.800+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/f5ebc95a33cec15b-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/photos/f5ebc95a33cec15b-960.webp",
+        "width": 960,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "id": "0534e78144809d36",
+    "src": "/photos/0534e78144809d36-960.webp",
+    "width": 960,
+    "height": 635,
+    "alt": "A group shares cake at a meeting table.",
+    "capturedAt": "2026-09-09T19:48:45.643+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/0534e78144809d36-480.webp",
+        "width": 480,
+        "height": 317
+      },
+      {
+        "src": "/photos/0534e78144809d36-960.webp",
+        "width": 960,
+        "height": 635
+      }
+    ]
+  },
+  {
+    "id": "0395aa4a5c06217e",
+    "src": "/photos/0395aa4a5c06217e-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A group gives thumbs-up beside a birthday cake.",
+    "capturedAt": "2026-08-31T21:14:47.646+09:00",
+    "dateSource": {
+      "kind": "filename",
+      "field": "MEITU_20260831_211447646",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/0395aa4a5c06217e-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/0395aa4a5c06217e-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "4c893d41d91be95f",
+    "src": "/photos/4c893d41d91be95f-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A collection of colorful small bags and pouches.",
+    "capturedAt": "2026-08-31T21:04:18.868+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/4c893d41d91be95f-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/4c893d41d91be95f-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "d8229623c5570780",
+    "src": "/photos/d8229623c5570780-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "A person wearing a party hat smiles behind a birthday cake.",
+    "capturedAt": "2026-08-31T20:21:05.498+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/d8229623c5570780-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/photos/d8229623c5570780-960.webp",
+        "width": 960,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "id": "00497a615fb80770",
+    "src": "/photos/00497a615fb80770-960.webp",
+    "width": 960,
+    "height": 723,
+    "alt": "A group sits around a table at a restaurant.",
+    "capturedAt": "2026-08-31T18:48:33.802+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/00497a615fb80770-480.webp",
+        "width": 480,
+        "height": 361
+      },
+      {
+        "src": "/photos/00497a615fb80770-960.webp",
+        "width": 960,
+        "height": 723
+      }
+    ]
+  },
+  {
+    "id": "3ee7903bd7bab603",
+    "src": "/photos/3ee7903bd7bab603-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A shared meal cooking on a tabletop grill.",
+    "capturedAt": "2026-08-31T18:18:10.326+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/3ee7903bd7bab603-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/3ee7903bd7bab603-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
+    "id": "cb47f1a98bc96d58",
+    "src": "/photos/cb47f1a98bc96d58-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "A group raises glasses over a restaurant table.",
+    "capturedAt": "2026-08-31T18:11:56.443+09:00",
+    "dateSource": {
+      "kind": "exif",
+      "field": "DateTimeOriginal",
+      "timeZone": "OffsetTimeOriginal"
+    },
+    "variants": [
+      {
+        "src": "/photos/cb47f1a98bc96d58-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/photos/cb47f1a98bc96d58-960.webp",
+        "width": 960,
+        "height": 720
+      }
+    ]
+  },
+  {
     "id": "1f6900e7cc3b3b90",
     "src": "/photos/1f6900e7cc3b3b90-960.webp",
     "width": 960,
     "height": 641,
     "alt": "A person stands beside the water at dusk.",
+    "capturedAt": null,
+    "dateSource": {
+      "kind": "unknown",
+      "reason": "No capture date in metadata or filename."
+    },
     "variants": [
       {
         "src": "/photos/1f6900e7cc3b3b90-480.webp",
@@ -575,6 +729,11 @@
     "width": 960,
     "height": 720,
     "alt": "A person stands on a waterfront with a hillside town in the background.",
+    "capturedAt": null,
+    "dateSource": {
+      "kind": "unknown",
+      "reason": "No capture date in metadata or filename."
+    },
     "variants": [
       {
         "src": "/photos/65ba4fcdb2ff23b4-480.webp",
@@ -589,11 +748,40 @@
     ]
   },
   {
+    "id": "704e04e39408b927",
+    "src": "/photos/704e04e39408b927-960.webp",
+    "width": 960,
+    "height": 550,
+    "alt": "A person stands on a mountain trail surrounded by autumn trees.",
+    "capturedAt": null,
+    "dateSource": {
+      "kind": "unknown",
+      "reason": "No capture date in metadata or filename."
+    },
+    "variants": [
+      {
+        "src": "/photos/704e04e39408b927-480.webp",
+        "width": 480,
+        "height": 275
+      },
+      {
+        "src": "/photos/704e04e39408b927-960.webp",
+        "width": 960,
+        "height": 550
+      }
+    ]
+  },
+  {
     "id": "fb99f6d88d388f8d",
     "src": "/photos/fb99f6d88d388f8d-960.webp",
     "width": 960,
     "height": 720,
     "alt": "A person takes a photograph beside the water with an island in the background.",
+    "capturedAt": null,
+    "dateSource": {
+      "kind": "unknown",
+      "reason": "No capture date in metadata or filename."
+    },
     "variants": [
       {
         "src": "/photos/fb99f6d88d388f8d-480.webp",

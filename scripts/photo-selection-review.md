@@ -48,4 +48,4 @@
 
 ## 后续更新
 
-`scripts/photo-selection.json` 是唯一的入选清单，按网页显示顺序保存照片内容哈希。生成脚本只处理清单内的图片。新增照片先查看原图，再把入选照片的哈希加入清单；同时更新 `scripts/photo-descriptions.json` 中供无障碍阅读使用的替代文字。
+`scripts/photo-selection.json` 是唯一的入选清单，只控制照片是否展示。网页按照 `capturedAt` 从新到旧排序，日期缺失的照片排在末尾。生成脚本只处理清单内的图片。新增照片先查看原图，再把入选照片的哈希加入清单；同时更新 `scripts/photo-descriptions.json` 中供无障碍阅读使用的替代文字。

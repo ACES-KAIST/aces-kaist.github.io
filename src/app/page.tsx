@@ -4,7 +4,6 @@ import { Footer } from '@/components/footer'
 import { GradientBackground } from '@/components/gradient'
 import { ImageCarousel } from '@/components/image-carousel'
 import { Link } from '@/components/link'
-import { SocialLinks } from '@/components/logo-cloud'
 import { Navbar } from '@/components/navbar'
 import { Heading } from '@/components/text'
 import photos from '@/data/photos.json'
@@ -48,42 +47,23 @@ function Hero() {
         <Navbar />
       </Container>
       <Container className="relative mt-16 pb-16">
-        <div className="grid w-full grid-cols-1 items-center gap-8 xl:grid-cols-2">
+        <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[0.9fr_1.1fr]">
           <div className="relative z-10 text-center xl:text-left">
-            <h1 className="font-display text-[clamp(2.75rem,11vw,110px)] leading-[0.95] font-medium tracking-tight text-balance text-gray-950">
-              ACES Lab
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-2xl/8 font-medium text-gray-950 xl:mx-0">
+            <h1 className="font-display text-[clamp(2.25rem,5.8vw,5.5rem)] leading-[0.98] font-medium tracking-tight text-balance text-gray-950">
               {site.fullName}
-            </p>
-            <p className="mx-auto mt-5 max-w-lg text-xl/7 text-gray-600 xl:mx-0">
-              We develop safe, adaptive autonomous systems for mobility and
+            </h1>
+            <p className="mx-auto mt-8 max-w-lg text-xl/7 font-medium text-gray-600 sm:text-2xl/8 xl:mx-0">
+              Developing safe, adaptive autonomous systems for mobility and
               robotics.
             </p>
-            <p className="mt-5 text-base/7 text-gray-600">
-              Led by{' '}
-              <a className="underline underline-offset-4" href={site.homepage}>
-                Heye Huang
-              </a>{' '}
-              at the
-              <br />
-              <a
-                href="https://mo.kaist.ac.kr/en/"
-                className="underline underline-offset-4"
-              >
-                Cho Chun Shik Graduate School of Mobility, KAIST
-              </a>
-              .
-            </p>
-            <SocialLinks className="mt-8 justify-center xl:justify-start" />
           </div>
-          <div className="flex justify-center xl:justify-end">
+          <div className="flex justify-center xl:-mr-12 xl:justify-end">
             <img
               src={assetPath('/aces/research-overview.png')}
               alt="ACES Lab research overview: theory and algorithms for autonomous vehicles, robots, and multi-agent systems"
-              width={1200}
-              height={800}
-              className="max-h-[420px] w-full object-contain"
+              width={1408}
+              height={580}
+              className="h-auto w-full max-w-none"
               fetchPriority="high"
             />
           </div>
@@ -127,6 +107,14 @@ export default function Home() {
           <Heading as="h2">News</Heading>
           <dl className="mt-10 divide-y divide-gray-200 text-base/7">
             <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
+              <dt className="text-gray-500">October 2026</dt>
+              <dd>
+                AnyHand-Agent from Benwang Chen received the first place in the
+                poster presentation at the Nature Conference: Autonomous
+                Robotics.
+              </dd>
+            </div>
+            <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
               <dt className="text-gray-500">August 2026</dt>
               <dd>
                 CAPE-3D received the Best Presentation Award, and XMind received
@@ -151,7 +139,7 @@ export default function Home() {
         <div className="overflow-hidden pb-16">
           <Container>
             <div className="flex items-end justify-between gap-6">
-              <Heading as="h2">Life at ACES Lab</Heading>
+              <Heading as="h2">Visual Memories</Heading>
               <Link
                 href="/photo"
                 className="shrink-0 text-sm font-medium underline underline-offset-4"

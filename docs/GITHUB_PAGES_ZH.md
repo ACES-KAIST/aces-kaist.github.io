@@ -81,23 +81,23 @@ git push
 
 ## 常改内容的位置
 
-| 内容 | 文件 |
-| --- | --- |
-| 实验室名称、邮箱和导师链接 | `src/lib/site.ts` |
-| 首页、新闻 | `src/app/page.tsx` |
-| 研究方向 | `src/app/research/page.tsx` |
-| Hardware | `src/app/hardware/page.tsx` |
-| 成员资料 | `content/people/*.markdown` |
-| 访问学生、实习生和 RA | `content/people/visiting.json` |
-| 论文列表 | `src/data/publications.json` |
-| 加入实验室 | `src/app/faq/page.tsx` |
-| 联系方式 | `src/app/contact/page.tsx` |
-| 相册页面和图片清单 | `src/app/photo/page.tsx`、`src/data/photos.json` |
-| 顶部导航 | `src/components/navbar.tsx` |
+| 内容                       | 文件                                             |
+| -------------------------- | ------------------------------------------------ |
+| 实验室名称、邮箱和导师链接 | `src/lib/site.ts`                                |
+| 首页、新闻                 | `src/app/page.tsx`                               |
+| 研究方向                   | `src/app/research/page.tsx`                      |
+| Hardware                   | `src/app/hardware/page.tsx`                      |
+| 成员资料                   | `content/people/*.markdown`                      |
+| 访问学生、实习生和 RA      | `content/people/visiting.json`                   |
+| 论文列表                   | `src/data/publications.json`                     |
+| 加入实验室                 | `src/app/faq/page.tsx`                           |
+| 联系方式                   | `src/app/contact/page.tsx`                       |
+| 相册页面和图片清单         | `src/app/photo/page.tsx`、`src/data/photos.json` |
+| 顶部导航                   | `src/components/navbar.tsx`                      |
 
 ### 替换 Unitree G1 照片
 
-将你们的机器人照片放进 `public/hardware/`，例如 `unitree-g1.jpg`。打开 `src/app/hardware/page.tsx`，将图片路径改成 `/hardware/unitree-g1.jpg`，并把原来的参考照片说明和替代文字改为真实照片说明。保留 `assetPath(...)` 调用，以兼容 GitHub 项目路径。
+将你们的机器人照片放进 `public/hardware/`，例如 `unitree-g1.jpg`。打开 `src/app/hardware/page.tsx`，将图片路径改成 `/hardware/unitree-g1.jpg`，并根据新照片更新 `alt` 替代文字。网页不显示照片说明。保留 `assetPath(...)` 调用，以兼容 GitHub 项目路径。
 
 ### 更新 Photo
 
@@ -105,13 +105,15 @@ git push
 
 ## 内容来源与素材说明
 
-实验室名称、研究方向、成员、论文和招聘信息整理自 [Heye Huang 的主页](https://huangheye.github.io/)，读取日期为 2026-10-18。研究方向统一采用主页中的三个名称：
+实验室名称、研究方向、成员和招聘信息整理自 [Heye Huang 的主页](https://huangheye.github.io/)，读取日期为 2026-10-18。论文列表已结合 Google Scholar 和论文来源核对、去重，当前包含 60 篇已发表论文和 15 篇预印本；来源、排除规则和后续更新方法见 [PUBLICATIONS.md](PUBLICATIONS.md)。研究方向统一采用主页中的三个名称：
 
 - Trustworthy safety-critical systems
 - Generative AI and world models
 - Foundation models and agents
 
-页面保留了原模板的部分研究动画和 Unitree G1 参考照片，并在对应页面注明 Stanford ASL 来源。机器人照片待替换。未填写未经确认的实验室房间、访问时间、设备数量或配置。
+Contact 页的导师办公室 F337 来自 [KAIST 官方导师页](https://mo.kaist.ac.kr/en/professor/heye-huang/)；Building F、193 Munji-ro 的校区地址来自 [学校地图页](https://mo.kaist.ac.kr/en/graduate-school-introduction/map/)，邮编 34051 可在 [KAIST ITVC 地址页](https://itvc.kaist.ac.kr/esub0104)核对。F337 标为导师办公室，访问前仍需邮件确认会面地点。
+
+Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 2 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片。Research 3 的智能体动画、Research 页标题区背景以及 Unitree G1 参考照片保留自 Stanford ASL 模板。页面不显示来源或临时照片说明，素材来源记录保留在此文档中。机器人照片待替换，未填写未经确认的设备数量或配置。
 
 原仓库的 `LICENSE.md` 是 Tailwind Plus 许可，不是 MIT 许可；已原样保留。公开发布前请确认你们具有使用该模板和保留素材的授权；来源标注不能替代授权。
 

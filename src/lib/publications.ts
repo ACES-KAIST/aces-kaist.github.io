@@ -14,6 +14,9 @@ export interface Publication {
   citation: string
   venue?: string
   abstract?: string
+  abstractUrl?: string
+  abstractAvailable?: boolean
+  scholarUrl?: string
   bibtex?: string
   status?: string
   note?: string
@@ -30,18 +33,28 @@ export interface PublicationSection {
   items: Publication[]
 }
 
-// Publication metadata is a checked-in snapshot of Heye Huang's homepage.
-// Keep the source order within each year; do not fetch Google Scholar at build time.
+// Publication metadata is a verified, checked-in Google Scholar snapshot.
+// See docs/PUBLICATIONS.md for sources and exclusions. No network calls at build time.
 const publications: Publication[] = sourcePublications
 
 export function getPublicationSections(): PublicationSection[] {
   return [
-    { key: 'preprints', title: 'Preprints', items: publications.filter((item) => item.type === 'preprint') },
-    { key: 'publications', title: 'Publications', items: publications.filter((item) => item.type !== 'preprint') },
+    {
+      key: 'preprints',
+      title: 'Preprints',
+      items: publications.filter((item) => item.type === 'preprint'),
+    },
+    {
+      key: 'publications',
+      title: 'Publications',
+      items: publications.filter((item) => item.type !== 'preprint'),
+    },
   ]
 }
 
-export function getPublicationsForPerson(person: { slug: string }): Publication[] {
+export function getPublicationsForPerson(person: {
+  slug: string
+}): Publication[] {
   // The source confirms this bibliography for the PI. Initials alone are not
   // enough evidence to assign a paper to another member with the same surname.
   return person.slug === 'heye-huang' ? publications : []

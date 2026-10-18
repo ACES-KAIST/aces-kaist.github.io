@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: { template: '%s - ACES Lab', default: 'ACES Lab - KAIST' },
   description: `${site.fullName} at KAIST. Research in safe autonomous systems, world models, and embodied intelligence.`,
-  icons: { icon: assetPath('/icon.svg') },
+  icons: { icon: assetPath('/lab-sign.svg') },
 }
 
 export default function RootLayout({

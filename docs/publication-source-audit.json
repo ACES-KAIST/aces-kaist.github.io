@@ -1,0 +1,1352 @@
+{
+  "checkedOn": "2026-10-18",
+  "profile": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en",
+  "listUrl": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en&cstart=0&pagesize=100&sortby=pubdate",
+  "pagination": {
+    "requestedPageSize": 100,
+    "retrievedRows": 93,
+    "showMoreDisabled": true,
+    "detailPagesRetrieved": 93
+  },
+  "included": 75,
+  "excludedNonPapers": 8,
+  "mergedDuplicates": 10,
+  "records": [
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:J-pR_7NvFogC",
+      "title": "Sparse2comm: Towards Robust Cooperative 3D Object Detection",
+      "fields": {
+        "Authors": "Lei Yang, Boqi Li, Chunmian Lin, Li Wang, Ziying Song, Shaoqing Xu, Heye Huang, Haibao Yu, Chen Lv",
+        "Publication date": "2026/10/6",
+        "Journal": "arXiv preprint arXiv:2610.08573"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-sparse2comm-towards-robust-cooperative-3d-object-detection"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:1qzjygNMrQYC",
+      "title": "RS-Mamba: Temporal State Space Modeling for Single-Image Rolling Shutter Deblurring",
+      "fields": {
+        "Authors": "Benwang Chen, Jian Li, Jiyuan Song*, Yao Tu, Lei Yang, Inhi Kim, Heye Huang*, Kitae Jang",
+        "Publication date": "2026/10/5",
+        "Journal": "IEEE Internet of Things Journal",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-rs-mamba-temporal-state-space-modeling-for-single-image-rolling-shutter-deblurri"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:kRWSkSYxWN8C",
+      "title": "CoEM: Empowering Long-Context Reasoning with Commit-on-Evidence Memory",
+      "fields": {
+        "Authors": "Jingguang Li, Yebo Wu, Zuyi Guo, Kailang Ma, Xianjie Dai, Han Zheng, Benwang Chen, Li Li, Can Rong, Heye Huang*",
+        "Publication date": "2026/9/29",
+        "Journal": "arXiv preprint arXiv:2609.36935"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-coem-empowering-long-context-reasoning-with-commit-on-evidence-memory"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:mvPsJ3kp5DgC",
+      "title": "SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions",
+      "fields": {
+        "Authors": "Sean Hardesty Lewis, Zuyi Guo, Benwang Chen, Zirui Liu, Hongyi Lin, Heye Huang*",
+        "Publication date": "2026/9/29",
+        "Journal": "arXiv preprint arXiv:2609.36906"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-safevantage-vantage-aware-memory-for-reliable-embodied-decisions"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:V3AGJWp-ZtQC",
+      "title": "Plan-to-Synthesis: Cross-City Human Mobility Generation via Semantic Latent Flow Matching",
+      "fields": {
+        "Authors": "Zhoufu Wang, Baoshen Guo, Zhiqing Hong, Junyi Li, Kailai Sun, Heye Huang, Alok Prakash, Shenhao Wang, Jinhua Zhao",
+        "Publication date": "2026/9/26",
+        "Journal": "arXiv preprint arXiv:2609.32732"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-plan-to-synthesis-cross-city-human-mobility-generation-via-semantic-latent-flow-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:q3oQSFYPqjQC",
+      "title": "MemTransfer: Benchmarking Memory Beyond Matched Experience in Embodied Decision-Making",
+      "fields": {
+        "Authors": "Haiming Tang, Xianjie Dai, Gujie Shao, Zuyi Guo, Jingguang Li, Kailang Ma, Yihong Tang, Heye Huang*",
+        "Publication date": "2026/9/26",
+        "Journal": "arXiv preprint arXiv:2609.32313"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-memtransfer-benchmarking-memory-beyond-matched-experience-in-embodied-decision-m"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:BrmTIyaxlBUC",
+      "title": "VeriFuse: Bounded Vision-Language Arbitration and Reason-Guided Refinement for Cooperative 3D Perception",
+      "fields": {
+        "Authors": "Hongyi Lin, Yiyao Liu, Qi Kang, Heye Huang, Yang Liu, Haris Koutsopoulos, Jinhua Zhao",
+        "Publication date": "2026/9/18",
+        "Journal": "arXiv preprint arXiv:2609.21323"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-verifuse-bounded-vision-language-arbitration-and-reason-guided-refinement-for-co"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:eflP2zaiRacC",
+      "title": "SSP-DMGTimeNet: Physics-Constrained Learning for Spatiotemporal Trajectory Prediction of Vehicle Platoons",
+      "fields": {
+        "Authors": "Yuhang Wang, Kailang Ma, Zirui Li, Mingfeng Fan, Kitae Jang, Changju Lee, Heye Huang*",
+        "Publication date": "2026/9/7",
+        "Journal": "arXiv preprint arXiv:2609.06961"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-ssp-dmgtimenet-physics-constrained-learning-for-spatiotemporal-trajectory-predic"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:D_sINldO8mEC",
+      "title": "PCCT: Trajectory Planning and Layered Control for Oversized Cargo Transport Via e-SPMTs in Confined Surroundings",
+      "fields": {
+        "Authors": "Yichen Lyu, Lu Yang, Heye Huang, Huilong Yu, Junqiang Xi",
+        "Publication date": "2026/9/4",
+        "Journal": "IEEE Transactions on Vehicular Technology",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-pcct-trajectory-planning-and-layered-control-for-oversized-cargo-transport-via-e"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:eJXPG6dFmWUC",
+      "title": "Rethinking World Models for Safety-Critical Embodied Systems",
+      "fields": {
+        "Authors": "Kailang Ma, Heye Huang*, Inhi Kim, Kitae Jang",
+        "Publication date": "2026/9/3",
+        "Journal": "arXiv preprint arXiv:2609.03774"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-rethinking-world-models-for-safety-critical-embodied-systems"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:WbkHhVStYXYC",
+      "title": "Hierarchical Drifting Control Strategy for Intelligent Vehicles with Supervisory Mechanism",
+      "fields": {
+        "Authors": "Jiaqing Xiao, Lu Yang, Jinghao Liu, Jinrui Nan, Heye Huang",
+        "Publication date": "2026/7/15",
+        "Journal": "Expert Systems with Applications",
+        "Pages": "133629",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-hierarchical-drifting-control-strategy-for-intelligent-vehicles-with-supervisory"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:sSrBHYA8nusC",
+      "title": "A knowledge-augmented dataset of high-risk driving scenarios with LLM annotations for autonomous driving",
+      "fields": {
+        "Authors": "Heye Huang, Jingguang Li, Zhiyuan Zhou, Paul Liang, Mingyu Wu, Kitae Jang, Jianqiang Wang",
+        "Publication date": "2026/7/8",
+        "Journal": "arXiv preprint arXiv:2607.07103"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-01"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:B3FOqHPlNUQC",
+      "title": "RESPOND: Risk-Enhanced Structured Pattern for LLM-driven Online Node-level Decision-making in Autonomous Driving",
+      "fields": {
+        "Authors": "Dan Chen, Heye Huang*, Tiantian Chen, Zheng Li, Yongji Li, Yuhui Xu, Sikai Chen",
+        "Publication date": "2026/7/3",
+        "Journal": "Communications in Transportation Research",
+        "Publisher": "清华大学出版社"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-04"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:4fKUyHm3Qg0C",
+      "title": "CogDrive: Cognition-driven multimodal prediction-planning fusion for safe autonomy",
+      "fields": {
+        "Authors": "Heye Huang, Yibin Yang, Mingfeng Fan, Haoran Wang, Xiaocong Zhao, Jianqiang Wang",
+        "Publication date": "2026/6/30",
+        "Journal": "Communications in Transportation Research",
+        "Volume": "6",
+        "Issue": "2",
+        "Pages": "9640016",
+        "Publisher": "清华大学出版社"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-05"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:vRqMK49ujn8C",
+      "title": "Enhancing the Socioeconomic Understanding of Foundation Models with Urban Mobility",
+      "fields": {
+        "Authors": "Baoshen Guo, Donghang Li, Zhiqing Hong, Kailai Sun, Heye Huang, Alok Prakash, Shenhao Wang",
+        "Publication date": "2026/6/1",
+        "Journal": "arXiv preprint arXiv:2606.01745"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-enhancing-the-socioeconomic-understanding-of-foundation-models-with-urban-mobili"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:08ZZubdj9fEC",
+      "title": "SENSE: Satellite-based ENergy Synthesis for Sustainable Environment",
+      "fields": {
+        "Authors": "Kailai Sun, Mingyi He, Heye Huang, Can Rong, Alok Prakash, Baoshen Guo, Shenhao Wang, Jinhua Zhao",
+        "Publication date": "2026/5/18",
+        "Journal": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2026)"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-02"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:l7t_Zn2s7bgC",
+      "title": "Learning to drive from naturalistic trajectories: Offline reinforcement learning for safe speed guidance at signalized intersections",
+      "fields": {
+        "Authors": "Xiaoyu Shi, Yuhuan Lu, Zihao Sheng, Jian Zhang, Sikai Chen, Heye Huang, Tiantian Chen",
+        "Publication date": "2026/5/15",
+        "Journal": "Journal of Intelligent and Connected Vehicles",
+        "Publisher": "清华大学出版社"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-learning-to-drive-from-naturalistic-trajectories-offline-reinforcement-learning-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:K3LRdlH-MEoC",
+      "title": "From Scene to Object: Text-Guided Dual-Gaze Prediction",
+      "fields": {
+        "Authors": "Zehong Ke, Yanbo Jiang, Jinhao Li, Zhiyuan Liu, Yiqian Tu, Qingwen Meng, Heye Huang, Jianqiang Wang",
+        "Publication date": "2026/4/22",
+        "Journal": "IEEE Internet of Things Journal"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-from-scene-to-object-text-guided-dual-gaze-prediction"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:738O_yMBCRsC",
+      "title": "Driving risk emerges from the required two-dimensional joint evasive acceleration",
+      "fields": {
+        "Authors": "Hao Cheng, Yanbo Jiang, Wenhao Yu, Rui Zhou, Jiang Bian, Keyu Chen, Zhiyuan Liu, Heye Huang, Hailun Zhang, Fang Zhang, Jianqiang Wang, Sifa Zheng",
+        "Publication date": "2026/4/20",
+        "Journal": "arXiv preprint arXiv:2604.17841"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-driving-risk-emerges-from-the-required-two-dimensional-joint-evasive-acceleratio"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:XiSMed-E-HIC",
+      "title": "Hierarchical Control Framework Integrating LLMs with RL for Decarbonized HVAC Operation",
+      "fields": {
+        "Authors": "Dianyu Zhong, Tian Xing, Kailai Sun, Xu Yang, Heye Huang, Irfan Qaisar, Tinggang Jia, Shaobo Wang, Qianchuan Zhao",
+        "Publication date": "2026/3/27",
+        "Journal": "arXiv preprint arXiv:2603.26050"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2026-hierarchical-control-framework-integrating-llms-with-rl-for-decarbonized-hvac-op"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:p2g8aNsByqUC",
+      "title": "Risk-Controllable Multi-View Diffusion for Driving Scenario Generation",
+      "fields": {
+        "Authors": "Hongyi Lin, Wenxiu Shi, Heye Huang*, Dingyi Zhuang*, Song Zhang, Yang Liu, Xiaobo Qu, Jinhua Zhao",
+        "Publication date": "2026/3/12",
+        "Journal": "CVPR 2026"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Journal": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+        "source": "https://arxiv.org/abs/2603.11534"
+      },
+      "decision": "include",
+      "key": "huang-2026-03"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:OU6Ihb5iCvQC",
+      "title": "REACT: Runtime-Enabled Active Collision-avoidance Technique for autonomous driving",
+      "fields": {
+        "Authors": "Heye Huang, Hao Cheng, Zhiyuan Zhou, Zijin Wang, Haoran Wang, Qichao Liu, Xiaopeng Li",
+        "Publication date": "2025/12/20",
+        "Journal": "Advanced Engineering Informatics",
+        "Volume": "71",
+        "Pages": "104248",
+        "Publisher": "Elsevier"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Publication date": "2026",
+        "source": "https://huangheye.github.io/#publications"
+      },
+      "decision": "include",
+      "key": "huang-2026-08"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:KxtntwgDAa4C",
+      "title": "Learning from Risk: LLM-Guided Generation of Safety-Critical Scenarios with Prior Knowledge",
+      "fields": {
+        "Authors": "Yuhang Wang, Heye Huang*, Zhenhua Xu, Kailai Sun, Baoshen Guo, Jinhua Zhao",
+        "Publication date": "2025/11/25",
+        "Journal": "Transportation Research Part E: Logistics and Transportation Review"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Publication date": "2026/11",
+        "Volume": "215",
+        "Pages": "105110",
+        "doi": "10.1016/j.tre.2026.105110",
+        "source": "https://api.crossref.org/works/10.1016/j.tre.2026.105110"
+      },
+      "decision": "include",
+      "key": "huang-2026-06"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:CHSYGLWDkRkC",
+      "title": "Unveiling Uniform Shifted Power Law in Stochastic Human and Autonomous Driving Behavior",
+      "fields": {
+        "Authors": "Wang Chen#, Heye Huang#, Ke Ma, Hangyu Li, Shixiao Liang, Hang Zhou, Xiaopeng Li",
+        "Publication date": "2025/11/1",
+        "Journal": "arXiv preprint arXiv:2511.00659"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-14"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:1sJd4Hv_s6UC",
+      "title": "RiskNet: interaction-aware risk forecasting for autonomous driving in long-tail scenarios",
+      "fields": {
+        "Authors": "Qichao Liu, Heye Huang*, Shiyue Zhao, Lei Shi, Soyoung Ahn, Xiaopeng Li",
+        "Publication date": "2025/10/31",
+        "Journal": "Transportation Research Part E: Logistics and Transportation Review",
+        "Volume": "205",
+        "Pages": "104478",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Publication date": "2026/1",
+        "Volume": "205",
+        "Pages": "104478",
+        "doi": "10.1016/j.tre.2025.104478",
+        "source": "https://api.crossref.org/works/10.1016/j.tre.2025.104478"
+      },
+      "decision": "include",
+      "key": "huang-2026-09"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:P5F9QuxV20EC",
+      "title": "Safedrive: Knowledge-and data-driven risk-sensitive decision-making for autonomous vehicles with large language models",
+      "fields": {
+        "Authors": "Zhiyuan Zhou, Heye Huang*, Boqi Li, Shiyue Zhao, Yao Mu, Jianqiang Wang",
+        "Publication date": "2025/10/29",
+        "Journal": "Accident Analysis & Prevention",
+        "Volume": "224",
+        "Pages": "108299",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-13"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:EUQCXRtRnyEC",
+      "title": "SMART: Scalable Multi-Agent Reasoning and Trajectory Planning in Dense Environments",
+      "fields": {
+        "Authors": "Heye Huang, Yibin Yang, Wang Chen, Tiantian Chen, Xiaopeng Li, Sikai Chen",
+        "Publication date": "2025/9/19",
+        "Journal": "Transportation Research Part C: Emerging Technologies,2026"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Publication date": "2026/10",
+        "Journal": "Transportation Research Part C: Emerging Technologies",
+        "Volume": "191",
+        "Pages": "105793",
+        "Authors": "Heye Huang, Yibin Yang, Wang Chen, Tiantian Chen, Jinxin Liu, Sikai Chen",
+        "doi": "10.1016/j.trc.2026.105793",
+        "source": "https://www.sciencedirect.com/science/article/pii/S0968090X26002810"
+      },
+      "decision": "include",
+      "key": "huang-2026-07"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:_xSYboBqXhAC",
+      "title": "Joint Optimization of Multi-Vehicles and Traffic Signal: A Parallel Approach in Spatial Domain",
+      "fields": {
+        "Authors": "Jichen Zhu, Haoran Wang, Heye Huang, Xiaoguang Yang, Chaopeng Tan, Jia Hu",
+        "Publication date": "2025/9/16",
+        "Journal": "IEEE Internet of Things Journal",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-joint-optimization-of-multi-vehicles-and-traffic-signal-a-parallel-approach-in-s"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:3s1wT3WcHBgC",
+      "title": "A Hierarchical Approach to Trajectory Planning for Autonomous Vehicles on Curvy Roads",
+      "fields": {
+        "Authors": "Fuzhou Zhao, Heye Huang, Xuemei Wang, Ling Han, Fei Ye, Mingyang Cui",
+        "Publication date": "2025/9/12",
+        "Journal": "IEEE Access",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-a-hierarchical-approach-to-trajectory-planning-for-autonomous-vehicles-on-curvy-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:geHnlv5EZngC",
+      "title": "Roadway Friction Screening and Measurement with Automated Vehicle Telematics and Control",
+      "fields": {
+        "Authors": "Xiaopeng Shaw Li, Yanfeng Ouyang, Zhaohui Liang, Caio V Beojone, Heye Huang",
+        "Publication date": "2025/9/1"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Research report; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:abG-DnoFyZgC",
+      "title": "Traffic Control based on CARMA Platform for Maximal Traffic Mobility and Safety",
+      "fields": {
+        "Authors": "Xiaopeng Shaw Li, David Noyce, Heye Huang",
+        "Publication date": "2025/8/11"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Research report; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:pyW8ca7W8N0C",
+      "title": "Online adaptive platoon control for connected and automated vehicles via physics enhanced residual learning",
+      "fields": {
+        "Authors": "Peng Zhang, Heye Huang*, Hang Zhou, Haotian Shi, Keke Long, Xiaopeng Li",
+        "Publication date": "2025/6/18",
+        "Journal": "Transportation Research Part C: Emerging Technologies",
+        "Volume": "178",
+        "Pages": "105242",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-12"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:D03iK_w7-QYC",
+      "title": "Understanding driver cognition and decision-making behaviors in high-risk scenarios: A drift diffusion perspective",
+      "fields": {
+        "Authors": "Heye Huang, Zheng Li, Hao Cheng, Haoran Wang, Junkai Jiang, Xiaopeng Li, Arkady Zgonnikov",
+        "Publication date": "2025/6/8",
+        "Journal": "Accident Analysis & Prevention",
+        "Volume": "220",
+        "Pages": "108123",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-11"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:bFI3QPDXJZMC",
+      "title": "Invdriver: Intra-instance aware vectorized query-based autonomous driving transformer",
+      "fields": {
+        "Authors": "Bo Zhang, Heye Huang, Chunyang Liu, Yaqin Zhang, Zhenhua Xu",
+        "Publication date": "2025/6",
+        "Journal": "Journal of Intelligent and Connected Vehicles",
+        "Volume": "8",
+        "Issue": "2",
+        "Pages": "9210060-1-9210060-8",
+        "Publisher": "TUP"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-invdriver-intra-instance-aware-vectorized-query-based-autonomous-driving-transfo"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:u_35RYKgDlwC",
+      "title": "Drift cornering control and real-vehicle deployment for electric vehicles",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Neda Masoud, Yuhong Jiang, Heye Huang, Tao Liu",
+        "Publication date": "2025/5/26",
+        "Journal": "IEEE Transactions on Industrial Electronics",
+        "Volume": "72",
+        "Issue": "12",
+        "Pages": "13509-13520",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-drift-cornering-control-and-real-vehicle-deployment-for-electric-vehicles"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:ZHo1McVdvXMC",
+      "title": "AI-enabled digital twin framework for safe and sustainable intelligent transportation",
+      "fields": {
+        "Authors": "Keke Long, Chengyuan Ma, Hangyu Li, Zheng Li, Heye Huang, Haotian Shi, Zilin Huang, Zihao Sheng, Lei Shi, Pei Li, Sikai Chen, Xiaopeng Li",
+        "Publication date": "2025/5/12",
+        "Journal": "Sustainability",
+        "Volume": "17",
+        "Issue": "10",
+        "Pages": "4391",
+        "Publisher": "MDPI"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-ai-enabled-digital-twin-framework-for-safe-and-sustainable-intelligent-transport"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:pqnbT2bcN3wC",
+      "title": "Saca: A scenario-aware collision avoidance framework for autonomous vehicles integrating llms-driven reasoning",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Neda Masoud, Heye Huang, Xiaohui Hou, Chengkun He",
+        "Publication date": "2025/3/31",
+        "Journal": "arXiv preprint arXiv:2504.00115"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-saca-a-scenario-aware-collision-avoidance-framework-for-autonomous-vehicles-inte"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:g5m5HwL7SMYC",
+      "title": "LEAD: Learning-Enhanced Adaptive Decision-making for Autonomous Driving in Dynamic Environments",
+      "fields": {
+        "Authors": "Heye Huang, Jinxin Liu, Bo Zhang, Shiyue Zhao, Boqi Li, Jianqiang Wang",
+        "Publication date": "2025/3/18",
+        "Journal": "IEEE Transactions on Intelligent Transportation Systems",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-10"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:RGFaLdJalmkC",
+      "title": "Emergency Index (EI): A two-dimensional surrogate safety measure considering vehicles’ interaction depth",
+      "fields": {
+        "Authors": "Hao Cheng, Yanbo Jiang, Hailun Zhang, Keyu Chen, Heye Huang, Shaobing Xu, Jianqiang Wang, Sifa Zheng",
+        "Publication date": "2025/2/1",
+        "Journal": "Transportation Research Part C: Emerging Technologies",
+        "Volume": "171",
+        "Pages": "104981",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2025-emergency-index-ei-a-two-dimensional-surrogate-safety-measure-considering-vehicl"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:Tiz5es2fbqcC",
+      "title": "A New Vehicle-to-Vehicle Communication System: Visual-Enhanced Cooperative Traffic Operations",
+      "fields": {
+        "Authors": "Ke Ma, Heye Huang, Hangyu Li, Peng Zhang, Zhaohui Liang, Xiaopeng Li",
+        "Publication date": "2025/1/4",
+        "Publisher": "University of Wisconsin–Madison"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Research report; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:8AbLer7MMksC",
+      "title": "Cordon-Metering Rules for Present-Day and Future Cities",
+      "fields": {
+        "Authors": "Xiaopeng Li, Yang Li, Heye Huang",
+        "Publication date": "2025/1/1"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Research report; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:GnPB-g6toBAC",
+      "title": "High-speed cornering control and real-vehicle deployment for autonomous electric vehicles",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Neda Masoud, Yuhong Jiang, Heye Huang, Tao Liu",
+        "Publication date": "2024/11/18",
+        "Journal": "arXiv preprint arXiv:2411.11762"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:u_35RYKgDlwC",
+      "reason": "Preprint and published paper share the complete six-author list, method, experiments, and corresponding abstract; retain the journal version."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:O3NaXMp0MMsC",
+      "title": "Human Decision-Making in High-Risk Driving Scenarios: A Cognitive Modeling Perspective",
+      "fields": {
+        "Authors": "Zheng Li, Heye Huang*, Hao Cheng, Junkai Jiang, Xiaopeng Li, Arkady Zgonnikov",
+        "Publication date": "2024/10/22",
+        "Conference": "2024 IEEE International Automated Vehicle Validation Conference (IAVVC)",
+        "Pages": "1-8",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-19"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:JV2RwH3_ST0C",
+      "title": "Autonomous vehicle extreme control for emergency collision avoidance via reachability-guided reinforcement learning",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Chengkun He, Yuan Ji, Heye Huang, Xiaohui Hou",
+        "Publication date": "2024/10/1",
+        "Journal": "Advanced Engineering Informatics",
+        "Volume": "62",
+        "Pages": "102801",
+        "Publisher": "Elsevier"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-autonomous-vehicle-extreme-control-for-emergency-collision-avoidance-via-reachab"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:HoB7MX3m0LUC",
+      "title": "DTP-M3Net: Monocular Multiclass Multistage Vulnerable Road User Detection, Tracking and Prediction for Autonomous Driving",
+      "fields": {
+        "Authors": "Hui Xiong, Fang Zhang, Xuzhi Fang, Heye Huang, Quan Yuan, Qinggui Pan, Dezhao Zhang",
+        "Publication date": "2024/9/24",
+        "Conference": "2024 IEEE 27th International Conference on Intelligent Transportation Systems (ITSC)",
+        "Pages": "2272-2278",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-dtp-m3net-monocular-multiclass-multistage-vulnerable-road-user-detection-trackin"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:2P1L_qKh6hAC",
+      "title": "CSDO: Enhancing Efficiency and Success in Large-Scale Multi-Vehicle Trajectory Planning",
+      "fields": {
+        "Authors": "Yibin Yang, Shaobing Xu, Xintao Yan, Junkai Jiang, Jianqiang Wang, Heye Huang*",
+        "Publication date": "2024/8/7",
+        "Journal": "IEEE Robotics and Automation Letters",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-16"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:maZDTaKrznsC",
+      "title": "A harmonized approach: Beyond-the-limit control for autonomous vehicles balancing performance and safety in unpredictable environments",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Xiaoxia He, Chengkun He, Xiaohui Hou, Heye Huang, Jinheng Han",
+        "Publication date": "2024/7/1",
+        "Journal": "IEEE Transactions on Intelligent Transportation Systems",
+        "Volume": "25",
+        "Issue": "11",
+        "Pages": "15827-15840",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-a-harmonized-approach-beyond-the-limit-control-for-autonomous-vehicles-balancing"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:ldfaerwXgEUC",
+      "title": "Online Physical Enhanced Residual Learning for Connected Autonomous Vehicles Platoon Centralized Control",
+      "fields": {
+        "Authors": "Hang Zhou, Heye Huang*, Peng Zhang, Haotian Shi, Keke Long, Xiaopeng Li",
+        "Publication date": "2024/6/2",
+        "Conference": "2024 IEEE Intelligent Vehicles Symposium (IV)",
+        "Pages": "16-22",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-20"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:M3NEmzRMIkIC",
+      "title": "Deception for Advantage in Connected and Automated Vehicle Decision-Making Games",
+      "fields": {
+        "Authors": "Hangyu Li, Heye Huang*, Xiaotong Sun, Xiaopeng Li",
+        "Publication date": "2024/6/2",
+        "Conference": "2024 IEEE Intelligent Vehicles Symposium (IV)",
+        "Pages": "2234-2241",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-18"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:isC4tDSrTZIC",
+      "title": "Attention-based Priority Learning for Limited Time Multi-Agent Path Finding",
+      "fields": {
+        "Authors": "Yibin Yang, Mingfeng Fan, Chengyang He, Jianqiang Wang, Heye Huang*, Guillaume Sartoretti",
+        "Publication date": "2024/5/6",
+        "Book": "Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems",
+        "Pages": "1993-2001"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-17"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:fQNAKQ3IYiAC",
+      "title": "Roadway Friction Screening and Measurement with Automated Vehicle Telematics and Control: Data Management Plan",
+      "fields": {
+        "Authors": "Xiaopeng Li, Yanfeng Ouyang, Heye Huang",
+        "Publication date": "2024/4/16"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Data management plan; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:TFP_iSt0sucC",
+      "title": "Safer conflict-based search: Risk-constrained optimal pathfinding for multiple connected and automated vehicles",
+      "fields": {
+        "Authors": "Yicong Liu, Heye Huang, Qing Xu, Shaobing Xu, Jianqiang Wang",
+        "Publication date": "2024/4/8",
+        "Journal": "IEEE Transactions on Automation Science and Engineering",
+        "Volume": "22",
+        "Pages": "17382-17396",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-safer-conflict-based-search-risk-constrained-optimal-pathfinding-for-multiple-co"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:R3hNpaxXUhUC",
+      "title": "General optimal trajectory planning: Enabling autonomous vehicles with the principle of least action",
+      "fields": {
+        "Authors": "Heye Huang, Yicong Liu, Jinxin Liu, Qisong Yang, Jianqiang Wang, David Abbink, Arkady Zgonnikov",
+        "Publication date": "2024/2/1",
+        "Journal": "Engineering",
+        "Volume": "33",
+        "Pages": "63-76",
+        "Publisher": "Elsevier"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-15"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:j3f4tGmQtD8C",
+      "title": "On-road trajectory planning of connected and automated vehicles in complex traffic settings: A hierarchical framework of trajectory refinement",
+      "fields": {
+        "Authors": "Fuzhou Zhao, Ling Han, Mingyang Cui, Heye Huang, Shan Zhong, Feifei Su, Lei Wang",
+        "Publication date": "2024/1/11",
+        "Journal": "IEEE Access",
+        "Volume": "12",
+        "Pages": "7456-7468",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-on-road-trajectory-planning-of-connected-and-automated-vehicles-in-complex-traff"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:BqipwSGYUEgC",
+      "title": "Novel quantitative approach for assessing driving risks and simulation study of its prevention and control strategies",
+      "fields": {
+        "Authors": "ZHENG Xunjia, JIANG Junhao, HUANG Heye, WANG Jianqiang, XU Qing, ZHANG Qiang",
+        "Publication date": "2024",
+        "Journal": "Journal of Mechanical Engineering",
+        "Volume": "60",
+        "Issue": "10",
+        "Pages": "207-221"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2024-novel-quantitative-approach-for-assessing-driving-risks-and-simulation-study-of-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:bEWYMUwI8FkC",
+      "title": "Intelligent adaptive decision-making for autonomous vehicles: A learning-enhanced game-theoretic approach in interactive scenarios",
+      "fields": {
+        "Authors": "Heye Huang, Xunjia Zheng, Yicong Liu, Shiyue Zhao, Yuning Wang, Jianqiang Wang",
+        "Publication date": "2023/11/10",
+        "Conference": "2023 3rd International Conference on Digital Society and Intelligent Systems (DSInS)",
+        "Pages": "258-264",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2023-21"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:_Qo2XoVZTnwC",
+      "title": "Multiple Unmanned Ground Vehicles Cooperative Trajectory Planning with Flexible Safety Guarantees",
+      "fields": {
+        "Authors": "Yicong Liu, Chaoyi Chen, Mengchi Cai, Heye Huang, Qing Xu, Jianqiang Wang",
+        "Publication date": "2023/10/13",
+        "Conference": "2023 IEEE International Conference on Unmanned Systems (ICUS)",
+        "Pages": "382-388",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2023-multiple-unmanned-ground-vehicles-cooperative-trajectory-planning-with-flexible-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:TQgYirikUcIC",
+      "title": "Adaptive drift control of autonomous electric vehicles after brake system failures",
+      "fields": {
+        "Authors": "Shiyue Zhao, Junzhi Zhang, Chengkun He, Xiaohui Hou, Heye Huang",
+        "Publication date": "2023/7/26",
+        "Journal": "IEEE Transactions on Industrial Electronics",
+        "Volume": "71",
+        "Issue": "6",
+        "Pages": "6041-6052",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "verifiedOverrides": {
+        "Publication date": "2024/6",
+        "doi": "10.1109/TIE.2023.3294594",
+        "source": "https://github.com/sean-shiyuez/High-Accuracy-Vehicle-Dynamic-Model/blob/main/README.md"
+      },
+      "decision": "include",
+      "key": "huang-2024-adaptive-drift-control-of-autonomous-electric-vehicles-after-brake-system-failur"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:aqlVkmm33-oC",
+      "title": "A differentiated decision‐making algorithm for automated vehicles based on pedestrian feature estimation",
+      "fields": {
+        "Authors": "Yuning Wang, Heye Huang, Bo Zhang, Jianqiang Wang",
+        "Publication date": "2023/7",
+        "Journal": "IET Intelligent Transport Systems",
+        "Volume": "17",
+        "Issue": "7",
+        "Pages": "1454-1466"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2023-a-differentiated-decision-making-algorithm-for-automated-vehicles-based-on-pedes"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:7PzlFSSx8tAC",
+      "title": "Driving risk-aversive motion planning in off-road environment",
+      "fields": {
+        "Authors": "Hongqing Tian, Boqi Li, Heye Huang, Ling Han",
+        "Publication date": "2023/4/15",
+        "Journal": "Expert Systems with Applications",
+        "Volume": "216",
+        "Pages": "119426",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2023-driving-risk-aversive-motion-planning-in-off-road-environment"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:35N4QoGY0k4C",
+      "title": "一种用于自动驾驶的车辆概率性长期轨迹预测框架",
+      "fields": {
+        "Authors": "刘金鑫， 罗禹贡， 钟志华， 李克强， 黄荷叶， 熊辉",
+        "Publication date": "2022/12/30",
+        "Journal": "工程 (英文)",
+        "Volume": "19",
+        "Issue": "12",
+        "Pages": "228"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:4TOpqqG69KYC",
+      "reason": "Chinese translation of the same Engineering article, volume 19, page 228."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:4TOpqqG69KYC",
+      "title": "A probabilistic architecture of long-term vehicle trajectory prediction for autonomous driving",
+      "fields": {
+        "Authors": "Jinxin Liu, Yugong Luo, Zhihua Zhong, Keqiang Li, Heye Huang, Hui Xiong",
+        "Publication date": "2022/12/1",
+        "Journal": "Engineering",
+        "Volume": "19",
+        "Pages": "228-239",
+        "Publisher": "Elsevier"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2022-a-probabilistic-architecture-of-long-term-vehicle-trajectory-prediction-for-auto"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:IjCSPb-OGe4C",
+      "title": "Risk generation and identification of driver–vehicle–road microtraffic system",
+      "fields": {
+        "Authors": "Heye Huang, Jinxin Liu, Yibin Yang, Jianqiang Wang",
+        "Publication date": "2022/9/1",
+        "Journal": "ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems, Part A: Civil Engineering",
+        "Volume": "8",
+        "Issue": "3",
+        "Pages": "04022029",
+        "Publisher": "American Society of Civil Engineers"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2022-22"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:hC7cP41nSMkC",
+      "title": "Driver-automation collaborative steering control for intelligent vehicles under unexpected emergency conditions",
+      "fields": {
+        "Authors": "Lu Yang, Ke Liu, Heye Huang, Qiaobin Liu, Ming Gao, Jianqiang Wang",
+        "Publication date": "2022/6/4",
+        "Conference": "2022 IEEE Intelligent Vehicles Symposium (IV)",
+        "Pages": "1623-1630",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2022-driver-automation-collaborative-steering-control-for-intelligent-vehicles-under-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:fPk4N6BV_jEC",
+      "title": "智能网联汽车架构, 功能与应用关键技术",
+      "fields": {
+        "Authors": "崔明阳， 黄荷叶， 许庆， 王建强， 耿璐， 李克强",
+        "Publication date": "2022/3/15",
+        "Publisher": "清华大学学报 (自然科学版)"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:L8Ckcad2t8MC",
+      "reason": "Chinese title for the same Tsinghua University review article."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:L8Ckcad2t8MC",
+      "title": "Survey of intelligent and connected vehicle technologies: Architectures, functions and applications",
+      "fields": {
+        "Authors": "CUI Mingyang, Heye Huang, XU Qing, WANG Jianqiang, Takaaki SEKIGUCHI, GENG Lu, LI Keqiang",
+        "Publication date": "2022/3/15",
+        "Journal": "Journal of Tsinghua University (Science and Technology)",
+        "Volume": "62",
+        "Issue": "3",
+        "Pages": "493-508",
+        "Publisher": "清华大学出版社"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2022-survey-of-intelligent-and-connected-vehicle-technologies-architectures-functions"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:4JMBOYKVnBMC",
+      "title": "Real-time driving risk assessment method employing equivalent force and device thereof",
+      "fields": {
+        "Inventors": "Jianqiang Wang, Xunjia ZHENG, Heye HUANG",
+        "Publication date": "2022/2/3",
+        "Patent office": "US",
+        "Application number": "16755891"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Patent application; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:LPZeul_q3PIC",
+      "title": "Research on the Ar-chitecture Functions and Key Technologies of Intelligent Connected Vehicles",
+      "fields": {
+        "Authors": "Cui Mingyang, Huang Heye, Xu Qing",
+        "Publication date": "2022",
+        "Journal": "Journal of Tsinghua University (Science and Technology)",
+        "Volume": "62",
+        "Issue": "3",
+        "Pages": "16"
+      },
+      "abstractAvailable": false,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:L8Ckcad2t8MC",
+      "reason": "Abbreviated/mistranslated title for the same Tsinghua University review in volume 62, issue 3."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:xtRiw3GOFMkC",
+      "title": "Key Technologies of Architecture, Function and Application of Intelligent Connected Vehicles [J]",
+      "fields": {
+        "Authors": "Cui Mingyang, Huang Heye, Xu Qing, Wang Jianqiang, SEKIGUCHI Takaaki, Geng Lu, Li Keqiang",
+        "Publication date": "2022",
+        "Journal": "Journal of Tsinghua University (Science and Technology)",
+        "Volume": "62",
+        "Issue": "3",
+        "Pages": "493-508"
+      },
+      "abstractAvailable": false,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:L8Ckcad2t8MC",
+      "reason": "Alternate English title with identical volume, issue, pages and author list."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:ZeXyd9-uunAC",
+      "title": "Unified quantitative method of driving risk by comprehensive considering driver-vehicle-road factors",
+      "fields": {
+        "Authors": "Jianqiang Wang, Xunjia Zheng, Heye Huang, Ling Han, Xing Chen, Tianhong Luo",
+        "Publication date": "2022",
+        "Journal": "Available at SSRN 4059860"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2022-unified-quantitative-method-of-driving-risk-by-comprehensive-considering-driver-"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:dhFuZR0502QC",
+      "title": "Probabilistic vehicle trajectory prediction via driver characteristic and intention estimation model under uncertainty",
+      "fields": {
+        "Authors": "Jinxin Liu, Hui Xiong, Tinghan Wang, Heye Huang, Zhihua Zhong, Yugong Luo",
+        "Publication date": "2021/11/16",
+        "Journal": "Industrial Robot: the international journal of robotics research and application",
+        "Volume": "48",
+        "Issue": "6",
+        "Pages": "778-791",
+        "Publisher": "Emerald Publishing Limited"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-probabilistic-vehicle-trajectory-prediction-via-driver-characteristic-and-intent"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:zYLM7Y9cAGgC",
+      "title": "Probabilistic situation assessment for intelligent vehicles with uncertain trajectory distribution",
+      "fields": {
+        "Authors": "Heye Huang, Jinxin Liu, Xunjia Zheng, Wenjun Liu, Jianqiang Wang",
+        "Publication date": "2021/11",
+        "Journal": "Transportation research record",
+        "Volume": "2675",
+        "Issue": "11",
+        "Pages": "119-130",
+        "Publisher": "SAGE Publications"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-23"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:qxL8FJ1GzNcC",
+      "title": "Active safe motion planning for intelligent vehicles in dynamic environments",
+      "fields": {
+        "Authors": "Hongqing Tian, Jianqiang Wang, Heye Huang",
+        "Publication date": "2021/10/29",
+        "Conference": "2021 5th CAA International Conference on Vehicular Control and Intelligence (CVCI)",
+        "Pages": "1-6",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-active-safe-motion-planning-for-intelligent-vehicles-in-dynamic-environments"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:vV6vV6tmYwMC",
+      "title": "迈向 L5 级自动驾驶汽车的发展原则",
+      "fields": {
+        "Authors": "王建强， 黄荷叶， 李克强， 李骏",
+        "Publication date": "2021/9/30",
+        "Journal": "工程 (英文)",
+        "Volume": "7",
+        "Issue": "9",
+        "Pages": "1313"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:Wp0gIr-vW9MC",
+      "reason": "Chinese translation of the same Engineering article, volume 7, issue 9, page 1313."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:RHpTSmoSYBkC",
+      "title": "Driving risk identification model calibration method and system",
+      "fields": {
+        "Inventors": "Jianqiang Wang, Heye HUANG, Xunjia ZHENG, Keqiang Li, Qing Xu, Shengbo Li, Likun Wang, Ziqing GU, Jiawei WANG",
+        "Publication date": "2021/9/16",
+        "Patent office": "US",
+        "Application number": "16755892"
+      },
+      "abstractAvailable": true,
+      "decision": "exclude",
+      "reason": "Patent application; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:Wp0gIr-vW9MC",
+      "title": "Towards the unified principles for level 5 autonomous vehicles",
+      "fields": {
+        "Authors": "Jianqiang Wang#, Heye Huang#, Keqiang Li, Jun Li",
+        "Publication date": "2021/9/1",
+        "Journal": "Engineering",
+        "Volume": "7",
+        "Issue": "9",
+        "Pages": "1313-1325",
+        "Publisher": "Elsevier"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-24"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:4DMP91E08xMC",
+      "title": "Behavioral decision‐making model of the intelligent vehicle based on driving risk assessment",
+      "fields": {
+        "Authors": "Xunjia Zheng, Heye Huang, Jianqiang Wang, Xiaocong Zhao, Qing Xu",
+        "Publication date": "2021/7",
+        "Journal": "Computer‐Aided Civil and Infrastructure Engineering",
+        "Volume": "36",
+        "Issue": "7",
+        "Pages": "820-837"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-behavioral-decision-making-model-of-the-intelligent-vehicle-based-on-driving-ris"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:mB3voiENLucC",
+      "title": "基于势能场虚拟力的智能网联车辆运动规划",
+      "fields": {
+        "Authors": "田洪清， 丁峰， 郑讯佳， 黄荷叶， 王建强",
+        "Publication date": "2021/4/23",
+        "Journal": "汽车工程",
+        "Volume": "43",
+        "Issue": "4",
+        "Pages": "518-526"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:u9iWguZQMMsC",
+      "reason": "Chinese and English records share the same author list, volume 43, issue 4 and pages 518–526."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:u9iWguZQMMsC",
+      "title": "Motion Planning Based on Virtual Force of Potential Field for Intelligent Connected Vehicles;[基于势能场虚拟力的智能网联车辆运动规划]",
+      "fields": {
+        "Authors": "Hongqing Tian, Feng Ding, Xunjia Zheng, Heye Huang, Jianqiang Wang",
+        "Publication date": "2021",
+        "Journal": "Qiche Gongcheng/Automotive Engineering",
+        "Volume": "43",
+        "Issue": "4",
+        "Pages": "518-526",
+        "Publisher": "SAE-China"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-motion-planning-based-on-virtual-force-of-potential-field-for-intelligent-connec"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:nb7KW1ujOQ8C",
+      "title": "Comprehensive risk assessment ways and devices for vehicle instability and collision under extreme working conditions [P]. Beijing: CN113370980B",
+      "fields": {
+        "Authors": "Wang Jianqiang, Yang Lu, Cui Mingyang, Huang Heye, Lin Xuewu, Xu Qing",
+        "Publication date": "2021",
+        "Pages": "11-02"
+      },
+      "abstractAvailable": false,
+      "decision": "exclude",
+      "reason": "Patent; this page lists research papers."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:a0OBvERweLwC",
+      "title": "越野环境下基于势能场模型的智能车概率图路径规划方法",
+      "fields": {
+        "Authors": "田洪清， 王建强， 黄荷叶， 丁峰",
+        "Publication date": "2021",
+        "Journal": "兵工学报",
+        "Volume": "42",
+        "Issue": "7",
+        "Pages": "1496-1505"
+      },
+      "abstractAvailable": true,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:yD5IFk8b50cC",
+      "reason": "Chinese and English records share the same author list, volume 42, issue 7 and pages 1496–1505."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:yD5IFk8b50cC",
+      "title": "Probabilistic Roadmap Method for Path Planning of Intelligent Vehicle Based on Artificial Potential Field Model in Off-road Environment;[越野环境下基于势能场模型的智能车概率图�…",
+      "fields": {
+        "Authors": "Hongqing Tian, Jianqiang Wang, Heye Huang, Feng Ding",
+        "Publication date": "2021",
+        "Journal": "Binggong Xuebao/Acta Armamentarii",
+        "Volume": "42",
+        "Issue": "7",
+        "Pages": "1496-1505",
+        "Publisher": "China Ordnance Industry Corporation"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2021-probabilistic-roadmap-method-for-path-planning-of-intelligent-vehicle-based-on-a"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:qUcmZB5y_30C",
+      "title": "Fast and robust approaches for lane detection using multi‐camera fusion in complex scenes",
+      "fields": {
+        "Authors": "Hui Xiong, Dameng Yu, Jinxin Liu, Heye Huang, Qing Xu, Jianqiang Wang, Keqiang Li",
+        "Publication date": "2020/12",
+        "Journal": "IET Intelligent Transport Systems",
+        "Volume": "14",
+        "Issue": "12",
+        "Pages": "1582-1593",
+        "Publisher": "The Institution of Engineering and Technology"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-fast-and-robust-approaches-for-lane-detection-using-multi-camera-fusion-in-compl"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:M3ejUd6NZC8C",
+      "title": "Probabilistic long-term vehicle trajectory prediction via driver awareness model",
+      "fields": {
+        "Authors": "Jinxin Liu, Hui Xiong, Heye Huang, Yugong Luo, Zhihua Zhong, Keqiang Li",
+        "Publication date": "2020/10/19",
+        "Conference": "2020 IEEE Intelligent Vehicles Symposium (IV)",
+        "Pages": "992-998",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-probabilistic-long-term-vehicle-trajectory-prediction-via-driver-awareness-model"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:IWHjjKOFINEC",
+      "title": "An integrated architecture for intelligence evaluation of automated vehicles",
+      "fields": {
+        "Authors": "Heye Huang, Xunjia Zheng, Yibin Yang, Jinxin Liu, Wenjun Liu, Jianqiang Wang",
+        "Publication date": "2020/9/1",
+        "Journal": "Accident Analysis & Prevention",
+        "Volume": "145",
+        "Pages": "105681",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-25"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:YsMSGLbcyi4C",
+      "title": "Driving risk assessment based on naturalistic driving study and driver attitude questionnaire analysis",
+      "fields": {
+        "Authors": "Jianqiang Wang#, Heye Huang#, Yang Li, Hanchu Zhou, Jinxin Liu, Qing Xu",
+        "Publication date": "2020/9/1",
+        "Journal": "Accident Analysis & Prevention",
+        "Volume": "145",
+        "Pages": "105680",
+        "Publisher": "Pergamon"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-27"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:u5HHmVD_uO8C",
+      "title": "A probabilistic risk assessment framework considering lane-changing behavior interaction",
+      "fields": {
+        "Authors": "Heye Huang, Jianqiang Wang, Cong Fei, Xunjia Zheng, Yibin Yang, Jinxin Liu, Xiangbin Wu, Qing Xu",
+        "Publication date": "2020/9",
+        "Journal": "Science China Information Sciences",
+        "Volume": "63",
+        "Issue": "9",
+        "Pages": "190203",
+        "Publisher": "Science China Press"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-26"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:cFHS6HbyZ2cC",
+      "title": "Decision-making Mechanism of the Drivers Following the Principle of Least Action;[驾驶人驾驶决策机制遵循最小作用量原理]",
+      "fields": {
+        "Authors": "Jian-Qiang Wang, Xun-Jia Zheng, He-Ye Huang",
+        "Publication date": "2020",
+        "Journal": "Zhongguo Gonglu Xuebao/China Journal of Highway and Transport",
+        "Volume": "33",
+        "Issue": "4",
+        "Pages": "155-168",
+        "Publisher": "Xi'an Highway University"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2020-decision-making-mechanism-of-the-drivers-following-the-principle-of-least-action"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:dfsIfKJdRG4C",
+      "title": "Decision-making mechanism of the drivers following the principle of least action",
+      "fields": {
+        "Authors": "WANG Jianqiang, ZHENG Xunjia, Heye HUANG",
+        "Publication date": "2020",
+        "Journal": "China Journal of Highway and Transport",
+        "Volume": "33",
+        "Issue": "4",
+        "Pages": "155-168"
+      },
+      "abstractAvailable": false,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:cFHS6HbyZ2cC",
+      "reason": "Alternate English record with the same authors, volume 33, issue 4 and pages 155–168."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:QIV2ME_5wuYC",
+      "title": "Driver’s driving decision mechanism follows the principle of minimum action",
+      "fields": {
+        "Authors": "WANG Jianqiang, ZHENG Xunjia, Heye HUANG",
+        "Publication date": "2020",
+        "Journal": "Acta Sinica Sinica",
+        "Volume": "33",
+        "Issue": "4",
+        "Pages": "155-168"
+      },
+      "abstractAvailable": false,
+      "decision": "merge",
+      "retainedScholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:cFHS6HbyZ2cC",
+      "reason": "Mistranslated journal/title record with the same authors, volume 33, issue 4 and pages 155–168."
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:Se3iqnhoufwC",
+      "title": "Objective and Subjective Analysis to Quantify Influence Factors of Driving Risk*",
+      "fields": {
+        "Authors": "Heye Huang, Yang Li, Xunjia Zheng, Jianqiang Wang, Qing Xu, Sifa Zheng",
+        "Publication date": "2019/10/27",
+        "Conference": "2019 IEEE Intelligent Transportation Systems Conference (ITSC)",
+        "Pages": "4310-4316",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2019-objective-and-subjective-analysis-to-quantify-influence-factors-of-driving-risk"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:Y0pCki6q_DkC",
+      "title": "An integrated approach to probabilistic vehicle trajectory prediction via driver characteristic and intention estimation",
+      "fields": {
+        "Authors": "Jinxin Liu, Yugong Luo, Hui Xiong, Tinghan Wang, Heye Huang, Zhihua Zhong",
+        "Publication date": "2019/10/27",
+        "Conference": "2019 IEEE Intelligent Transportation Systems Conference (ITSC)",
+        "Pages": "3526-3532",
+        "Publisher": "IEEE"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2019-an-integrated-approach-to-probabilistic-vehicle-trajectory-prediction-via-driver"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&oe=ASCII&user=BWUpn24AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=BWUpn24AAAAJ:UeHWp8X0CEIC",
+      "title": "A novel framework for road traffic risk assessment with HMM-based prediction model",
+      "fields": {
+        "Authors": "Xunjia Zheng, Di Zhang, Hongbo Gao, Zhiguo Zhao, Heye Huang, Jianqiang Wang",
+        "Publication date": "2018/12/7",
+        "Journal": "Sensors",
+        "Volume": "18",
+        "Issue": "12",
+        "Pages": "4313",
+        "Publisher": "MDPI"
+      },
+      "abstractAvailable": true,
+      "decision": "include",
+      "key": "huang-2018-a-novel-framework-for-road-traffic-risk-assessment-with-hmm-based-prediction-mod"
+    }
+  ]
+}

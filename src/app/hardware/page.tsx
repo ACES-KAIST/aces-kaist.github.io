@@ -42,25 +42,13 @@ export default function Hardware() {
               {/* Replace public/hardware/humanoid.png with the lab's photograph. */}
               <Image
                 src={assetPath('/hardware/humanoid.png')}
-                alt="Unitree G1 humanoid robot; temporary reference photograph from Stanford ASL."
+                alt="Unitree G1 humanoid robot."
                 fill
                 className="object-cover transition duration-500 hover:scale-[1.03]"
                 style={{ objectPosition: '60% center' }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <figcaption className="mt-3 text-xs/5 text-gray-500">
-              Temporary reference photo from{' '}
-              <a
-                href="https://stanfordasl.github.io/hardware/"
-                target="_blank"
-                rel="noreferrer"
-                className="underline underline-offset-2"
-              >
-                Stanford ASL
-              </a>
-              . An ACES Lab photo will replace this image.
-            </figcaption>
           </figure>
           <div className="lg:order-1">
             <div className="flex items-center gap-3">
@@ -72,11 +60,21 @@ export default function Hardware() {
             <Heading as="h2" className="mt-3 !text-3xl sm:!text-4xl">
               Unitree G1 Humanoid
             </Heading>
-            <div className="mt-6 max-w-xl text-base/7 text-gray-600">
+            <div className="mt-6 max-w-xl space-y-4 text-base/7 text-gray-600">
               <p>
-                The Unitree G1 is a humanoid robot. It provides a platform for
-                studying robot motion, whole-body control, and interaction with
-                the physical environment.
+                The Unitree G1 is a humanoid robot designed for coordinated
+                movement of its arms, legs, and torso. Its range of joint motion
+                supports research on balance, locomotion, and whole-body
+                control. A depth camera and 3D LiDAR provide information about
+                the surrounding environment.
+              </p>
+              <p>
+                The platform supports the study of imitation learning and
+                reinforcement learning for robot motion. It also provides a
+                setting for testing how learned policies respond to physical
+                constraints, such as joint limits, balance, and contact with
+                objects. These questions connect robot learning with safe
+                operation in the physical world.
               </p>
             </div>
           </div>
