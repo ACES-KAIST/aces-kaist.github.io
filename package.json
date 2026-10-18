@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "photos:build": "node scripts/photo-assets.mjs",
     "typecheck": "tsc --noEmit",
-    "check:export": "node scripts/check-export.mjs"
+    "check:export": "node scripts/check-export.mjs",
+    "publications:sync": "node scripts/sync-publications.mjs",
+    "publications:test": "node --test scripts/sync-publications.test.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.6",

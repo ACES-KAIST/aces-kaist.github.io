@@ -47,9 +47,9 @@ function Hero() {
         <Navbar />
       </Container>
       <Container className="relative mt-16 pb-16">
-        <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative z-10 text-center xl:text-left">
-            <h1 className="font-display text-[clamp(2.25rem,5.8vw,5.5rem)] leading-[0.98] font-medium tracking-tight text-balance text-gray-950">
+        <div className="grid w-full grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,0.7fr)_minmax(0,1.5fr)] xl:gap-8">
+          <div className="relative z-10 min-w-0 text-center xl:text-left">
+            <h1 className="font-display text-[clamp(2.25rem,5.8vw,5.5rem)] leading-[0.98] font-medium tracking-tight text-balance text-gray-950 xl:text-[clamp(3.25rem,4.4vw,4.25rem)]">
               {site.fullName}
             </h1>
             <p className="mx-auto mt-8 max-w-lg text-xl/7 font-medium text-gray-600 sm:text-2xl/8 xl:mx-0">
@@ -57,13 +57,13 @@ function Hero() {
               robotics.
             </p>
           </div>
-          <div className="flex justify-center xl:-mr-12 xl:justify-end">
+          <div className="flex min-w-0 justify-center">
             <img
               src={assetPath('/aces/research-overview.png')}
               alt="ACES Lab research overview: theory and algorithms for autonomous vehicles, robots, and multi-agent systems"
               width={1408}
               height={580}
-              className="h-auto w-full max-w-none"
+              className="block h-auto w-full max-w-none object-contain"
               fetchPriority="high"
             />
           </div>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Visit ACES Lab at KAIST Munji Campus in Daejeon, South Korea.',
 }
 
-// Faculty office: https://mo.kaist.ac.kr/en/professor/heye-huang/
+// Lab room F335 confirmed by the lab on 2026-10-18.
 // Campus address: https://mo.kaist.ac.kr/en/graduate-school-introduction/map/
 // Map location published by KAIST: https://kaist.ac.kr/en/html/kaist/01200202.html
 const mapQuery = '36.391745125607855,127.39663440980239'
@@ -38,7 +38,7 @@ export default function Contact() {
                 <br />
                 {site.department}
                 <br />
-                Building F, KAIST Munji Campus
+                Room F335, Building F, KAIST Munji Campus
                 <br />
                 193 Munji-ro, Yuseong-gu
                 <br />
@@ -48,9 +48,8 @@ export default function Contact() {
             <div>
               <Subheading>Finding us</Subheading>
               <p className="mt-3 text-base/7 text-gray-600">
-                Heye Huang&apos;s office is F337, on the third floor of Building
-                F. Please email before your visit to confirm the meeting
-                location.
+                ACES Lab is in Room F335, on the third floor of Building F.
+                Please email us before your visit.
               </p>
             </div>
             <div>

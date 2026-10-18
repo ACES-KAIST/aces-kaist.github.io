@@ -34,10 +34,40 @@ Scholar sometimes keeps the first preprint/online year after a journal record is
 
 Other records retain the publication date and bibliographic fields in the retrieved Scholar detail page. Online-first and issue years can differ. The source audit records the original values and every explicit override. Some publisher pages were unavailable through the research browser, and Crossref rate-limited additional checks; no blocked endpoint was repeatedly retried.
 
-## Future updates
+## Automatic updates
 
-1. Read the complete Scholar list, following **Show more** until disabled. Stop if access is blocked; do not bypass CAPTCHA.
-2. Read new or changed record details and check the article/publisher source when metadata conflicts.
-3. Merge translated titles and preprint/journal versions only when their authors, subject, and publication identifiers establish that they are the same work. Keep reports and patents outside the paper tabs.
-4. Update the local records and source audit. Preserve verified award/code information from the professor’s homepage unless newer evidence replaces it.
-5. Check that every entry has an author list, year, citation, BibTeX and source link, then run the project build and check the publication tabs and copy controls.
+The **Update publications** workflow in `.github/workflows/update-publications.yml` runs every **Monday at 09:17 Korea time** (00:17 UTC). GitHub may delay scheduled jobs. Repository maintainers can also start it from **Actions → Update publications → Run workflow**. Changes to the updater script or workflow also trigger a run on `main`. GitHub disables scheduled workflows in public repositories after 60 days without repository activity; if that happens, re-enable this workflow from the Actions page.
+
+The workflow uses Node.js 22 and the repository's `GITHUB_TOKEN`; no Scholar credentials, paid service, or extra secret is needed. It runs the source checks, publication tests and site build before committing changed publication data to `main`. It then explicitly starts the Pages deployment workflow. This dispatch is necessary because a push made with `GITHUB_TOKEN` does not itself start another push-triggered workflow. The repository must allow Actions to write contents and run workflows, and any branch protection must allow this bot commit. No data changes means no new commit.
+
+`scripts/sync-publications.mjs` reads every profile page until **Show more** is disabled, then retrieves all listed record-detail pages sequentially with 1.5 seconds between requests. The current 93-record profile normally needs a few minutes. The static site continues to use checked-in JSON; ordinary site builds never contact Google Scholar.
+
+```sh
+# Fetch and validate the complete profile without modifying files.
+npm run publications:sync -- --dry-run
+
+# Fetch and update the checked-in publication records and source audit.
+npm run publications:sync
+
+# Run deterministic regression tests without network access.
+npm run publications:test
+```
+
+`--check` is an alias for `--dry-run`. Successful commands exit with status 0 and print a JSON summary of additions, updates, merges, exclusions and records requiring review. A dry run can report proposed changes without treating them as a failure.
+
+### What is updated
+
+- New papers receive full author metadata from the detail page, date, venue, citation, BibTeX, paper link and source abstract link. The script does not invent an abstract, code repository, award, image, DOI or missing bibliographic field.
+- Existing Scholar metadata is updated when it changes and still agrees with the last source snapshot. Manually supplied code links, awards, presentation notes, images and supplementary sources remain in place.
+- The `verifiedOverrides` in `docs/publication-source-audit.json` take precedence over Scholar for fields such as issue dates, authors, venue and DOI. The six corrections documented above remain protected.
+- Other manual bibliography edits are detected by comparing the current entry with its previous generated source metadata. A conflicting Scholar change is saved as `pendingSourceChange` in the audit for review; the displayed paper remains unchanged.
+- A repeated DOI or arXiv identifier, or an identical normalized title and complete author list, identifies a duplicate. A confirmed published version can replace its preprint while retaining its website key and annotations. Existing reviewed merges and exclusions are preserved. Translations with different titles and no shared identifier still need manual verification.
+- Clearly identified patents, research reports and data management plans remain outside the paper tabs. A new record without a research-paper venue is recorded for review rather than being presented as a paper.
+
+### Failures and manual review
+
+If Scholar returns HTTP 403/429, a CAPTCHA, malformed data, truncated authors, incomplete pagination or a missing previously recorded item, the command fails **before writing either data file**. It does not retry access checks or bypass CAPTCHA. The workflow therefore cannot replace the deployed bibliography with an empty or partial response. A missing old Scholar record can also indicate a legitimate merge or deletion on the profile; check that change before updating its audit entry.
+
+Google Scholar is an external public webpage and can block automated requests. Check a failed run in **Actions → Update publications**; the existing website remains available. After normal access returns, rerun the workflow. The first local live check on 18 October 2026 returned HTTP 429 and stopped without changes; parsing and reconciliation were also verified against all 93 previously retrieved source pages.
+
+For a manual correction, update the publication and its audit together. Add source-backed field corrections to `verifiedOverrides` and include a `source` URL. Resolve `pendingSourceChange` only after checking the cited source; then update the stored source fields and remove that pending field. New code links and awards should have a verifiable source. Run the tests and build before pushing.

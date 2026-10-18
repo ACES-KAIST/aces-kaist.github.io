@@ -1,6 +1,6 @@
 # ACES Lab website
 
-Website for the Autonomous Cognitive and Embodied Systems Lab at KAIST, adapted from the Stanford ASL website. Lab information is based on [Heye Huang’s homepage](https://huangheye.github.io/). Publications were checked against Google Scholar and publication sources; see [Publication sources and maintenance](docs/PUBLICATIONS.md). The contact address is based on official KAIST faculty and campus pages.
+Website for the Autonomous Cognitive and Embodied Systems Lab at KAIST, adapted from the Stanford ASL website. Lab information is based on [Heye Huang’s homepage](https://huangheye.github.io/). Publications were checked against Google Scholar and publication sources; see [Publication sources and maintenance](docs/PUBLICATIONS.md). The campus address is based on official KAIST pages; the lab confirmed its room as F335.
 
 ## Local development
 
@@ -18,6 +18,8 @@ npm run build
 ```
 
 The static website is exported to `out/`. The GitHub Actions workflow deploys it to GitHub Pages and automatically configures the path for a user, organization, or project website.
+
+Publications are checked automatically every Monday at 09:17 Korea time. The updater preserves manually verified metadata and starts a Pages deployment after a successful sync. See [Publication sources and maintenance](docs/PUBLICATIONS.md) for manual runs and source-access failures.
 
 See [GitHub Pages 操作说明](docs/GITHUB_PAGES_ZH.md) for repository setup, publishing, and content updates. See [Photo maintenance](scripts/photo-assets.md) for photo selection and processing.
 

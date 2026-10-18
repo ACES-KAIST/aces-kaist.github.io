@@ -120,8 +120,8 @@ export function newestPhotoFirst(a, b) {
   if (a.capturedAt === null)
     return b.capturedAt === null ? a.id.localeCompare(b.id) : 1
   if (b.capturedAt === null) return -1
-  // Current dated originals all include their +09:00 offset. For future images
-  // lacking an offset, compare the recorded local date instead of inventing one.
+  // Compare known offsets as absolute time. If either image lacks an offset,
+  // compare its recorded local date instead of inventing a time zone.
   const hasZone = (value) => /(?:Z|[+-]\d{2}:\d{2})$/.test(value)
   const difference =
     hasZone(a.capturedAt) && hasZone(b.capturedAt)

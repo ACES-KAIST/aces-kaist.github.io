@@ -1,0 +1,69 @@
+name: Update publications
+
+on:
+  schedule:
+    # Monday 09:17 in Asia/Seoul (UTC+9).
+    - cron: '17 0 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-publications.yml'
+      - 'scripts/sync-publications*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publications-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'ACES-KAIST/aces-kaist.github.io' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Test publication sync
+        run: npm run publications:test
+      - name: Read Google Scholar and update publication records
+        run: npm run publications:sync
+      - name: Check for data changes
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/publications.json docs/publication-source-audit.json; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Validate updated website
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run build
+      - name: Commit and push verified publication updates
+        if: steps.changes.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/publications.json docs/publication-source-audit.json
+          git commit -m 'Update publications from Google Scholar'
+          # Fail on a concurrent main update; never replace or merge unseen changes.
+          git push origin HEAD:main
+      - name: Publish the latest main branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # GITHUB_TOKEN pushes do not trigger push workflows. Dispatch explicitly,
+        # even without new papers, so a previously interrupted deployment recovers.
+        run: gh workflow run deploy.yml --ref main

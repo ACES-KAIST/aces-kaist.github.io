@@ -79,6 +79,16 @@ git push
 
 `npm run build` 会生成 `out`。构建包含 TypeScript 和 Next.js 检查。原模板的历史会议网页、旧成员档案和旧论文档案会从发布目录中排除，仍保留在本地克隆和 Git 历史中。
 
+## 论文自动更新
+
+已添加 `.github/workflows/update-publications.yml`，每周一韩国时间 **09:17** 检查 Heye Huang 的 Google Scholar。GitHub 定时任务可能稍有延迟。
+
+- 自动读取论文列表和详情，保留已核实的代码链接、奖项和人工修正。
+- 有更新时先构建验证，再由 GitHub Actions 提交至 `main`，随后触发网站部署。
+- Google Scholar 限流、要求验证码或返回不完整数据时停止更新，现有网站和论文列表保持可用。
+
+手动运行：打开仓库 **Actions → Update publications → Run workflow → main → Run workflow**。无需配置额外密钥。具体同步规则和人工修正方法见 [PUBLICATIONS.md](PUBLICATIONS.md)。
+
 ## 常改内容的位置
 
 | 内容                       | 文件                                             |
@@ -111,7 +121,7 @@ git push
 - Generative AI and world models
 - Foundation models and agents
 
-Contact 页的导师办公室 F337 来自 [KAIST 官方导师页](https://mo.kaist.ac.kr/en/professor/heye-huang/)；Building F、193 Munji-ro 的校区地址来自 [学校地图页](https://mo.kaist.ac.kr/en/graduate-school-introduction/map/)，邮编 34051 可在 [KAIST ITVC 地址页](https://itvc.kaist.ac.kr/esub0104)核对。F337 标为导师办公室，访问前仍需邮件确认会面地点。
+Contact 页的实验室房间 F335 由实验室确认（2026-10-18）；Building F、193 Munji-ro 的校区地址来自 [学校地图页](https://mo.kaist.ac.kr/en/graduate-school-introduction/map/)，邮编 34051 可在 [KAIST ITVC 地址页](https://itvc.kaist.ac.kr/esub0104)核对。实验室位于 Building F 三楼 F335，访问前请通过邮件联系。
 
 Research 1 使用导师主页的 [LEAD 视频](https://huangheye.github.io/assets/publications/thumbs/lead.mp4)，本地文件为 `public/aces/research/lead.mp4`；Research 2 使用与首页相同的 Risk-Controllable Multi-View Diffusion 图片。Research 3 的智能体动画、Research 页标题区背景以及 Unitree G1 参考照片保留自 Stanford ASL 模板。页面不显示来源或临时照片说明，素材来源记录保留在此文档中。机器人照片待替换，未填写未经确认的设备数量或配置。
 
