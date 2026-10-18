@@ -9,7 +9,6 @@ import publications from '@/data/publications.json'
 import { researchAreas } from '@/data/research'
 import { assetPath } from '@/lib/site'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 type ResearchArea = (typeof researchAreas)[number]
 
@@ -156,25 +155,6 @@ export default function Research() {
             </p>
           </div>
         </div>
-        <nav
-          aria-label="Research directions"
-          className="mt-8 grid gap-4 lg:grid-cols-3"
-        >
-          {researchAreas.map((area, index) => (
-            <Link
-              key={area.id}
-              href={`#${area.id}`}
-              className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-gray-400"
-            >
-              <span className="pt-0.5 font-mono text-sm text-gray-500">
-                0{index + 1}
-              </span>
-              <span className="text-lg/6 font-semibold text-gray-950">
-                {area.title}
-              </span>
-            </Link>
-          ))}
-        </nav>
       </Container>
       <div className="mt-8 divide-y divide-gray-200">
         {researchAreas.map((area, index) => (

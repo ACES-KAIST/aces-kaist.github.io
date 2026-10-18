@@ -30,7 +30,7 @@ function DesktopNav({
   showHomeShortcut?: boolean
 }) {
   return (
-    <nav className="relative hidden xl:flex">
+    <nav className="relative hidden self-stretch xl:flex">
       {showHomeShortcut && (
         <PlusGridItem className="relative flex">
           <Link

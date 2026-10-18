@@ -15,6 +15,8 @@ The two user-provided photographs were identified by visual inspection. Their fu
 
 The G1 and Go2 photographs are reference images from the original template. They do not document the lab's robot configurations or facilities. Source records are kept here rather than displayed as captions on the page.
 
+The Go2 photograph is displayed in a 3:2 landscape frame with CSS `object-fit: cover` and `object-position: center 80%`, keeping the robot's body and feet visible. The source image is unchanged.
+
 ## Descriptions and sources
 
 Checked on 2026-10-18:

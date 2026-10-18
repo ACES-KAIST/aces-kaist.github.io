@@ -46,6 +46,7 @@ const platforms = [
     alt: 'Unitree Go2 quadruped robot standing on a paved outdoor surface.',
     width: 1200,
     height: 1600,
+    landscapeCrop: true,
     paragraphs: [
       <>
         The Unitree Go2 is a quadruped robot for studying{' '}
@@ -137,13 +138,19 @@ export default function Hardware() {
               className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
             >
               <figure className={index % 2 === 0 ? 'lg:order-2' : ''}>
-                <div className="overflow-hidden rounded-2xl bg-gray-50 shadow-lg ring-1 ring-black/10">
+                <div
+                  className={`overflow-hidden rounded-2xl bg-gray-50 shadow-lg ring-1 ring-black/10 ${platform.landscapeCrop ? 'aspect-[3/2]' : ''}`}
+                >
                   <Image
                     src={assetPath(platform.image)}
                     alt={platform.alt}
                     width={platform.width}
                     height={platform.height}
-                    className="h-auto w-full"
+                    className={
+                      platform.landscapeCrop
+                        ? 'h-full w-full object-cover object-[center_80%]'
+                        : 'h-auto w-full'
+                    }
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
