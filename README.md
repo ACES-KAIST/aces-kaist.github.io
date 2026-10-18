@@ -1,25 +1,24 @@
-# ASL Website
+# ACES Lab website
 
-Built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
+Website for the Autonomous Cognitive and Embodied Systems Lab at KAIST, adapted from the Stanford ASL website. Content is based on [Heye Huang’s homepage](https://huangheye.github.io/).
 
-## Getting started
+## Local development
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the development server:
+Use Node.js 22 or later.
 
 ```bash
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-## Build
+## Build and publish
 
 ```bash
 npm run build
 ```
+
+The static website is exported to `out/`. The GitHub Actions workflow deploys it to GitHub Pages and automatically configures the path for a user, organization, or project website.
+
+See [GitHub Pages 操作说明](docs/GITHUB_PAGES_ZH.md) for repository setup, publishing, and content updates. See [Photo maintenance](scripts/photo-assets.md) for photo selection and processing.
+
+Research illustrations and the temporary Unitree G1 photograph are credited on their pages. Original license terms remain in [LICENSE.md](LICENSE.md).

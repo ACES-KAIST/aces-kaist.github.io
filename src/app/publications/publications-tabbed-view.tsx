@@ -238,6 +238,12 @@ function SectionContent({ section }: { section: PublicationSection }) {
                     {item.authorsDisplay}
                     {item.venue ? ` · ${item.venue}` : ''}
                   </p>
+                  {item.note && <p className="mt-1 text-sm/6 font-medium text-gray-600">{item.note}</p>}
+                  {item.codeUrl && (
+                    <a href={item.codeUrl} target="_blank" rel="noreferrer" className="mt-1 inline-block text-sm text-gray-500 underline underline-offset-2 hover:text-gray-900" aria-label={`Code for ${item.title}`}>
+                      Code
+                    </a>
+                  )}
                   {(item.bibtex || item.abstract) && (
                     <div className="mt-1 flex flex-wrap items-start gap-x-3 gap-y-2">
                       {item.bibtex && (

@@ -6,6 +6,7 @@ import { Navbar } from '@/components/navbar'
 import { Heading } from '@/components/text'
 import { getPersonBySlug, getProfiledPeople, type Person } from '@/lib/people'
 import { getPublicationsForPerson, type Publication } from '@/lib/publications'
+import { assetPath } from '@/lib/site'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
@@ -27,28 +28,10 @@ export async function generateMetadata({
     title: person.title,
     description:
       person.excerpt ||
-      `${person.title} — Autonomous Systems Lab, Stanford University.`,
+      `${person.title} — ACES Lab, KAIST.`,
   }
 }
 
-function roleLabel(person: Person): string {
-  switch (person.position) {
-    case 'phd':
-      return 'PhD Student'
-    case 'postdoc':
-      return 'Postdoctoral Scholar'
-    case 'faculty':
-      return 'Faculty'
-    case 'externalresearchaffiliate':
-      return 'External Research Affiliate'
-    case 'alumni':
-      return 'Alumni'
-    case 'staff':
-      return person.role || 'Staff'
-    default:
-      return ''
-  }
-}
 
 function HomeIcon() {
   return (
@@ -87,10 +70,6 @@ function url(base: string, value: string): string {
   return value.startsWith('http') ? value : base + value
 }
 
-function obfuscateEmail(email: string): string {
-  return email.replace('@', ' _at_ ').replace(/\./g, ' _dot_ ')
-}
-
 function ProfileLinks({ person }: { person: Person }) {
   const hasIcon =
     person.website || person.gscholar || person.github || person.linkedin
@@ -122,7 +101,7 @@ function ProfileLinks({ person }: { person: Person }) {
         </div>
       )}
       {person.email && (
-        <p className="mt-3 text-sm text-gray-500">{obfuscateEmail(person.email)}</p>
+        <a href={`mailto:${person.email}`} className="mt-3 block break-all text-sm text-gray-500 hover:text-gray-800">{person.email}</a>
       )}
     </div>
   )
@@ -147,9 +126,9 @@ function PublicationsList({ publications }: { publications: Publication[] }) {
       </Heading>
       <p className="mt-2 text-sm text-gray-500">
         {publications.length} publication{publications.length === 1 ? '' : 's'} ·{' '}
-        <a href="/publications/" className="underline underline-offset-2 hover:text-gray-800">
-          full lab bibliography
-        </a>
+        <Link href="/publications/" className="underline underline-offset-2 hover:text-gray-800">
+          all publications
+        </Link>
       </p>
       <div className="mt-8 space-y-10">
         {years.map((year) => (
@@ -200,7 +179,7 @@ export default async function PersonPage({
     .join('\n\n')
     .trim()
 
-  const role = roleLabel(person)
+  const role = person.role
 
   return (
     <main className="overflow-hidden">
@@ -219,7 +198,7 @@ export default async function PersonPage({
             <div className="aspect-square overflow-hidden rounded-xl outline-1 -outline-offset-1 outline-black/10">
               <img
                 alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
+                src={assetPath(person.img)}
                 className="block size-full object-cover"
               />
             </div>
@@ -233,14 +212,10 @@ export default async function PersonPage({
             {role && (
               <p className="mt-2 text-base text-gray-600">
                 {role}
-                {person.position === 'alumni' && person.current && (
-                  <>
-                    {' · now at '}
-                    <span className="font-medium text-[#8C1515]">{person.current}</span>
-                  </>
-                )}
+
               </p>
             )}
+            {person.joined && <p className="mt-1 text-sm text-gray-500">{person.joined}</p>}
             <hr className="mt-4 border-t border-gray-200" />
             {bio && (
               <div className="mt-6 text-base/7 text-gray-600 [&>*:first-child]:mt-0 [&_a]:font-medium [&_a]:text-gray-900 [&_a]:underline [&_a]:underline-offset-2 [&_h3]:mt-8 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:tracking-[0.16em] [&_h3]:text-gray-700 [&_h3]:uppercase [&_li]:mt-1 [&_p]:mt-4 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-5">

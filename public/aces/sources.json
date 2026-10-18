@@ -1,0 +1,147 @@
+{
+  "source": "https://huangheye.github.io/",
+  "checked": "2026-10-18",
+  "assets": [
+    {
+      "source": "https://huangheye.github.io/assets/images/profile-photo.jpg",
+      "path": "people/heye-huang.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/benwang.jpg",
+      "path": "people/benwang-chen.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/xianjiedai.png",
+      "path": "people/xianjie-dai.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/jingguangli.jpg",
+      "path": "people/jingguang-li.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/kailangma.jpg",
+      "path": "people/kailang-ma.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/zuyiguo.png",
+      "path": "people/zuyi-guo.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/k-risk.png",
+      "path": "publications/k-risk.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/sense.png",
+      "path": "publications/sense.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/risk-controllable-diffusion.png",
+      "path": "publications/risk-controllable-diffusion.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/respond.png",
+      "path": "publications/respond.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/cogdrive.webp",
+      "path": "publications/cogdrive.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/learning-from-risk-1.png",
+      "path": "publications/learning-from-risk-1.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/learning-from-risk-2.png",
+      "path": "publications/learning-from-risk-2.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/smart-dense-environments.png",
+      "path": "publications/smart-dense-environments.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/react.webp",
+      "path": "publications/react.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/risknet.webp",
+      "path": "publications/risknet.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/lead.webp",
+      "path": "publications/lead.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/driver-cognition.webp",
+      "path": "publications/driver-cognition.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/adaptive-platoon.webp",
+      "path": "publications/adaptive-platoon.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/safedrive.png",
+      "path": "publications/safedrive.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/uniform-shifted-power-law.png",
+      "path": "publications/uniform-shifted-power-law.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/general-optimal-trajectory.png",
+      "path": "publications/general-optimal-trajectory.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/csdo.png",
+      "path": "publications/csdo.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/attention-priority-mapf.png",
+      "path": "publications/attention-priority-mapf.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/deception-advantage-games.png",
+      "path": "publications/deception-advantage-games.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/human-decision-high-risk.png",
+      "path": "publications/human-decision-high-risk.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/online-physical-platoon.png",
+      "path": "publications/online-physical-platoon.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/intelligent-adaptive-decision-making.png",
+      "path": "publications/intelligent-adaptive-decision-making.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/microtraffic.webp",
+      "path": "publications/microtraffic.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/probabilistic-situation-assessment.png",
+      "path": "publications/probabilistic-situation-assessment.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/unified-principles-level5.png",
+      "path": "publications/unified-principles-level5.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/An Integrated Architecture for Intelligence Evaluation of Automated Vehicles.png",
+      "path": "publications/an-integrated-architecture-for-intelligence-evaluation-of-automated-vehicles.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/lane-changing-risk.webp",
+      "path": "publications/lane-changing-risk.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/publications/thumbs/Driving Risk Assessment Based on Naturalistic Driving Study and Driver Attitude Questionnaire Analysis.png",
+      "path": "publications/driving-risk-assessment-based-on-naturalistic-driving-study-and-driver-attitude-questionnaire-analysis.webp"
+    },
+    {
+      "source": "https://huangheye.github.io/assets/images/research-overview.png",
+      "path": "research-overview.png"
+    }
+  ],
+  "assetProcessing": "Portraits and publication thumbnails resized without upscaling and encoded as WebP (quality 85); research overview retained as supplied."
+}

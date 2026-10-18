@@ -1,12 +1,15 @@
 {
-  "name": "asl-website",
+  "name": "aces-lab-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/prune-export.mjs && node scripts/check-export.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "photos:build": "node scripts/photo-assets.mjs",
+    "typecheck": "tsc --noEmit",
+    "check:export": "node scripts/check-export.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.6",
@@ -16,7 +19,6 @@
     "feed": "^5.1.0",
     "framer-motion": "^12.23.11",
     "gray-matter": "^4.0.3",
-    "motion-plus": "https://api.motion.dev/registry.tgz?package=motion-plus&version=2.11.0&token=5fe4a3d0943ff8c7f57974e3bd5a4c45b285c112e064e8f2cfe8b885c9c1d27a",
     "next": "15.4.4",
     "react": "^19",
     "react-dom": "^19",
@@ -38,6 +40,7 @@
     "prettier-plugin-organize-imports": "^4.2.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5"
+    "typescript": "^5",
+    "sharp": "^0.34.3"
   }
 }

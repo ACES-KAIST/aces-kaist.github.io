@@ -1,6 +1,4 @@
-// Legacy URL support: the old lab site served profiles at /people/<slug>/ (still
-// the URLs indexed by Google, e.g. /people/prof-marco-pavone/). Re-export the
-// /team/[slug] profile so those links resolve to the same page.
+// The /people alias exposes only the current ACES Lab profile records.
 export {
   default,
   generateStaticParams,

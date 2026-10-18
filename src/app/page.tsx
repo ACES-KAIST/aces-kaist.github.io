@@ -1,40 +1,44 @@
 import { BentoCard } from '@/components/bento-card'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
+import { GradientBackground } from '@/components/gradient'
 import { ImageCarousel } from '@/components/image-carousel'
 import { Link } from '@/components/link'
 import { SocialLinks } from '@/components/logo-cloud'
-import { DataFlywheel } from '@/components/data-flywheel'
-import { EmbodiedAgentLoop } from '@/components/embodied-agent-loop'
-import { RobotFoundationDiagram } from '@/components/robot-foundation-diagram'
 import { Navbar } from '@/components/navbar'
-import { GradientBackground } from '@/components/gradient'
 import { Heading } from '@/components/text'
-import type { Metadata } from 'next'
-import fs from 'fs'
-import path from 'path'
+import photos from '@/data/photos.json'
+import { assetPath, site } from '@/lib/site'
 
-export const metadata: Metadata = {
-  description:
-    'Bringing world-scale intelligence to real-world machines.',
-}
-
-// Get all images from visual-highlights directory
-function getVisualHighlights() {
-  const imagesDirectory = path.join(process.cwd(), 'public/visual-highlights')
-
-  try {
-    const filenames = fs.readdirSync(imagesDirectory)
-    // Filter for image files only
-    const imageFiles = filenames.filter(name =>
-      /\.(jpg|jpeg|png|gif|webp|JPG|JPEG|PNG)$/i.test(name)
-    )
-    return imageFiles
-  } catch (error) {
-    console.error('Error reading visual-highlights directory:', error)
-    return []
-  }
-}
+const research = [
+  {
+    id: 'safety',
+    title: 'Trustworthy safety-critical systems',
+    summary: 'Risk perception and decision-making',
+    description:
+      'We study how autonomous systems assess risk, make decisions under uncertainty, and monitor safety during operation.',
+    image: '/aces/publications/react.webp',
+    alt: 'Research on collision avoidance for autonomous driving',
+  },
+  {
+    id: 'world-models',
+    title: 'Generative AI and world models',
+    summary: 'Prediction and scenario generation',
+    description:
+      'We use language, diffusion, and multimodal models to predict behavior, reason about interactions, and generate rare driving scenarios.',
+    image: '/aces/publications/risk-controllable-diffusion.webp',
+    alt: 'Research on generating driving scenarios with diffusion models',
+  },
+  {
+    id: 'agents',
+    title: 'Foundation models and agents',
+    summary: 'Memory and reasoning for embodied intelligence',
+    description:
+      'We study agents that use memory and models of their environment to support reasoning and decisions in driving and robotics.',
+    image: '/aces/publications/safedrive.webp',
+    alt: 'Research on language models for driving decisions',
+  },
+]
 
 function Hero() {
   return (
@@ -44,26 +48,44 @@ function Hero() {
         <Navbar />
       </Container>
       <Container className="relative mt-16 pb-16">
-        <div className="grid grid-cols-1 items-center gap-8 w-full xl:grid-cols-2">
+        <div className="grid w-full grid-cols-1 items-center gap-8 xl:grid-cols-2">
           <div className="relative z-10 text-center xl:text-left">
-            <h1 className="font-display font-medium tracking-tight text-balance text-gray-950 text-[clamp(2.75rem,11vw,110px)] leading-[0.95] sm:leading-[0.85] xl:leading-[0.8]">
-              Autonomous Systems Lab
+            <h1 className="font-display text-[clamp(2.75rem,11vw,110px)] leading-[0.95] font-medium tracking-tight text-balance text-gray-950">
+              ACES Lab
             </h1>
-            <p className="mt-8 xl:mx-0 max-w-lg text-xl/7 font-medium text-gray-600 sm:text-2xl/8">
-              Bringing world-scale intelligence to real-world machines.
+            <p className="mx-auto mt-6 max-w-xl text-2xl/8 font-medium text-gray-950 xl:mx-0">
+              {site.fullName}
             </p>
-            <SocialLinks className="mt-8" />
+            <p className="mx-auto mt-5 max-w-lg text-xl/7 text-gray-600 xl:mx-0">
+              We develop safe, adaptive autonomous systems for mobility and
+              robotics.
+            </p>
+            <p className="mt-5 text-base/7 text-gray-600">
+              Led by{' '}
+              <a className="underline underline-offset-4" href={site.homepage}>
+                Heye Huang
+              </a>{' '}
+              at the
+              <br />
+              <a
+                href="https://mo.kaist.ac.kr/en/"
+                className="underline underline-offset-4"
+              >
+                Cho Chun Shik Graduate School of Mobility, KAIST
+              </a>
+              .
+            </p>
+            <SocialLinks className="mt-8 justify-center xl:justify-start" />
           </div>
-          <div className="flex justify-center xl:justify-end xl:-mr-32">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="max-h-[420px] w-auto object-contain"
-            >
-              <source src="/Freeflyer.mp4" type="video/mp4" />
-            </video>
+          <div className="flex justify-center xl:justify-end">
+            <img
+              src={assetPath('/aces/research-overview.png')}
+              alt="ACES Lab research overview: theory and algorithms for autonomous vehicles, robots, and multi-agent systems"
+              width={1200}
+              height={800}
+              className="max-h-[420px] w-full object-contain"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </Container>
@@ -71,107 +93,74 @@ function Hero() {
   )
 }
 
-function FeatureSection({ images }: { images: string[] }) {
-  return (
-    <div className="overflow-hidden pt-8 pb-24">
-      <Container>
-        <Heading as="h2" className="max-w-3xl">
-          Visual Highlights
-        </Heading>
-      </Container>
-      <ImageCarousel
-        images={images}
-        className="mt-16 w-full"
-      />
-    </div>
-  )
-}
-
-function BentoSection() {
-  return (
-    <Container className="pb-24">
-      <Heading as="h3" className="max-w-3xl">
-        Research Thrusts
-      </Heading>
-
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-        <Link href="/research#foundations">
-          <BentoCard
-            eyebrow="Robot Foundation Models"
-            title="Generalist robot policies"
-            description="We develop the learning and reasoning foundations behind generalist robot policies — making vision-language-action and world models dependable through test-time scaling, reasoning, and physically grounded simulation and modeling."
-            graphic={<RobotFoundationDiagram className="h-full" />}
-            className="h-full"
-          />
-        </Link>
-        <Link href="/research#backbone">
-          <BentoCard
-            eyebrow="Embodied AI Agents"
-            title="From digital to physical"
-            description="We extend the orchestration, planning, and world knowledge of modern agentic systems to physical robots, grounding them in multi-modal perception and online interaction."
-            graphic={
-              <EmbodiedAgentLoop className="h-full" />
-            }
-            className="h-full"
-          />
-        </Link>
-        <Link href="/research#safety">
-          <BentoCard
-            eyebrow="Physical AI Safety"
-            title="Safe and reliable autonomy"
-            description="Our research integrates monitoring, guardrailing, and alignment techniques that keep embodied systems safe, predictable, and reliable in the real world."
-            graphic={
-              <div className="absolute inset-0 bg-[url(/visual-highlights/thrust3-safety.jpg)] bg-cover bg-center" />
-            }
-            className="h-full"
-          />
-        </Link>
-        <Link href="/research#data-flywheel">
-          <BentoCard
-            eyebrow="Data Flywheels for Robotics"
-            title="Self-improving autonomy"
-            description="We design automated evaluation and data pipelines that close feedback loops and enable continuously advancing robotic systems."
-            graphic={<DataFlywheel />}
-            className="h-full"
-          />
-        </Link>
-        <Link href="/research#control">
-          <BentoCard
-            eyebrow="Optimal & Learning-based Control"
-            title="Operate at the limits"
-            description="We look at the complementary nature of optimization-based and learning-based control and planning methods. At their interface, we can bring the speed, interpretability, and constraint satisfaction of optimization to the broad capabilities and generalization of machine learning."
-            graphic={
-              <div className="absolute inset-0 bg-[url(/visual-highlights/2.jpg)] bg-cover bg-center" />
-            }
-            className="h-full"
-          />
-        </Link>
-        <Link href="/research#applications">
-          <BentoCard
-            eyebrow="Applied Autonomy"
-            title="Deploy in high-impact domains"
-            description="We deploy autonomy in the field — spanning space robotics, legged and humanoid systems, autonomous vehicles, and manipulation — where operating in the world's most challenging environments grounds and drives our core research."
-            graphic={
-              <div className="absolute inset-0 bg-[url(/visual-highlights/thrust6.jpg)] bg-cover bg-center" />
-            }
-            className="h-full"
-          />
-        </Link>
-      </div>
-    </Container>
-  )
-}
-
 export default function Home() {
-  const visualHighlights = getVisualHighlights()
-
   return (
     <div className="overflow-hidden">
       <Hero />
-      <main>
-        <div className="py-16">
-          <BentoSection />
-          <FeatureSection images={visualHighlights} />
+      <main className="py-16">
+        <Container className="pb-24">
+          <Heading as="h2" className="max-w-3xl">
+            Research
+          </Heading>
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-3">
+            {research.map((area) => (
+              <Link key={area.id} href={`/research#${area.id}`}>
+                <BentoCard
+                  eyebrow={area.title}
+                  title={area.summary}
+                  description={area.description}
+                  graphic={
+                    <img
+                      src={assetPath(area.image)}
+                      alt={area.alt}
+                      className="h-full w-full object-contain p-5"
+                      loading="lazy"
+                    />
+                  }
+                  className="h-full"
+                />
+              </Link>
+            ))}
+          </div>
+        </Container>
+        <Container className="pb-24">
+          <Heading as="h2">News</Heading>
+          <dl className="mt-10 divide-y divide-gray-200 text-base/7">
+            <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
+              <dt className="text-gray-500">August 2026</dt>
+              <dd>
+                CAPE-3D received the Best Presentation Award, and XMind received
+                the Best Poster Award, at the IEEE CASE 2026 Workshop on
+                Safety-Critical Robotics.
+              </dd>
+            </div>
+            <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
+              <dt className="text-gray-500">June 2026</dt>
+              <dd>
+                Risk-Controllable Multi-View Diffusion for Driving Scenario
+                Generation received the Best Paper Award at the CVPR 2026
+                Workshop (VGBE).
+              </dd>
+            </div>
+            <div className="grid gap-2 py-6 sm:grid-cols-[9rem_1fr]">
+              <dt className="text-gray-500">April 2026</dt>
+              <dd>Heye Huang joined KAIST as an Assistant Professor.</dd>
+            </div>
+          </dl>
+        </Container>
+        <div className="overflow-hidden pb-16">
+          <Container>
+            <div className="flex items-end justify-between gap-6">
+              <Heading as="h2">Life at ACES Lab</Heading>
+              <Link
+                href="/photo"
+                className="shrink-0 text-sm font-medium underline underline-offset-4"
+              >
+                View photos &rarr;
+              </Link>
+            </div>
+          </Container>
+          <ImageCarousel images={photos.slice(0, 8)} className="mt-12 w-full" />
         </div>
       </main>
       <div className="bg-linear-to-b from-white from-50% to-gray-100">

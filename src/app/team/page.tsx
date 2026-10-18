@@ -5,20 +5,18 @@ import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
 import {
-  getAlumni,
-  getExternalAffiliates,
   getFaculty,
   getResearchTeam,
-  getStaff,
-  getVisiting,
+  getVisitingEntries,
   type Person,
 } from '@/lib/people'
+import { assetPath } from '@/lib/site'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Team',
   description:
-    'Meet the researchers and staff of the Autonomous Systems Lab at Stanford University.',
+    'Meet the members of ACES Lab at KAIST.',
 }
 
 function Director() {
@@ -35,7 +33,7 @@ function Director() {
             <Link href={`/team/${person.slug}`} className="block aspect-square overflow-hidden rounded-xl outline-1 -outline-offset-1 outline-black/10">
               <img
                 alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
+                src={assetPath(person.img)}
                 className="block size-full object-cover"
               />
             </Link>
@@ -118,7 +116,7 @@ function PersonCard({ person }: { person: Person }) {
             <Link href={`/team/${person.slug}`} className="block aspect-square w-full">
               <img
                 alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
+                src={assetPath(person.img)}
                 className="block size-full object-cover"
               />
             </Link>
@@ -131,9 +129,7 @@ function PersonCard({ person }: { person: Person }) {
                     </Link>
                   </h3>
                   <p className="text-sm text-gray-600">
-                    {person.position === 'phd'
-                      ? 'PhD Student'
-                      : 'Postdoctoral Scholar'}
+                    {person.role}
                   </p>
                 </div>
                 {(person.website || person.gscholar) && (
@@ -172,7 +168,7 @@ function ResearchTeam() {
 
   return (
     <Container className="mt-24">
-      <Heading as="h3" className="mt-2">
+      <Heading as="h2" className="mt-2">
         Research Team
       </Heading>
 
@@ -182,7 +178,7 @@ function ResearchTeam() {
             <Subheading>Postdoctoral Scholars</Subheading>
             <div className="h-px grow bg-gray-200" />
           </div>
-          <ul role="list" className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4">
+          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 min-[400px]:grid-cols-2 md:grid-cols-4">
             {postdocs.map((person) => (
               <PersonCard key={person.slug} person={person} />
             ))}
@@ -196,7 +192,7 @@ function ResearchTeam() {
             <Subheading>PhD Students</Subheading>
             <div className="h-px grow bg-gray-200" />
           </div>
-          <ul role="list" className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4">
+          <ul role="list" className="grid grid-cols-1 gap-x-6 gap-y-12 min-[400px]:grid-cols-2 md:grid-cols-4">
             {phds.map((person) => (
               <PersonCard key={person.slug} person={person} />
             ))}
@@ -207,240 +203,35 @@ function ResearchTeam() {
   )
 }
 
-function ExternalAffiliates() {
-  const affiliates = getExternalAffiliates()
-
-  return (
-    <Container className="mt-24">
-      <Heading as="h3" className="mt-2">
-        External Research Affiliates
-      </Heading>
-      <ul
-        role="list"
-        className="mt-12 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4"
-      >
-        {affiliates.map((person) => (
-          <li key={person.slug} className="overflow-hidden rounded-2xl bg-white/80 ring-1 ring-black/5">
-            <Link href={`/team/${person.slug}`} className="block aspect-square w-full">
-              <img
-                alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
-                className="block size-full object-cover"
-              />
-            </Link>
-            <div className="p-4">
-              <h3 className="text-base font-semibold tracking-tight">
-                <Link href={`/team/${person.slug}`} className="hover:text-gray-600">
-                  {person.title}
-                </Link>
-              </h3>
-              {person.current && (
-                <p className="text-sm text-gray-600">{person.current}</p>
-              )}
-              {person.excerpt && (
-                <p className="mt-3 text-base/6 text-gray-500">{person.excerpt}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </Container>
-  )
-}
-
-function Staff() {
-  const staff = getStaff()
-
-  return (
-    <Container className="mt-24">
-      <Heading as="h3" className="mt-2">
-        Staff
-      </Heading>
-      <ul
-        role="list"
-        className="mt-12 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4"
-      >
-        {staff.map((person) => (
-          <li key={person.slug} className="overflow-hidden rounded-2xl bg-white/80 ring-1 ring-black/5">
-            <Link href={`/team/${person.slug}`} className="block aspect-square w-full">
-              <img
-                alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
-                className="block size-full object-cover"
-              />
-            </Link>
-            <div className="p-4">
-              <h3 className="text-base font-semibold tracking-tight">
-                <Link href={`/team/${person.slug}`} className="hover:text-gray-600">
-                  {person.title}
-                </Link>
-              </h3>
-              {person.role && (
-                <p className="text-sm text-gray-600">{person.role}</p>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </Container>
-  )
-}
-
-function Alumni() {
-  const alumni = getAlumni()
-
-  return (
-    <Container className="mt-24">
-      <Heading as="h3" className="mt-2">
-        Alumni
-      </Heading>
-      <ul
-        role="list"
-        className="mx-auto mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {alumni.map((person) => (
-          <li key={person.slug} className="flex items-center gap-4">
-            <Link href={`/team/${person.slug}`} className="shrink-0">
-              <img
-                alt={person.title}
-                src={`/_people/people-imgs/${person.img}`}
-                className="size-16 rounded-full object-cover"
-              />
-            </Link>
-            <div className="text-sm/6">
-              <h3 className="font-medium">
-                <Link href={`/team/${person.slug}`} className="hover:text-gray-600">
-                  {person.title}
-                </Link>
-              </h3>
-              {person.current && <p className="font-medium text-[#8C1515]">{person.current}</p>}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </Container>
-  )
-}
-
-type VisitingEntry = {
-  name: string
-  affiliation: string
-}
-
-function stripTags(text: string) {
-  return text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
-}
-
-function decodeHtml(text: string) {
-  return text
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-}
-
-function parseVisitingEntries(content: string): VisitingEntry[] {
-  const entries: VisitingEntry[] = []
-  const matches = content.matchAll(
-    /<li>\s*<h6[^>]*>([\s\S]*?)<\/h6>\s*(?:<p[^>]*>([\s\S]*?)<\/p>\s*)?<\/li>/g,
-  )
-
-  for (const match of matches) {
-    const name = decodeHtml(stripTags(match[1]))
-      .replace(/\.\s*$/, '')
-      .trim()
-    const affiliation = decodeHtml(stripTags(match[2] ?? ''))
-      .replace(/\.\s*$/, '')
-      .trim()
-    if (name) {
-      entries.push({ name, affiliation })
-    }
-  }
-
-  return entries
-}
-
 function VisitingStudents() {
-  const visiting = getVisiting()
-  const visitingPage = visiting.find((person) => person.slug === 'visiting') ?? visiting[0]
-  const entries = visitingPage ? parseVisitingEntries(visitingPage.content) : []
+  const entries = getVisitingEntries()
 
-  if (entries.length === 0) {
-    return null
-  }
-
-  return (
-    <Container className="mt-24">
-      <Heading as="h3" className="mt-2">
-        Visiting Scholars
-      </Heading>
-      <ul
-        role="list"
-        className="mt-8 grid grid-cols-1 gap-x-10 gap-y-2 md:grid-cols-2"
-      >
-        {entries.map((entry, index) => (
-          <li
-            key={`${entry.name}-${index}`}
-            className="border-b border-gray-200/80 pb-1.5"
-          >
-            <h3 className="text-sm font-semibold tracking-tight text-gray-950">
-              {entry.name}
-            </h3>
-            {entry.affiliation && (
-              <p className="text-sm text-gray-600">{entry.affiliation}</p>
-            )}
-          </li>
-        ))}
-      </ul>
-    </Container>
-  )
-}
-
-function DiversityStatement() {
   return (
     <Container className="mt-24 mb-16">
-      <Subheading>Our Values</Subheading>
-      <Heading as="h3" className="mt-2">
-        Statement of Diversity, Equity, and Inclusivity
+      <Heading as="h2" className="mt-2">
+        Visiting Students, Research Interns &amp; RAs
       </Heading>
-      <div className="mt-6 max-w-3xl">
-        <p className="text-base/7 text-gray-600">
-          As researchers and teachers, we in the Autonomous Systems Lab recognize the importance and value of having diversity in our research group and the value of having members from all walks of life. Both in our day-to-day activities and research itself, we seek to be inclusive and mindful of this diversity in the lab, the classroom, and in our interactions. Further, we acknowledge that educating ourselves on the matters of inclusivity and diversity is a life-long learning process that must be a part of our entire research and professional careers. To this end, the Autonomous Systems Lab is committed to fostering the following principles to maintain an inclusive and vibrant environment on a daily basis:
-        </p>
-        <ul className="mt-8 space-y-4 text-base/7 text-gray-600">
-          <li className="flex gap-3">
-            <span className="text-gray-400">•</span>
-            <span>We affirm all people, regardless of their age, culture, race, ethnic origin, religion, sexual orientation, gender, gender identity, disabilities, marital status, nationality, and socioeconomic status.</span>
+      <ul role="list" className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2">
+        {entries.map((entry) => (
+          <li key={entry.name} className="border-b border-gray-200/80 pb-4">
+            <h3 className="text-sm font-semibold tracking-tight text-gray-950">{entry.name}</h3>
+            <p className="text-sm/6 text-gray-600">{entry.affiliation}</p>
+            <p className="text-sm/6 text-gray-500">{entry.period}</p>
           </li>
-          <li className="flex gap-3">
-            <span className="text-gray-400">•</span>
-            <span>We strive to maintain an environment of mutual respect for every member of the lab and community and one that rejects discrimination, prejudice, and intolerance.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-gray-400">•</span>
-            <span>We commit to continuously educating ourselves and seek to incorporate ideas of diversity and inclusivity to our daily conversations on the broader impacts of our research.</span>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
     </Container>
   )
 }
 
-export default function Company() {
+export default function TeamPage() {
   return (
     <main className="overflow-hidden">
       <GradientBackground />
-      <Container>
-        <Navbar />
-      </Container>
+      <Container><Navbar /></Container>
       <Director />
       <ResearchTeam />
-      <Staff />
-      <ExternalAffiliates />
-      <Alumni />
       <VisitingStudents />
-      <DiversityStatement />
       <Footer />
     </main>
   )

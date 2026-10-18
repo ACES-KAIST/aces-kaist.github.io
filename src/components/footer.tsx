@@ -1,81 +1,6 @@
 import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
 import { Container } from './container'
-import { Link } from './link'
-import { StanfordWordmark } from './stanford-wordmark'
-
-function SocialIconYouTube(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  )
-}
-
-function SocialIconGitHub(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-    </svg>
-  )
-}
-
-function SocialIconX(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-    </svg>
-  )
-}
-
-function SocialLinks() {
-  return (
-    <>
-      <Link
-        href="https://www.youtube.com/@stanfordautonomoussystemsl3073"
-        target="_blank"
-        aria-label="Visit us on YouTube"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconYouTube className="size-5" />
-      </Link>
-      <Link
-        href="https://github.com/stanfordasl"
-        target="_blank"
-        aria-label="Visit us on GitHub"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconGitHub className="size-5" />
-      </Link>
-      <Link
-        href="https://x.com/StanfordASL"
-        target="_blank"
-        aria-label="Visit us on X"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconX className="size-5" />
-      </Link>
-    </>
-  )
-}
-
-function Copyright() {
-  return (
-    <div className="flex flex-col gap-1">
-      <a
-        href="https://www.stanford.edu"
-        target="_blank"
-        rel="noreferrer"
-        title="Stanford University"
-        className="w-fit"
-      >
-        <StanfordWordmark className="text-base text-[#8C1515] transition hover:text-[#6f1010]" />
-      </a>
-      <div className="text-sm/6 text-gray-950">
-        &copy; {new Date().getFullYear()} Autonomous Systems Lab, Stanford University
-      </div>
-    </div>
-  )
-}
+import { SocialLinks } from './logo-cloud'
 
 export function Footer() {
   return (
@@ -83,17 +8,31 @@ export function Footer() {
       <div className="absolute inset-2 rounded-4xl bg-white/80" />
       <Container className="relative">
         <PlusGrid className="py-8">
-          <PlusGridRow className="flex justify-between">
-            <div>
-              <PlusGridItem className="py-3">
-                <Copyright />
-              </PlusGridItem>
-            </div>
-            <div className="flex">
-              <PlusGridItem className="flex items-center gap-8 py-3">
-                <SocialLinks />
-              </PlusGridItem>
-            </div>
+          <PlusGridRow className="flex flex-wrap justify-between gap-x-8">
+            <PlusGridItem className="py-3">
+              <a
+                href="https://www.kaist.ac.kr/en/"
+                className="text-base font-semibold"
+              >
+                KAIST
+              </a>
+              <p className="text-sm/6 text-gray-950">
+                &copy; {new Date().getFullYear()} ACES Lab, KAIST
+              </p>
+              <p className="mt-1 text-xs/5 text-gray-500">
+                Website adapted from{' '}
+                <a
+                  href="https://github.com/StanfordASL/stanfordasl.github.io"
+                  className="underline underline-offset-2"
+                >
+                  Stanford ASL
+                </a>
+                .
+              </p>
+            </PlusGridItem>
+            <PlusGridItem className="flex items-center py-3">
+              <SocialLinks />
+            </PlusGridItem>
           </PlusGridRow>
         </PlusGrid>
       </Container>

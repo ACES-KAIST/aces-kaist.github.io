@@ -11,13 +11,13 @@ import { usePathname } from 'next/navigation'
 import { Link } from './link'
 import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
-import { StanfordWordmark } from './stanford-wordmark'
 
 const links = [
   { href: '/research', label: 'Research' },
   { href: '/hardware', label: 'Hardware' },
   { href: '/publications', label: 'Publications' },
   { href: '/team', label: 'Team' },
+  { href: '/photo', label: 'Photo' },
   { href: '/faq', label: 'Join' },
   { href: '/contact', label: 'Contact Us' },
 ]
@@ -49,7 +49,7 @@ function DesktopNav({
         <PlusGridItem key={href} className="relative flex">
           <Link
             href={href}
-            className={`flex items-center px-4 py-3 text-base font-medium bg-blend-multiply ${
+            className={`flex items-center px-3 py-3 text-base font-medium bg-blend-multiply ${
               isLight ? 'text-white' : 'text-gray-950 data-hover:bg-black/2.5'
             }`}
           >
@@ -69,7 +69,9 @@ function MobileNavButton({ isLight = false }: { isLight?: boolean }) {
       }`}
       aria-label="Open main menu"
     >
-      <Bars2Icon className={`size-6 ${isLight ? 'text-white' : 'text-gray-950'}`} />
+      <Bars2Icon
+        className={`size-6 ${isLight ? 'text-white' : 'text-gray-950'}`}
+      />
     </DisclosureButton>
   )
 }
@@ -82,7 +84,10 @@ function MobileNav({
   showHomeShortcut?: boolean
 }) {
   const mobileLinks = showHomeShortcut
-    ? [{ href: '/', label: 'Home', iconOnly: true }, ...links.map((item) => ({ ...item, iconOnly: false }))]
+    ? [
+        { href: '/', label: 'Home', iconOnly: true },
+        ...links.map((item) => ({ ...item, iconOnly: false })),
+      ]
     : links.map((item) => ({ ...item, iconOnly: false }))
 
   return (
@@ -99,7 +104,11 @@ function MobileNav({
             }}
             key={href}
           >
-            <Link href={href} className={`text-base font-medium ${isLight ? 'text-white' : 'text-gray-950'}`}>
+            <Link
+              href={href}
+              aria-label={iconOnly ? 'Home' : undefined}
+              className={`text-base font-medium ${isLight ? 'text-white' : 'text-gray-950'}`}
+            >
               {iconOnly ? (
                 <span className="inline-flex items-center">
                   <HomeIcon className="size-4" />
@@ -118,7 +127,13 @@ function MobileNav({
   )
 }
 
-export function Navbar({ banner, isLight = false }: { banner?: React.ReactNode; isLight?: boolean }) {
+export function Navbar({
+  banner,
+  isLight = false,
+}: {
+  banner?: React.ReactNode
+  isLight?: boolean
+}) {
   const pathname = usePathname()
   const showHomeShortcut = pathname !== '/'
 
@@ -130,22 +145,27 @@ export function Navbar({ banner, isLight = false }: { banner?: React.ReactNode; 
             <PlusGridItem className="py-3">
               <div className="flex items-center gap-3 sm:gap-4">
                 <Link href="/" title="Home">
-                  <Logo className={isLight ? "h-16 sm:h-20" : "h-9"} isLight={isLight} />
+                  <Logo
+                    className={isLight ? 'h-16 sm:h-20' : 'h-9'}
+                    isLight={isLight}
+                  />
                 </Link>
                 <span
                   aria-hidden="true"
                   className={`block h-5 w-px sm:h-8 ${isLight ? 'bg-white/30' : 'bg-gray-300'}`}
                 />
                 <a
-                  href="https://www.stanford.edu"
+                  href="https://www.kaist.ac.kr/en/"
                   target="_blank"
                   rel="noreferrer"
-                  title="Stanford University"
+                  title="KAIST"
                   className="block"
                 >
-                  <StanfordWordmark
-                    className={`text-[13px] transition sm:text-[17px] ${isLight ? 'text-white hover:text-white/80' : 'text-[#8C1515] hover:text-[#6f1010]'}`}
-                  />
+                  <span
+                    className={`text-[15px] font-semibold tracking-wide sm:text-[17px] ${isLight ? 'text-white' : 'text-gray-950'}`}
+                  >
+                    KAIST
+                  </span>
                 </a>
               </div>
             </PlusGridItem>

@@ -1,38 +1,25 @@
+import { assetPath, site } from '@/lib/site'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
-import { Source_Serif_4 } from 'next/font/google'
-
-// Stanford's brand serif, used for the "Stanford University" co-brand wordmark.
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-source-serif',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s - Stanford ASL',
-    default: 'Autonomous Systems Lab - Stanford University',
-  },
+  title: { template: '%s - ACES Lab', default: 'ACES Lab - KAIST' },
+  description: `${site.fullName} at KAIST. Research in safe autonomous systems, world models, and embodied intelligence.`,
+  icons: { icon: assetPath('/icon.svg') },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={sourceSerif.variable}>
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"
-          href="https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&amp;display=swap"
+          href="https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&display=swap"
         />
       </head>
-      <body className="text-gray-950 antialiased">
-        {children}
-      </body>
+      <body className="text-gray-950 antialiased">{children}</body>
     </html>
   )
 }
