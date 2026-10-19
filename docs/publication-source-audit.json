@@ -1,13 +1,13 @@
 {
-  "checkedOn": "2026-10-18",
+  "checkedOn": "2026-10-19",
   "profile": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en",
   "listUrl": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en&cstart=0&pagesize=100&sortby=pubdate",
   "pagination": {
     "requestedPageSize": 100,
     "retrievedRows": 93,
     "showMoreDisabled": true,
-    "detailPagesRetrieved": 9,
-    "reusedAuditedDetails": 84
+    "detailPagesRetrieved": 2,
+    "reusedAuditedDetails": 91
   },
   "included": 75,
   "excludedNonPapers": 8,
@@ -1447,7 +1447,7 @@
       "BWUpn24AAAAJ:cFHS6HbyZ2cC": "03d147ce2939a30837054b82b47b502e12626f8502dbbf5e10c29d026e2b3bf6"
     },
     "pendingDetailIds": [],
-    "refreshCursor": 2,
+    "refreshCursor": 4,
     "detailCheckedOn": {
       "BWUpn24AAAAJ:p2g8aNsByqUC": "2026-10-18",
       "BWUpn24AAAAJ:Tiz5es2fbqcC": "2026-10-18",
@@ -1457,7 +1457,9 @@
       "BWUpn24AAAAJ:nb7KW1ujOQ8C": "2026-10-18",
       "BWUpn24AAAAJ:cFHS6HbyZ2cC": "2026-10-18",
       "BWUpn24AAAAJ:J-pR_7NvFogC": "2026-10-18",
-      "BWUpn24AAAAJ:1qzjygNMrQYC": "2026-10-18"
+      "BWUpn24AAAAJ:1qzjygNMrQYC": "2026-10-18",
+      "BWUpn24AAAAJ:kRWSkSYxWN8C": "2026-10-19",
+      "BWUpn24AAAAJ:mvPsJ3kp5DgC": "2026-10-19"
     }
   }
 }
