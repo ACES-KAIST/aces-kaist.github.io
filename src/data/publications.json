@@ -134,6 +134,33 @@
     "sourceChecked": "2026-10-18"
   },
   {
+    "key": "huang-2026-timbredrive-for-scalable-personalized-autonomous-driving-through-behav-d7b69270",
+    "type": "preprint",
+    "title": "TimbreDrive for Scalable Personalized Autonomous Driving through Behavioral Memory and Dual-Expert Planning",
+    "authors": [
+      "Zehong Ke",
+      "Yuanxin Tian",
+      "Mengchi Cai",
+      "Heye Huang",
+      "Jianghong Dong",
+      "Qingwen Meng",
+      "Jianqiang Wang"
+    ],
+    "authorsDisplay": "Zehong Ke, Yuanxin Tian, Mengchi Cai, Heye Huang, Jianghong Dong, Qingwen Meng, Jianqiang Wang",
+    "year": 2026,
+    "month": 10,
+    "keywords": [],
+    "citation": "Zehong Ke, Yuanxin Tian, Mengchi Cai, Heye Huang, Jianghong Dong, Qingwen Meng, Jianqiang Wang. TimbreDrive for Scalable Personalized Autonomous Driving through Behavioral Memory and Dual-Expert Planning. Available at SSRN 7620642 (2026).",
+    "venue": "Available at SSRN 7620642",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7620642",
+    "bibtex": "@misc{huang-2026-timbredrive-for-scalable-personalized-autonomous-driving-through-behav-d7b69270,\n  title = {TimbreDrive for Scalable Personalized Autonomous Driving through Behavioral Memory and Dual-Expert Planning},\n  author = {Zehong Ke and Yuanxin Tian and Mengchi Cai and Heye Huang and Jianghong Dong and Qingwen Meng and Jianqiang Wang},\n  year = {2026},\n  howpublished = {Available at SSRN 7620642},\n  url = {https://papers.ssrn.com/sol3/papers.cfm?abstract\\_id=7620642}\n}",
+    "abstractUrl": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7620642",
+    "abstractAvailable": true,
+    "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=BWUpn24AAAAJ&citation_for_view=BWUpn24AAAAJ:wbdj-CoPYUoC",
+    "source": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=BWUpn24AAAAJ&citation_for_view=BWUpn24AAAAJ:wbdj-CoPYUoC",
+    "sourceChecked": "2026-10-26"
+  },
+  {
     "key": "huang-2026-coem-empowering-long-context-reasoning-with-commit-on-evidence-memory",
     "type": "preprint",
     "title": "CoEM: Empowering Long-Context Reasoning with Commit-on-Evidence Memory",

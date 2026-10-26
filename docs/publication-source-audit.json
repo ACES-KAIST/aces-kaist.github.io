@@ -1,15 +1,15 @@
 {
-  "checkedOn": "2026-10-19",
+  "checkedOn": "2026-10-26",
   "profile": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en",
   "listUrl": "https://scholar.google.com/citations?user=BWUpn24AAAAJ&hl=en&cstart=0&pagesize=100&sortby=pubdate",
   "pagination": {
     "requestedPageSize": 100,
-    "retrievedRows": 93,
+    "retrievedRows": 94,
     "showMoreDisabled": true,
-    "detailPagesRetrieved": 2,
+    "detailPagesRetrieved": 3,
     "reusedAuditedDetails": 91
   },
-  "included": 75,
+  "included": 76,
   "excludedNonPapers": 8,
   "mergedDuplicates": 10,
   "records": [
@@ -1348,6 +1348,19 @@
       "abstractAvailable": true,
       "decision": "include",
       "key": "huang-2018-a-novel-framework-for-road-traffic-risk-assessment-with-hmm-based-prediction-mod"
+    },
+    {
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=BWUpn24AAAAJ&citation_for_view=BWUpn24AAAAJ:wbdj-CoPYUoC",
+      "title": "TimbreDrive for Scalable Personalized Autonomous Driving through Behavioral Memory and Dual-Expert Planning",
+      "fields": {
+        "Authors": "Zehong Ke, Yuanxin Tian, Mengchi Cai, Heye Huang, Jianghong Dong, Qingwen Meng, Jianqiang Wang",
+        "Publication date": "2026/10",
+        "Journal": "Available at SSRN 7620642"
+      },
+      "abstractAvailable": true,
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7620642",
+      "decision": "include",
+      "key": "huang-2026-timbredrive-for-scalable-personalized-autonomous-driving-through-behav-d7b69270"
     }
   ],
   "serpApi": {
@@ -1444,10 +1457,11 @@
       "BWUpn24AAAAJ:4JMBOYKVnBMC": "9b9c96599721d69e70a78f39f12c7131776e59917c5ae9ddd94b244903c87607",
       "BWUpn24AAAAJ:RHpTSmoSYBkC": "952444427c5aac3f6ead069e372eb850cd7d2712ac9be525bc3213e66c025b08",
       "BWUpn24AAAAJ:nb7KW1ujOQ8C": "43856454ece0d272b3788f7dd4823683f1238ffe7a96e04752ea7e4da2c51818",
-      "BWUpn24AAAAJ:cFHS6HbyZ2cC": "03d147ce2939a30837054b82b47b502e12626f8502dbbf5e10c29d026e2b3bf6"
+      "BWUpn24AAAAJ:cFHS6HbyZ2cC": "03d147ce2939a30837054b82b47b502e12626f8502dbbf5e10c29d026e2b3bf6",
+      "BWUpn24AAAAJ:wbdj-CoPYUoC": "e54ed1c0b6c87c9f7f8f876e71ba55d389fc265dcd6b7fce110df503558aaf83"
     },
     "pendingDetailIds": [],
-    "refreshCursor": 4,
+    "refreshCursor": 6,
     "detailCheckedOn": {
       "BWUpn24AAAAJ:p2g8aNsByqUC": "2026-10-18",
       "BWUpn24AAAAJ:Tiz5es2fbqcC": "2026-10-18",
@@ -1459,7 +1473,11 @@
       "BWUpn24AAAAJ:J-pR_7NvFogC": "2026-10-18",
       "BWUpn24AAAAJ:1qzjygNMrQYC": "2026-10-18",
       "BWUpn24AAAAJ:kRWSkSYxWN8C": "2026-10-19",
-      "BWUpn24AAAAJ:mvPsJ3kp5DgC": "2026-10-19"
+      "BWUpn24AAAAJ:mvPsJ3kp5DgC": "2026-10-19",
+      "BWUpn24AAAAJ:wbdj-CoPYUoC": "2026-10-26",
+      "BWUpn24AAAAJ:V3AGJWp-ZtQC": "2026-10-26",
+      "BWUpn24AAAAJ:q3oQSFYPqjQC": "2026-10-26"
     }
-  }
+  },
+  "pendingReview": 0
 }
