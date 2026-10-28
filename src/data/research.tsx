@@ -1,107 +1,172 @@
-// Shared wording and ordering for the homepage and Research page.
+// Shared wording and ordering for the homepage, Research page and menu.
 // Source: ACES Lab introduction poster supplied by the lab, 18 October 2026.
+// Titles and framing revised on 28 October 2026 to foreground embodied
+// intelligence and robotics; confirm wording with the lab director.
+
+export const researchIntro = {
+  title: 'Embodied intelligence for safe autonomy',
+  lead: (
+    <>
+      We develop{' '}
+      <strong>safe, adaptive, and trustworthy embodied systems</strong>:
+      autonomous vehicles and robots that perceive risk, reason about the
+      physical world, and act among people. Our research connects safety, world
+      models, and embodied agents so that these systems can operate under
+      uncertainty in real environments.
+    </>
+  ),
+}
+
+// One loop of embodied intelligence, one research direction per step.
+export const researchLoop = [
+  {
+    id: 'safety',
+    verb: 'Perceive & assess',
+    text: 'Read the scene as risk: who is around, how they may move, and how close the system is to harm.',
+  },
+  {
+    id: 'world-models',
+    verb: 'Predict & imagine',
+    text: 'Model how the world evolves as people, vehicles and robots act, including rare and dangerous cases.',
+  },
+  {
+    id: 'agents',
+    verb: 'Reason & act',
+    text: 'Plan and act with foundation-model agents that remember, use tools and learn from outcomes.',
+  },
+] as const
+
 export const researchAreas = [
   {
     id: 'safety',
-    title: 'Trustworthy safety-critical systems',
+    short: 'Safety-critical autonomy',
+    title: 'Safety-critical embodied autonomy',
     summary: (
       <>
-        We study <strong>risk perception and prediction</strong>,
-        decision-making, and runtime safety for autonomous vehicles and robots.
+        We study how autonomous vehicles and robots{' '}
+        <strong>perceive risk, predict what happens next, and stay safe</strong>{' '}
+        while acting among people.
       </>
     ),
     description: (
       <>
         <p>
-          We study how autonomous vehicles and robots{' '}
-          <strong>perceive risk</strong>, predict how a situation may develop,
-          and make decisions under uncertainty. Our work connects risk
-          perception, cognition, decision-making, and{' '}
+          Embodied systems share physical space with people. We study how{' '}
+          <strong>autonomous vehicles and robots perceive risk</strong>, predict
+          how a situation may develop, and make decisions under uncertainty. Our
+          work connects risk perception, cognition, decision-making, and{' '}
           <strong>runtime safety</strong>, with a focus on interactions among
           people, vehicles, and the road environment.
         </p>
         <p>
-          We develop a unified risk field theory to describe these interactions
-          and support <strong>uncertainty-aware risk prediction</strong>. We
-          combine knowledge and data for risk-sensitive decision-making, and use
-          physical models with learned corrections to support{' '}
-          <strong>safe, adaptive control</strong> during operation.
+          We develop a <strong>unified risk field theory</strong> to describe
+          these interactions and support{' '}
+          <strong>uncertainty-aware risk prediction</strong>. We combine
+          knowledge and data for risk-sensitive decision-making, and use
+          physical models with learned corrections to keep control{' '}
+          <strong>safe and adaptive</strong> while the system operates.
         </p>
       </>
     ),
-    image: '/aces/publications/react.webp',
-    alt: 'Research on collision avoidance for autonomous driving',
+    keywords: [
+      'Unified risk field',
+      'Risk prediction',
+      'Decision-making',
+      'Runtime safety',
+      'Human–machine interaction',
+    ],
+    image: '/aces/publications/lead.webp',
+    video: '/aces/research/lead.mp4',
+    alt: 'LEAD: adaptive decision-making for autonomous driving in dynamic environments.',
     paperKeys: ['huang-2026-08', 'huang-2026-09'],
   },
   {
     id: 'world-models',
-    title: 'Generative AI and world models',
+    short: 'World models',
+    title: 'World models for embodied agents',
     summary: (
       <>
-        We use language, diffusion, and multimodal models for{' '}
-        <strong>
-          prediction, reasoning, and long-tail scenario generation
-        </strong>
-        .
+        We use language, diffusion, and multimodal models to{' '}
+        <strong>predict, reason, and generate long-tail scenarios</strong> in
+        which embodied agents are trained and tested.
       </>
     ),
     description: (
       <>
         <p>
-          We use{' '}
+          An embodied agent has to anticipate how the world will respond to its
+          actions. We use{' '}
           <strong>
             large language models, diffusion models, and multimodal models
           </strong>{' '}
           to predict behavior, reason about interactions, and generate driving
           scenarios. We focus on <strong>long-tail scenarios</strong>: rare
           events and difficult interactions that are important for safety but
-          poorly represented in everyday driving data.
+          poorly represented in everyday data.
         </p>
         <p>
           We study how <strong>world models</strong> can represent an
-          environment and predict how it changes as people and vehicles act. Our
-          goal is to generate realistic scenarios with controllable conditions
-          and risk levels, so that autonomous systems can be{' '}
+          environment and predict how it changes as people, vehicles, and robots
+          act. Our goal is to generate realistic scenarios with controllable
+          conditions and risk levels, so that autonomous systems can be{' '}
           <strong>trained, tested, and evaluated</strong> across a wider range
-          of situations.
+          of situations before they act in the physical world.
         </p>
       </>
     ),
+    keywords: [
+      'World models',
+      'Diffusion models',
+      'Large language models',
+      'Long-tail scenarios',
+      'Controllable generation',
+    ],
     image: '/aces/publications/risk-controllable-diffusion.webp',
-    alt: 'Research on generating driving scenarios with diffusion models',
+    alt: 'Risk-controllable multi-view diffusion for driving scenario generation.',
     paperKeys: ['huang-2026-03', 'huang-2026-06'],
   },
   {
     id: 'agents',
-    title: 'Foundation models and agents',
+    short: 'Embodied agents',
+    title: 'Embodied foundation models and robot agents',
     summary: (
       <>
-        We develop <strong>memory-augmented and model-driven agents</strong>{' '}
-        that use foundation models to perceive, reason, and act in the physical
-        world.
+        We build <strong>memory-augmented, model-driven agents</strong> on
+        foundation models that perceive, reason, and act in the physical world,
+        on vehicles and robots.
       </>
     ),
     description: (
       <>
         <p>
           We study how <strong>foundation models</strong> support perception,
-          reasoning, and decision-making in driving and robotics. Our agents
-          combine observations and task instructions with{' '}
-          <strong>memory</strong> and models of their environment to plan
-          actions and respond to changing conditions.
+          reasoning, and decision-making for <strong>embodied agents</strong> in
+          driving and robotics. Our agents combine observations and task
+          instructions with <strong>memory</strong> and models of their
+          environment to plan actions and respond to changing conditions.
         </p>
         <p>
           We focus on <strong>memory-augmented and model-driven agents</strong>{' '}
-          for embodied intelligence. We study how they can retain useful
-          experience, use tools such as simulation and planning, and learn from
-          the results of their actions. The aim is to make their decisions more
-          reliable during <strong>long-horizon tasks and interaction</strong>{' '}
-          with people and other agents.
+          for embodied intelligence on vehicles and robots. We study how they
+          can retain useful experience, use tools such as simulation and
+          planning, and learn from the results of their actions. The aim is to
+          make their decisions more reliable during{' '}
+          <strong>long-horizon tasks and physical interaction</strong> with
+          people and other agents.
         </p>
       </>
     ),
+    keywords: [
+      'Foundation models',
+      'Embodied agents',
+      'Memory',
+      'Tool use',
+      'Long-horizon tasks',
+    ],
     image: '/aces/publications/safedrive.webp',
-    alt: 'Research on language models for driving decisions',
+    alt: 'Research on language models for driving decisions.',
     paperKeys: ['huang-2025-13', 'huang-2026-04'],
   },
 ] as const
+
+export type ResearchArea = (typeof researchAreas)[number]

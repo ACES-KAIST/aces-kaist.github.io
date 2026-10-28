@@ -1,8 +1,6 @@
 import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
-import { Navbar } from '@/components/navbar'
+import { PageHeader } from '@/components/page-header'
 import { Heading, Subheading } from '@/components/text'
 import {
   getFaculty,
@@ -25,7 +23,7 @@ function Director() {
 
   return (
     <Container className="mt-16">
-      <Heading as="h1" className="mt-2">
+      <Heading as="h2" className="mt-2">
         Director
       </Heading>
       {faculty.map((person) => (
@@ -228,7 +226,7 @@ function VisitingStudents() {
   const entries = getVisitingEntries()
 
   return (
-    <Container className="mt-24 mb-16">
+    <Container className="mt-24 mb-24">
       <Heading as="h2" className="mt-2">
         Visiting Students, Research Interns &amp; RAs
       </Heading>
@@ -247,13 +245,26 @@ function VisitingStudents() {
 
 export default function TeamPage() {
   return (
-    <main className="overflow-hidden">
-      <GradientBackground />
-      <Container><Navbar /></Container>
-      <Director />
-      <ResearchTeam />
-      <VisitingStudents />
-      <Footer />
+    <main>
+      <PageHeader
+        eyebrow="People"
+        title="The people of ACES"
+        lead="Researchers working on embodied intelligence, autonomous driving, and robotics at KAIST."
+        tabs={[
+          { label: 'Director', href: '#director' },
+          { label: 'Research team', href: '#research-team' },
+          { label: 'Visiting students & interns', href: '#visiting' },
+        ]}
+      />
+      <section id="director" className="scroll-mt-32 pt-4">
+        <Director />
+      </section>
+      <section id="research-team" className="scroll-mt-32">
+        <ResearchTeam />
+      </section>
+      <section id="visiting" className="scroll-mt-32">
+        <VisitingStudents />
+      </section>
     </main>
   )
 }

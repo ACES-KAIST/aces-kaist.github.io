@@ -1,8 +1,6 @@
 import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
-import { Navbar } from '@/components/navbar'
-import { Heading, Subheading } from '@/components/text'
+import { PageHeader } from '@/components/page-header'
+import { Subheading } from '@/components/text'
 import { site } from '@/lib/site'
 import type { Metadata } from 'next'
 
@@ -19,17 +17,14 @@ const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}`
 
 export default function Contact() {
   return (
-    <main className="overflow-hidden">
-      <GradientBackground />
-      <Container>
-        <Navbar />
-      </Container>
-      <Container className="mt-16 pb-24">
-        <Heading as="h1">Contact Us</Heading>
-        <p className="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
-          Find us at KAIST Munji Campus in Daejeon, South Korea.
-        </p>
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
+    <main>
+      <PageHeader
+        eyebrow="Contact"
+        title="Contact us"
+        lead="Find us at KAIST Munji Campus in Daejeon, South Korea."
+      />
+      <Container className="pt-16 pb-24">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
           <div className="space-y-10">
             <div>
               <Subheading>Address</Subheading>
@@ -106,7 +101,6 @@ export default function Contact() {
           </div>
         </div>
       </Container>
-      <Footer />
     </main>
   )
 }

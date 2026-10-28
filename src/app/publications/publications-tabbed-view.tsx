@@ -221,7 +221,7 @@ function SectionContent({ section }: { section: PublicationSection }) {
             {/* Sticky year divider — frosted, edge-to-edge */}
             <div
               id={toYearAnchorId(section.key, year)}
-              className="sticky top-[4.5rem] z-10 scroll-mt-[4.5rem] bg-white"
+              className="sticky top-[9rem] z-10 scroll-mt-[9rem] bg-white"
             >
               <div className="flex items-center gap-4 px-6 py-3.5 sm:px-8">
                 <h3 className="shrink-0 text-[13px] font-bold tracking-wide text-gray-950 tabular-nums">
@@ -337,12 +337,17 @@ export function PublicationsTabbedView({
 }) {
   const [activeKey, setActiveKey] = useState('publications')
 
-  // Sync with URL hash on mount
+  // Sync with the URL hash on mount and when a menu link changes it.
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '')
-    if (hash && sections.some((s) => s.key === hash)) {
-      setActiveKey(hash as typeof activeKey)
+    const sync = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash && sections.some((s) => s.key === hash)) {
+        setActiveKey(hash as typeof activeKey)
+      }
     }
+    sync()
+    window.addEventListener('hashchange', sync)
+    return () => window.removeEventListener('hashchange', sync)
   }, [sections])
 
   const activeSection = sections.find((s) => s.key === activeKey) ?? sections[0]
@@ -356,7 +361,7 @@ export function PublicationsTabbedView({
   return (
     <>
       {/* Sticky tab bar */}
-      <div className="sticky top-0 z-20 -mx-6 bg-white px-6 lg:-mx-8 lg:px-8">
+      <div className="sticky top-18 z-20 -mx-6 border-b border-gray-100 bg-white px-6 lg:-mx-8 lg:px-8">
         <div className="flex justify-center py-4">
           <TabBar
             sections={sections}

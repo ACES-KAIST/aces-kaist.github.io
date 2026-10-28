@@ -1,8 +1,5 @@
 import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
 import { Link } from '@/components/link'
-import { Navbar } from '@/components/navbar'
 import { Heading } from '@/components/text'
 import { getPersonBySlug, getProfiledPeople, type Person } from '@/lib/people'
 import { getPublicationsForPerson, type Publication } from '@/lib/publications'
@@ -182,18 +179,20 @@ export default async function PersonPage({
   const role = person.role
 
   return (
-    <main className="overflow-hidden">
-      <GradientBackground />
-      <Container>
-        <Navbar />
-      </Container>
+    <main>
+      <div className="bg-navy-950 pt-32 pb-10 text-white">
+        <Container>
+          <Link
+            href="/team"
+            className="font-mono text-xs tracking-[0.18em] text-signal uppercase hover:text-white"
+          >
+            ← People
+          </Link>
+        </Container>
+      </div>
 
-      <Container className="mt-16">
-        <Link href="/team" className="text-sm text-gray-500 hover:text-gray-800">
-          ← Back to Team
-        </Link>
-
-        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-3">
+      <Container className="mt-12 pb-24">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <div className="aspect-square overflow-hidden rounded-xl outline-1 -outline-offset-1 outline-black/10">
               <img
@@ -227,8 +226,6 @@ export default async function PersonPage({
 
         <PublicationsList publications={publications} />
       </Container>
-
-      <Footer />
     </main>
   )
 }

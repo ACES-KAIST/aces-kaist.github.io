@@ -2,8 +2,26 @@
 
 @theme {
   --font-sans: Switzer, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --radius-4xl: 2rem;
+
+  /* Night-map navy used by the hero, page headers and footer. */
+  --color-navy-950: #050b1a;
+  --color-navy-900: #081330;
+  --color-navy-800: #0e1d3f;
+  --color-navy-700: #1a2d5a;
+  /* ACES blue, taken from the lab sign. */
+  --color-brand-50: #eef3ff;
+  --color-brand-100: #dce6ff;
+  --color-brand-500: #3b6cf6;
+  --color-brand-600: #2453d6;
+  --color-brand-700: #1c40a8;
+  /* Risk-field ramp: low → high. */
+  --color-signal: #5ad1ff;
+  --color-violet: #b9a4ff;
+  --color-amber: #f5b84a;
+  --color-coral: #ff6b78;
 }
 
 @keyframes move-x {
@@ -13,4 +31,31 @@
   100% {
     transform: translateX(var(--move-x-to));
   }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

@@ -1,7 +1,5 @@
 import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
-import { Navbar } from '@/components/navbar'
+import { PageHeader } from '@/components/page-header'
 import { Heading, Subheading } from '@/components/text'
 import { site } from '@/lib/site'
 import type { Metadata } from 'next'
@@ -47,20 +45,19 @@ const questions = [
 
 export default function Join() {
   return (
-    <main className="overflow-hidden">
-      <GradientBackground />
-      <Container>
-        <Navbar />
-      </Container>
-      <Container className="pt-16 pb-24">
-        <Heading as="h1" className="text-center">
-          Join ACES Lab
-        </Heading>
-        <p className="mx-auto mt-6 max-w-3xl text-center text-xl/8 text-gray-600">
-          Work with us on safe autonomous systems, world models, and embodied
-          intelligence.
-        </p>
-        <section className="mx-auto mt-16 max-w-3xl">
+    <main>
+      <PageHeader
+        eyebrow="Join"
+        title="Join ACES Lab"
+        lead="Work with us on embodied intelligence: safe autonomous vehicles and robots, world models, and embodied agents."
+        tabs={[
+          { label: 'Open positions', href: '#positions' },
+          { label: 'How to apply', href: '#apply' },
+          { label: 'FAQ', href: '#faq' },
+        ]}
+      />
+      <Container className="pt-8 pb-24">
+        <section id="positions" className="mx-auto mt-16 max-w-3xl scroll-mt-36">
           <Subheading>Open positions</Subheading>
           <dl className="mt-8 space-y-8">
             {positions.map(([title, body]) => (
@@ -71,7 +68,7 @@ export default function Join() {
             ))}
           </dl>
         </section>
-        <section className="mx-auto mt-16 max-w-3xl border-t border-gray-200 pt-12">
+        <section id="apply" className="mx-auto mt-16 max-w-3xl scroll-mt-36 border-t border-gray-200 pt-12">
           <Subheading>How to apply</Subheading>
           <p className="mt-4 text-base/7 text-gray-600">
             Email{' '}
@@ -108,7 +105,7 @@ export default function Join() {
             for degree application requirements and deadlines.
           </p>
         </section>
-        <section className="mx-auto mt-20 max-w-3xl">
+        <section id="faq" className="mx-auto mt-20 max-w-3xl scroll-mt-36">
           <Heading as="h2">Frequently asked questions</Heading>
           <dl className="mt-10 space-y-10">
             {questions.map(([title, body]) => (
@@ -120,7 +117,6 @@ export default function Join() {
           </dl>
         </section>
       </Container>
-      <Footer />
     </main>
   )
 }

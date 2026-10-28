@@ -39,6 +39,7 @@ for (const route of [
   'photo',
   'faq',
   'contact',
+  'news',
 ]) {
   if (!fs.existsSync(path.join(root, route, 'index.html')))
     failures.push(`Missing route /${route}`)
